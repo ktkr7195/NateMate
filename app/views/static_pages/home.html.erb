@@ -1,7 +1,9 @@
 <% provide(:title,'Home') %>
-    <%if logged_in?%>
+    <%if user_signed_in?%>
         <%=render 'logged_in_home'%>
     <%else%>
         <%=render 'unloggin_home' %>
     <%end%>
-
+<%=@users.each do |user|%>
+<p><%=user.email%></p>
+<%end%>

@@ -1,0 +1,13 @@
+<%=link_to'JunkLife', root_path%>
+<%if user_signed_in?%>
+    <ul>
+        <li><%=link_to 'マイページ', '#'%></li>
+        <li><%=link_to '新規投稿',   '#'%></li>
+        <li><%=link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+    </ul>
+<%else%>
+    <ul>
+        <li> <%= link_to '新規登録', new_user_registration_path %></li>
+        <li> <%= link_to 'ログイン', new_user_session_path %></li>
+    </ul>
+<%end%>
