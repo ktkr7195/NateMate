@@ -1,7 +1,7 @@
 class StaticPagesController < ApplicationController
 
   def home
-    @users=User.all
+    @all_users_feed=Micropost.all.page(params[:page])
   end
 
   def contact
