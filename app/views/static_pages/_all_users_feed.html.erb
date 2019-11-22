@@ -1,0 +1,6 @@
+<% if @all_users_feed.any? %>
+  <ol class="microposts">
+    <%= render @all_users_feed %>
+  </ol>
+  <%= paginate @all_users_feed %>
+<% end %>

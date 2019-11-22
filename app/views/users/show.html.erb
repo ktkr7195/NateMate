@@ -1,0 +1,9 @@
+<%=@user.name%>
+<%=link_to 'アカウント情報編集',edit_user_registration_path%>
+<h2>あなたのコレクション</h2>
+<%if @user.microposts.any?%>
+<ol>
+<%=render @microposts%>
+</ol>
+<%=paginate @microposts%>
+<%end%>
