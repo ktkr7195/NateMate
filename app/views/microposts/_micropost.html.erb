@@ -1,0 +1,10 @@
+<li>
+  <%= link_to micropost.user.name, micropost.user %>
+  <%= micropost.title%>
+  <%= micropost.content %>
+  <%= image_tag(micropost.picture.url) if micropost.picture?%>
+  <% if current_user==micropost.user%>
+    <%= link_to '削除',micropost,method: :delete,
+                                data:{confirm:"コレクションから、「#{micropost.title}」を削除します"}%>
+  <%end%>
+</li>
