@@ -1,7 +1,10 @@
 class StaticPagesController < ApplicationController
 
   def home
-    @all_users_feed=Micropost.all.page(params[:page])
+    @feed=Micropost.all.page(params[:page]).per(5)
+    if user_signed_in?
+      @following_users_feed=current_user.following_users_feed.page(params[:page]).per(5)
+    end
   end
 
   def contact

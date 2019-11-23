@@ -1,0 +1,8 @@
+<%provide(:title,@title)%>
+<%=@user.name%>
+<%if @users.any?%>
+    <%@users.each do |user|%>
+        <%=link_to user.name,user%>
+    <%end%>
+    <%=paginate @users%>
+<%end%>

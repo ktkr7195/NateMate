@@ -1,13 +1,21 @@
-<%=link_to'JunkLife', root_path%>
-<%if user_signed_in?%>
-    <ul>
-        <li><%=link_to 'マイルーム', current_user %></li>
-        <li><%=link_to 'コレクトする',   new_micropost_path %></li>
-        <li><%=link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+<%= link_to 'JunkLife', root_path %>
+<% if user_signed_in? %>
+<nav>
+    <ul class="nav">
+        <li><%= link_to current_user.name,     current_user %></li>
+        <li><%= link_to 'コレクトする',    new_micropost_path %></li>
+        <li><%= link_to 'ユーザー一覧',    users_path %></li>
+        <% if action_name == 'show' && @user == current_user %>
+          <li><%= link_to 'アカウント情報編集',edit_user_registration_path %></li>
+          <li><%= link_to 'ログアウト',      destroy_user_session_path, method: :delete %></li>
+        <%end%>
     </ul>
+<nav>
 <%else%>
-    <ul>
+<nav>
+    <ul class="nav">
         <li> <%= link_to '新規登録', new_user_registration_path %></li>
         <li> <%= link_to 'ログイン', new_user_session_path %></li>
     </ul>
+</nav>
 <%end%>

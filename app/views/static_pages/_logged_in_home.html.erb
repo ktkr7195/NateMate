@@ -1,0 +1,20 @@
+
+<!--フォローしているユーザーの投稿一覧-->
+<h2>タイムライン</h2>
+<%if @following_users_feed.any?%>
+    <ol>
+        <%=render @following_users_feed%>
+    <ol>
+    <%=paginate @following_users_feed%>
+<%end%>
+<!--全ユーザーの投稿一覧-->
+<h2>新着コレクション</h2>
+<%if @feed.any?%>
+    <ol>
+        <%=render @feed %>
+    </ol>
+    <%=paginate @feed%>
+<%end%>
+<!--いいねした投稿のフィード-->
+<h2>いいね</h2>
+
