@@ -1,21 +1,31 @@
-<%= link_to 'JunkLife', root_path %>
-<% if user_signed_in? %>
-<nav>
-    <ul class="nav">
-        <li><%= link_to current_user.name,     current_user %></li>
-        <li><%= link_to 'コレクトする',    new_micropost_path %></li>
-        <li><%= link_to 'ユーザー一覧',    users_path %></li>
-        <% if action_name == 'show' && @user == current_user %>
-          <li><%= link_to 'アカウント情報編集',edit_user_registration_path %></li>
-          <li><%= link_to 'ログアウト',      destroy_user_session_path, method: :delete %></li>
+<div>
+    <nav class="navbar navbar-expand navbar-light mb-3">
+        <%= link_to 'JunkLife', root_path, class: "navbar-brand font-weight-bold"%>
+        <% if user_signed_in? %>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"><%= link_to current_user.name, current_user, class:"nav-link" %></li>
+                <li class="nav-item"><%= link_to users_path, class:"nav-link" do%></li>
+                    <i class="fas fa-users fa-2x fa-fw"></i>
+                <%end%>
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item"><%= link_to 'コレクトする', new_micropost_path, class:"nav-link btn-warning"%></li>
+                <li class="dropdown">
+                    <a href="#" class="btn dropdown-toggle" data-toggle="dropdown"><i class="fas fa-info-circle fa-2x fa-fw"></i></a>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li class="dropdown-item nav-item"><%= link_to 'アカウント',edit_user_registration_path,
+                                                                                         class:"nav-link"%></li>
+                        <li class="divider"></li>
+                        <li class="dropdown-item nav-item"><%= link_to 'ログアウト',destroy_user_session_path,
+                                                                        method: :delete, class:"nav-link"%></li>
+                    </ul>
+                </li>
+            </ul>
+        <%else%>
+            <ul class="navbar-nav">
+                <li class="nav-item"> <%= link_to '新規登録', new_user_registration_path, class:"nav-link"%></li>
+                <li class="nav-item"> <%= link_to 'ログイン', new_user_session_path, class:"nav-link"%></li>
+            </ul>
         <%end%>
-    </ul>
-<nav>
-<%else%>
-<nav>
-    <ul class="nav">
-        <li> <%= link_to '新規登録', new_user_registration_path %></li>
-        <li> <%= link_to 'ログイン', new_user_session_path %></li>
-    </ul>
-</nav>
-<%end%>
+    </nav>
+</div>
