@@ -1,12 +1,14 @@
-<h1>新規投稿</h1>
-<%=form_for(@microposts) do |f|%>
+<div class="text-center">
+    <h1>新しいコレクション</h1>
+    <%=form_for(@microposts) do |f|%>
 
-<%=f.label :タイトル%><br />
-<%=f.text_field :title %><br />
+    <%=f.label :タイトル%><br />
+    <%=f.text_field :title %><br />
 
-<%= f.file_field :picture,accept: 'image/jpeg,image/gif,image/png' %><br />
+    <%= f.file_field :picture,accept: 'image/jpeg,image/gif,image/png' %><br />
 
-<%=f.text_area :content,placeholder:'このJunkに関する思い出やエピソードを記入しよう！' %><br />
+    <%=f.text_area :content,placeholder:'このJunkに関する思い出やエピソードを記入しよう！' %><br />
 
-<%=f.submit 'コレクションに加える！'%>
-<%end%>
+    <%=f.submit 'コレクションに加える！'%>
+    <%end%>
+</div>

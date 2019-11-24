@@ -1,4 +1,5 @@
 <%provide(:title,@title)%>
+<div class="text-center">
 <%=@user.name%>
 <%if @users.any?%>
     <%@users.each do |user|%>
@@ -6,3 +7,4 @@
     <%end%>
     <%=paginate @users%>
 <%end%>
+</div>
