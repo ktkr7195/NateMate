@@ -10,14 +10,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  #def create
+  # super
+  #end
 
   # GET /resource/edit
-  # def edit
-  #   super
-  # end
+  def edit
+     super
+     if current_user.remove_avatar
+        current_user.avatar=nil
+     end
+   end
 
   # PUT /resource
   # def update

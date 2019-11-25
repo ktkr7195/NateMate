@@ -5,6 +5,14 @@
       <%= render "devise/shared/error_messages", resource: resource %>
 
       <div class="field">
+      　<%= f.label :avatar%><br />
+      　<%= f.file_field :avatar,autofocus: true %><br />
+        <%= f.label :remove_avatar_check_box%>
+        <%= f.check_box :remove_avatar%>
+      </div>
+
+
+      <div class="field">
         <%= f.label :user_name%><br />
         <%= f.text_field :name, autofocus: true%>
       </div>
