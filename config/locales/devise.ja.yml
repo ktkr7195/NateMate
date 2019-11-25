@@ -2,6 +2,7 @@ ja:
   activerecord:
     attributes:
       user:
+        remove_avatar_check_box: "プロフィール画像を削除"
         avatar: "プロフィール画像"
         user_name: "ユーザーネーム"
         current_password: "現在のパスワード"
@@ -14,7 +15,7 @@ ja:
         too_short: "は%{count}文字以上に設定して下さい。"
         too_long: "は%{count}文字以下に設定して下さい。"
         invalid: "は有効でありません。"
-        confirmation: "が内容とあっていません。"
+        confirmation: "が内容と一致しません。"
     models:
       user: "ユーザー"
   devise:
