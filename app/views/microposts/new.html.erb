@@ -1,6 +1,7 @@
 <div class="text-center">
     <h1>新しいコレクション</h1>
     <%=form_for(@microposts) do |f|%>
+    <%= render 'layouts/error_messages',model: f.object%>
 
     <%=f.label :タイトル%><br />
     <%=f.text_field :title %><br />
