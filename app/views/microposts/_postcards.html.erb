@@ -1,0 +1,12 @@
+<div class="card border-0 col-12 col-sm-6 col-md-4 postCards" style="width: 100px">
+    <%=link_to image_tag(post.picture.url,size:"100x300",class:"card-img-top"),"#"%>
+        <div class="card-body">
+            <%if post.user.avatar?%>
+                 <%=link_to image_tag(post.user.avatar.url,size:"30x30",class:'avatarTypeCircle'),post.user%>
+            <%else%>
+                <%=link_to image_tag('/assets/default.jpg',size:"30x30",class:'avatarTyoeCircle'),post.user%>
+            <%end%>
+                <%=link_to post.user.name, post.user,class:"postUserName text-dark"%>
+                <span class="text-muted"><%=post.created_at%></span>
+        </div>
+</div>
