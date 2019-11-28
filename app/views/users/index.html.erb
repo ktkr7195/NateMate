@@ -1,9 +1,15 @@
-<div class="text-center">
-<ul>
-<%@users.each do|user|%>
-<li>
-<%=link_to user.name, user%>
-</li>
+<%if @users.any?%>
+    <div class="font-weight-bold text-muted text-center">
+        <%=@users.count%><span class="font-weight-normal">人のユーザー</span>
+    </div>
+       <div class="conteiner">
+                    <div class="card-group　mx-auto">
+                        <div class="row">
+                            <%=render partial: 'users', collection: @users, as: "user"%>
+                        </div>
+                    </div>
+                </div>
+<%else%>
 <%end%>
-</ul>
-</div>
+
+
