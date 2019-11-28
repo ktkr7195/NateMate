@@ -5,7 +5,7 @@ ruby '2.5.1'
 
 
 gem 'rails', '~> 6.0.1'
-gem 'mysql2', '>= 0.4.4'
+gem 'mysql2'
 gem 'dotenv-rails'
 gem 'puma', '~> 4.1'
 gem 'sass-rails', '>= 6'
@@ -16,6 +16,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
+gem 'ransack'
 gem 'kaminari'
 gem 'carrierwave'
 gem 'mini_magick'
@@ -34,6 +35,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'foreman'
 end
 
 group :test do

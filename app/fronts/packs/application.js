@@ -7,12 +7,26 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 //= require("channels")
-//= require('jquery')
-//= require infinite-scroll.pkgd.min.js
+//= require('jquery');
 
-import 'bootstrap'
-import '@fortawesome/fontawesome-free/js/all'
-import '../src/application.scss'
+//プラグイン
+import 'bootstrap';
+import '@fortawesome/fontawesome-free/js/all';
+import 'popper.js/dist/umd/popper';
+import 'slick-carousel/slick/slick';
+
+//scss
+import 'src/stylesheets/application';
+
+//外部scss,css
+import 'slick-carousel/slick/slick.scss';
+import 'slick-carousel/slick/slick-theme.scss';
+
+//Javascript
+import 'src/javascripts/application';
+
+
+
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference

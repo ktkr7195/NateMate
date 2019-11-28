@@ -1,65 +1,14 @@
 <div class="text-center">
 <% @user ||= current_user %>
 <%if @user.avatar?%>
-  <%= image_tag(@user.avatar.url)%>
+  <%= image_tag @user.avatar.url,size:"200x200",class:"avatarTypeCircle" %>
 <%else%>
-  <%= image_tag('/assets/default.jpg/')%>
+  <%= image_tag '/assets/default.jpg/',size:"200x200",class:"avatarTypeCircle" %>
 <%end%>
-<div> <%=@user.name%></div>
-<div>フォロー <%=@user.following.count%></div>
-<div>フォロワー <%=@user.followers.count%></div>
-</div>
+<div><%=@user.name%></div>
+<div id="following"><%=@user.following.count%></div>
+<div id="followers"><%=@user.followers.count%></div>
 
-<ul class="nav nav-tabs justify-content-center">
-  <li class="nav-item">
-    <a href="#mypost" class="nav-link active" data-toggle="tab">投稿</a>
-  </li>
-  <li class="nav-item">
-    <a href="#followingUser" class="nav-link" data-toggle="tab">フォロー中</a>
-  </li>
-  <li class="nav-item">
-    <a href="#follower" class="nav-link" data-toggle="tab">フォロワー</a>
-  </li>
-  <li class="nav-item">
-    <a href="#likes" class="nav-link" data-toggle="tab">いいね</a>
-  </li>
-</ul>
+<%= render 'follow_btn' %>
+<%= render 'feed_tabs' %>
 
-<div class="tab-content text-center">
-    <div id="mypost" class="tab-pane active">
-
-        <%if @user.microposts.any?%>
-          <div class="font-weight-bold"><%=@user.microposts.count%>post</div>
-            <ol>
-              <%=render @microposts%>
-            </ol>
-            <%=paginate @microposts%>
-        <%else%>
-        <div>
-        <p>まだコレクションがありません</p>
-        <p>これでは寂しいですね...</p>
-        <%= link_to 'コレクトする', new_micropost_path, class:"btn btn-warning"%>
-        </div>
-        <%end%>
-    </div>
-    <div id="followingUser" class="tab-pane">
-        <%if @following_users.any?%>
-          <%@following_users.each do |user|%>
-            <%=link_to user.name,user%>
-          <%end%>
-        <%=paginate @following_users%>
-        <%end%>
-    </div>
-    <div id="follower" class="tab-pane">
-        <%if @followers.any?%>
-          <%@followers.each do |user|%>
-            <%=link_to user.name,user%>
-          <%end%>
-        <%=paginate @followers%>
-        <%end%>
-    </div>
-    <div id="likes" class="tab-pane">
-      <p>いいねした投稿一覧</p>
-    </div>
-</div>
-<%= render 'follow_form' %>

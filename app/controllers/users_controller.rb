@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   def show
     @user=User.find(params[:id])
     @this_user_all_posts=@user.microposts
-    @microposts=@this_user_all_posts.page(params[:page]).per(3)
+    @feed=@this_user_all_posts.page(params[:page]).per(9)
     @following_users=@user.following.page(params[:page])
     @followers=@user.followers.page(params[:page])
   end

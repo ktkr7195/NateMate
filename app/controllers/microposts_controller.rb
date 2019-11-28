@@ -19,6 +19,9 @@ class MicropostsController < ApplicationController
         end
       end
 
+    def index
+    end
+
       def destroy
         @micropost.destroy
         flash[:success] = "コレクションを削除しました"

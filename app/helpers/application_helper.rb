@@ -1,7 +1,7 @@
 module ApplicationHelper
 
     def full_title(page_title='')
-        base_title='JunkLife'
+        base_title='NateMate'
         if page_title.empty?
             base_title
         else
@@ -9,7 +9,16 @@ module ApplicationHelper
         end
     end
 
-    def logged_in?
-        false
-    end
+
+    def resource_name
+        :user
+     end
+
+     def resource
+        @resource ||= User.new
+     end
+
+     def devise_mapping
+        @devise_mapping ||= Devise.mappings[:user]
+     end
 end
