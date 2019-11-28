@@ -1,0 +1,20 @@
+<div class="card border-0 col-sm-6 col-md-4 col-xl-3 d-none d-sm-block postCards" style="width: 100px">
+        <div class="card-body">
+            <%if user.avatar?%>
+                 <%=link_to image_tag(user.avatar.url,size:"200x200",class:'avatarTypeCircle'),user%><br />
+            <%else%>
+                <%=link_to image_tag('/assets/default.jpg',size:"200x200",class:'avatarTyoeCircle'),user%><br />
+            <%end%>
+                <%=link_to user.name,user,class:"text-dark"%>
+        </div>
+</div>
+<div class="card border-0 col-6 d-block d-sm-none text-center">
+    <div class="card-body">
+        <%if user.avatar?%>
+            <%link_to image_tag(user.avatar.url,size:"30x30",class:"avatarTypeCircle"),user%>
+        <%else%>
+            <%=link_to (image_tag "/assets/default.jpg",size:"30x30",class:"avatarTypeCircle"),user%>
+        <%end%>
+        <%=link_to user.name,user,class:"text-dark"%>
+    </div>
+</div>
