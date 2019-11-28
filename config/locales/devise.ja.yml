@@ -9,6 +9,8 @@ ja:
         email: "メールアドレス"
         password: "パスワード"
         password_confirmation: "パスワード再入力"
+        newpassword: "新しいパスワード"
+        newpassword_confirmation: "新しいパスワードを再入力"
         remember_me: "ログイン状態を保存"
         taken: "は既に使用されています。"
         blank: "が入力されていません。"
