@@ -1,5 +1,5 @@
 class MicropostsController < ApplicationController
-    before_action :authenticate_user!,only:[:new,:create,:destroy]
+    before_action :authenticate_user!,only:[:new,:create,:destroy,:index]
     before_action :correct_user,only:[:destroy]
 
     def new
@@ -18,9 +18,14 @@ class MicropostsController < ApplicationController
           redirect_to new_micropost_path
         end
       end
+      def show
+        @post=Micropost.find(params[:id])
+      end
 
-    def index
-    end
+      def index
+      end
+
+
 
       def destroy
         @micropost.destroy
