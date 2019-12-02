@@ -6,9 +6,11 @@ header{
     width:85%;
     margin-right: auto;
     margin-left : auto;
-
+    .navbar-brand{
+        font-size:27px;
+    }
     .userName{
-        padding-top:5px;
+        padding-top:2px;
     }
     .navAvatar{
         margin-left:15px;
@@ -46,6 +48,11 @@ body{
     margin-right: auto;
     margin-left : auto;
 
+    .personalName{
+        font-size:20px;
+        font-weight:bold;
+    }
+
     }
 footer{
     width:80%;
@@ -67,6 +74,9 @@ footer{
     display:block;
     margin-top:15px;
 }
+.postPrev{
+    border-radius:5px;
+}
 
 /*slick setting*/
 
@@ -76,6 +86,7 @@ width: 80%;
 padding-right:50px;
 }
 .slider img{
+    border-radius: 5px;
     height: auto;
     width: 100%;
     }
@@ -88,10 +99,25 @@ padding-right:50px;
     width:40%;
     margin:0 auto
 }
-.hidden{
-    display:none;
+.postPicture{
+    width:700px;
+    height:700px;
+    border-radius: 5px;
 }
+.homeTopCopy{
+    font-size:80px;
+}
+.likeBtn{
+    background:none;
+    border:none;
 
+}
+.likeBtn:focus{
+    outline:0;
+}
+.fa-bars{
+    font-size:18px;
+}
 
 
 

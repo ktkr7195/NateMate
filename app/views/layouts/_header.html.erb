@@ -26,11 +26,12 @@
                     <ul class="dropdown-menu dropdown-menu-right">
                         <li class="dropdown-item nav-item"><%=link_to 'ユーザー一覧',users_path,class:"d-block d-sm-none nav-link"%>
                         <li class="divider"></li>
-                        <li class="dropdown-item nav-item"><%= link_to 'アカウント',edit_user_registration_path,
+                        <li class="dropdown-item nav-item"><%= link_to 'アカウント',current_user,
                                                                                          class:"nav-link"%></li>
                         <li class="divider"></li>
                         <li class="dropdown-item nav-item"><%= link_to 'ログアウト',destroy_user_session_path,
                                                                         method: :delete, class:"nav-link"%></li>
+                        <li class="dropdown-item nav-item"><%= link_to 'お問い合わせ','/contact',class:"nav-link"%></li>
                     </ul>
                 </li>
             </ul>
