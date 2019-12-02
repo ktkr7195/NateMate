@@ -1,14 +1,8 @@
 <div class="text-center">
-<h1 class="font-weight-bold">Natemate</h1>
-<p>新しい世界を探しに行きましょう！</p>
-
-<%= search_form_for @key do |f| %>
-  <%= f.search_field :title_cont ,placeholder:"キーワード"%>
-  <%=button_tag type: 'submit', class: 'btn btn-warning mb-1' do%>
-  <i class="fas fa-search"></i>
-  <%end%>
-<% end %>
+    <h1 class="font-weight-bold homeTopCopy">Hello Nature!</h1>
+    <p>さあ、新しい世界を探しに行きましょう！</p>
 </div>
+<%= render'/static_pages/search_form'%>
 
 <ul class="nav nav-tabs justify-content-center mt-5">
   <li class="nav-item">
@@ -39,7 +33,7 @@
                             <%=render partial: '/microposts/postcards', collection: @following_users_feed, as: "post"%>
                         </div>
                     </div>
-                </div>
+                <div>
             <%end%>
     </div>
 </div>
