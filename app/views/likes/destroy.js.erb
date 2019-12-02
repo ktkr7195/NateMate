@@ -1,0 +1,1 @@
+$("#micropost-<%= @micropost.id %>").html("<%= j(render partial: 'likes/likes_btn', locals: {post: @micropost}) %>");
