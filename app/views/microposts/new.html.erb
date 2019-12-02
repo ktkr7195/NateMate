@@ -1,26 +1,27 @@
+<%provide(:title,"新規投稿")%>
 <div class="text-center">
     <h1 class="font-weight-bold">新しいコレクション</h1>
     <div class="form-group">
-    <%=form_for(@microposts) do |f|%>
-    <%= render 'layouts/error_messages',model: f.object%>
+      <%=form_for(@microposts) do |f|%>
 
-<div class="postPicturePrev mt-5">
-      <% if @microposts.picture.present? %>
-        <%= image_tag @microposts.picture.url, id: :img_prev,size:"300x300",class:"avatarTypeCircle" %>
-      <% else %>
-        <%= image_tag "/assets/defaultPost.jpg", id: :img_prev,size:"300x300"%>
-      <% end %>
-</div>
+
+      <div class="postPicturePrev mt-5">
+        <% if @microposts.picture.present? %>
+          <%= image_tag @microposts.picture.url(:thumb), id: :img_prev,class:"postPrev"%>
+        <% else %>
+          <%=image_tag '/assets/defaultPicture.jpg',id: :img_prev,size:"550x450",class:"postPrev"%>
+        <% end %>
+      </div>
       <div class="field border-bottom mt-2">
-        <label for="present_img" class="btn btn-warning"><span>画像を選択</span>
+        <label for="present_img" class="btn btn-warning"><span>画像を選ぶ</span>
           <%= f.file_field :picture,accept: 'image/jpeg,image/gif,image/png' ,id: :present_img,autofocus: true,class:"form-control-file",style: "display:none;"%><br />
         </label><br />
       </div>
 <div class="field border-bottom">
-    <%=f.text_field :title,placeholder:"これはどんな写真ですか？",class:"form-control border-0"%><br />
+    <%=f.text_field :title,placeholder:"この写真にタイトルをつけましょう！",class:"form-control border-0 mt-2"%><br />
 </div>
 <div class="field border-bottom">
-    <%=f.text_area :content,placeholder:"この写真についてのエピソードなどがあれば記入しましょう！",class:"form-area border-0"%><br />
+    <%=f.text_area :content,placeholder:"  この写真についてもっと教えてください！",class:"form-area border-0 mt-2",size: "58x8"%><br />
 </div>
     <%=f.submit '投稿する！',class:"btn btn-lg btn-warning mt-5"%>
 
