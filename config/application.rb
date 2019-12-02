@@ -9,6 +9,7 @@ Bundler.require(*Rails.groups)
 module App
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
+    config.time_zone = 'Tokyo'
     config.load_defaults 6.0
     config.i18n.default_locale = :ja
     config.action_view.embed_authenticity_token_in_remote_forms = true
