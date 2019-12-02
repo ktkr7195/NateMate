@@ -5,7 +5,10 @@ class ApplicationController < ActionController::Base
   def set_search
     @key=Micropost.ransack(params[:q])
     @search_feeds=@key.result(distinct: true).page(params[:page])
+    @user_key=User.ransack(params[:q])
+    @user_search_feeds=@user_key.result(distinct: true).page(params[:page])
   end
+
     protected
 
     #新規登録、ログイン後のリダイレクト先を変更

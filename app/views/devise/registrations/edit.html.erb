@@ -1,19 +1,20 @@
+<%provide(:title,"アカウント情報編集")%>
 <div class="text-center">
     <h2 class="font-weight-bold">アカウント情報編集</h2>
 <div class="form-group mt-5">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
 <div class="avatar_prev">
-      <% if @user.avatar.present? %>
-        <%= image_tag current_user.avatar.url, id: :img_prev,size:"200x200",class:"avatarTypeCircle" %>
+      <% if current_user.avatar.present? %>
+        <%= image_tag current_user.avatar.url(:thumb),size:"220x220",class:"avatarTypeCircle", id: :img_prev%>
       <% else %>
-        <%= image_tag "/assets/default.jpg", id: :img_prev,size:"200x200",class:"avatarTypeCircle"%>
+        <%= image_tag "/assets/default.jpg",size:"220x220",class:"avatarTypeCircle",  id: :img_prev%>
       <% end %>
 </div>
 
       <div class="field border-bottom mt-2">
-        <label for="present_img" class="btn btn-warning"><span>画像を選択</span>
-          <%= f.file_field :avatar,id: :present_img,autofocus: true,class:"form-control-file",style: "display:none;"%><br />
+        <label class="btn btn-warning" id="prev" onClick="$('#present_img').click()"><span>画像を選択</span>
+          <%= f.file_field :avatar,id:"present_img",autofocus: true,class:"form-control-file",style: "display:none;"%><br />
         </label><br />
         <%= f.label :remove_avatar_check_box%>
         <%= f.check_box :remove_avatar%>

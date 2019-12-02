@@ -7,11 +7,13 @@ class UsersController < ApplicationController
     @feed=@this_user_all_posts.page(params[:page]).per(9)
     @following_users=@user.following.page(params[:page])
     @followers=@user.followers.page(params[:page])
+    @liking_posts=@user.like_microposts.page(params[:page])
   end
 
   def index
     @users=User.all
   end
+
 
   def following
     @title='フォロー中'

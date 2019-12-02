@@ -1,8 +1,12 @@
+<%provide(:title,"新規登録")%>
 <div class="text-center">
   <h2 class="font-weight-bold">新規登録</h2>
+     <%- flash.each do |name, msg| -%>
+    <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+  <%- end -%>
 <div class="form-group mt-5">
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
+  <%= render "devise/shared/error_messages", resource: resource %>
 
     <div class="avatar_prev">
       <% if @user.avatar.present? %>

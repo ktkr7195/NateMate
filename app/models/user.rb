@@ -8,11 +8,19 @@ class User < ApplicationRecord
                                   dependent:   :destroy
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships
+  has_many :likes, dependent: :destroy
+  has_many :like_microposts, through: :likes, source: :micropost
+
+  validates :name,presence: :true, length:{ maximum: 15 }
+  validates :email,presence: :true
+  validates :password, presence:true,length:{ minimum: 6 }
+  validates :password_confirmation,presence: :true
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
   mount_uploader :avatar, AvatarUploader
+
 
 
   def following_users_feed

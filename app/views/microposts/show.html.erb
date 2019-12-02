@@ -1,0 +1,30 @@
+<%if @post.title%>
+    <%provide(:title,@post.title)%>
+<%else%>
+    <%provide(:title,"無題")%>
+<%end%>
+<div class="conteiner">
+    <div class="row">
+        <div class="col-12 text-center">
+        <%=image_tag(@post.picture.url,class:"postPicture")%>
+        </div>
+        <div class="col-12 text-center">
+        <%if @post.title%>
+            <h2 class="font-weight-bold mt-2"><%=@post.title%></h2>
+        <%end%>
+        <%if @post.content%>
+            <span><%=@post.content%></span>
+        <%end%>
+        </div>
+        <div class="col-12 text-center">
+            <span class="text-muted">by </span>
+        <%if @post.user.avatar?%>
+        <%=link_to image_tag(@post.user.avatar.url,size:"40x40",class:"avatarTypeCircle"),@post.user%>
+        <%else%>
+        <%=link_to image_tag('/assets/default.jpg',size:"40x40",class:"avatarTypeCircle"),@post.user%>
+        <%end%>
+        <%=link_to @post.user.name,@post.user,class:"text-muted"%>
+        </div>
+        </div>
+    </div>
+</div>
