@@ -9,7 +9,7 @@
         <% if @microposts.picture.present? %>
           <%= image_tag @microposts.picture.url(:thumb), id: :img_prev,class:"postPrev"%>
         <% else %>
-          <%=image_tag '../../public/images/defaultPicture.jpg',id: :img_prev,size:"550x450",class:"postPrev"%>
+          <%=image_tag asset_path("defaultPicture.jpg"),id: :img_prev,size:"550x450",class:"postPrev"%>
         <% end %>
       </div>
       <div class="field border-bottom mt-2">
