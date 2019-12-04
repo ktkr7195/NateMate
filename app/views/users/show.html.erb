@@ -4,7 +4,7 @@
 <%if @user.avatar?%>
   <%= image_tag @user.avatar.url,size:"200x200",class:"avatarTypeCircle" %>
 <%else%>
-  <%= image_tag '/assets/default.jpg/',size:"200x200" %>
+  <%= image_tag '../../public/images/default.jpg/',size:"200x200" %>
 <%end%>
 <span class="personalName"><%=@user.name%></span>
 <%if @user==current_user%>
