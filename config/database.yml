@@ -15,7 +15,7 @@ default: &default
   pool: 5
   username: root
   password: password
-  host: db
+  host: localhost
 
 
 development:
@@ -50,6 +50,6 @@ test:
 #
 production:
   <<: *default
-  database: app_production
-  username: app
-  password: <%= ENV['APP_DATABASE_PASSWORD'] %>
+  database: natemate_production
+  username: root
+  password: mgo2.ruru
