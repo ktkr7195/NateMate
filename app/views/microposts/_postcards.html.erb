@@ -1,0 +1,23 @@
+
+<div class="card border-0 col-12 col-sm-6 col-md-4 postCards" style="width: 100px">
+    <%=link_to image_tag(post.picture.url,size:"100x300",class:"card-img-top"),post%>
+        <div class="card-body">
+            <%if post.user.avatar?%>
+                 <%=link_to image_tag(post.user.avatar.url,size:"30x30",class:'avatarTypeCircle float-left mr-2'),post.user%>
+            <%else%>
+                <%=link_to image_tag('/assets/default.jpg',size:"30x30",class:'avatarTyoeCircle float-left mr-2'),post.user%>
+            <%end%>
+                <%=link_to post.user.name, post.user,class:"float-left text-dark"%>
+                <span class="float-left ml-2 text-muted"><%=post.created_at.strftime("%Y-%m-%d")%></span>
+                <%if post.user==current_user%>
+                    <%=link_to('#',class:"float-right") do%>
+                        <i class="fas fa-bars fa-fw text-muted mt-1"></i>
+                    <%end%>
+                <%end%>
+                <span class="float-right" id="micropost-<%= post.id %>">
+                    <%=render partial: '/likes/likes_btn',locals: { post: post }%>
+                </span>
+
+        </div>
+</div>
+

@@ -1,24 +1,35 @@
 class MicropostsController < ApplicationController
-    before_action :authenticate_user!,only:[:create,:destroy]
+    before_action :authenticate_user!,only:[:new,:create,:destroy,:index]
     before_action :correct_user,only:[:destroy]
 
     def new
-        @microposts = current_user.microposts.build if user_signed_in?
+      @microposts = current_user.microposts.build if user_signed_in?
     end
 
     def create
         @micropost = current_user.microposts.build(micropost_params)
         if @micropost.save
-          flash[:notice] = "投稿しました！"
-          redirect_to root_url
+          flash[:notice] = "コレクトしました！"
+          redirect_to current_user
         else
-          render 'static_pages/home'
+          flash[:notice]='コレクトに失敗しました'
+          @followimg_users_feed=[]
+          @feed=[]
+          redirect_to new_micropost_path
         end
       end
+      def show
+        @post=Micropost.find(params[:id])
+      end
+
+      def index
+      end
+
+
 
       def destroy
         @micropost.destroy
-        flash[:success] = "Micropost deleted"
+        flash[:success] = "コレクションを削除しました"
         redirect_to request.referrer || root_url
       end
 

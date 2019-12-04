@@ -1,8 +1,36 @@
-<div>
-    <h1>それ、JunkLifeにしまっておこう</h1>
-    <p>置き場所が無くて捨てる、長年愛用したけど壊れてしまった、ボツにしたけどお気に入りの作品</p>
-    <p>JunkLifeは、そんな特別な　不要物(Junk)　をデジタルに保管、共有するSNSサービスです</p>
+<div class="conteiner">
+    <div class="row">
+        <div class="col-12">
+            <ul class="slider mb-auto mt-auto">
+                <li><img src="/assets/flower.jpg"  ></li>
+                <li><img src="/assets/lion.jpg"    ></li>
+                <li><img src="/assets/space.jpg"   ></li>
+                <li><img src="/assets/forest.jpg"  ></li>
+                <li><img src="/assets/mountain.jpg"></li>
+            </ul>
+        </div>
+    </div>
 </div>
-<%=link_to 'コレクトする！',new_user_registration_path%>
-<h2>みんなのコレクションを見てみよう！</h2>
-<%=render 'all_users_feed'%>
+
+    <div class="conteiner">
+    <div class="row">
+        <div class="topCopy col-12 text-center mt-5 mb-5">
+            <h1 class="font-weight-bold">石ころから宇宙まで、NateMateで共有しよう</h1><br />
+            <p>道ばたの花、飼っている動物、遠くの惑星、自分しか知らない景色...</p>
+            <p>NateMateは、そんなNature(自然)をデジタルに保存、公開するSNSサービスです</p>
+            <%=link_to '投稿する',new_user_registration_path,class:'btn btn-warning btn-lg homeBtn'%>
+        </div>
+    </div>
+</div>
+<div class="border mb-5"></div>
+
+<h2 class="text-center">みんなのコレクション</h2>
+    <div class="conteiner">
+        <div class="card-group　mx-auto">
+            <div class="row">
+                <%=render partial: '/microposts/postcards', collection: @feed, as: "post"%>
+
+            </div>
+        </div>
+    </div>
+

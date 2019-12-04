@@ -1,13 +1,45 @@
-<%=link_to'JunkLife', root_path%>
-<%if user_signed_in?%>
-    <ul>
-        <li><%=link_to 'マイルーム', current_user %></li>
-        <li><%=link_to 'コレクトする',   new_micropost_path %></li>
-        <li><%=link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
-    </ul>
-<%else%>
-    <ul>
-        <li> <%= link_to '新規登録', new_user_registration_path %></li>
-        <li> <%= link_to 'ログイン', new_user_session_path %></li>
-    </ul>
-<%end%>
+<div>
+    <nav class="navbar navbar-expand navbar-light mb-3">
+        <%= link_to 'NateMate', root_path, class: "navbar-brand font-weight-bold",data: {"turbolinks" => false}%>
+        <% if user_signed_in? %>
+            <ul class="navbar-nav mr-auto align-items-center">
+                <li class="nav-item">
+                    <%if current_user.avatar?%>
+                        <%=link_to image_tag(current_user.avatar.url, size:"35x35",
+                                             class:"avatarTypeCircle"), current_user,class:"nav-link navAvatar"%>
+                    <%else%>
+                        <%=link_to image_tag("/assets/default.jpg",   size:"35x35",
+                                             class:"avatartypeCircle"), current_user,class:"nav-link navAvatar"%>
+                    <%end%>
+                </li>
+                <li class="nav-item userName d-none d-md-block"><%= link_to current_user.name, current_user, class:"nav-link" %></li>
+                <li class="nav-item d-none d-sm-block"><%= link_to users_path, class:"nav-link usersIcon" do%></li>
+                    <i class="fas fa-users fa-2x fa-fw d-none d-sm-block"></i>
+                <%end%>
+            </ul>
+            <ul class="navbar-nav align-items-center">
+                <li class="nav-item"><%= link_to new_micropost_path, class:"nav-link btn nav-btn" do %></li>
+                    <i class="fas fa-paper-plane fa-2x fa-fw"></i>
+                <%end%>
+                <li class="dropdown">
+                    <a href="#" class="settingsIcon btn nav-btn dropdown-toggle nav-link" data-toggle="dropdown"><i class="fas fa-cog fa-fw"></i></a>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li class="dropdown-item nav-item"><%=link_to 'ユーザー一覧',users_path,class:"d-block d-sm-none nav-link"%>
+                        <li class="divider"></li>
+                        <li class="dropdown-item nav-item"><%= link_to 'アカウント',current_user,
+                                                                                         class:"nav-link"%></li>
+                        <li class="divider"></li>
+                        <li class="dropdown-item nav-item"><%= link_to 'ログアウト',destroy_user_session_path,
+                                                                        method: :delete, class:"nav-link"%></li>
+                        <li class="dropdown-item nav-item"><%= link_to 'お問い合わせ','/contact',class:"nav-link"%></li>
+                    </ul>
+                </li>
+            </ul>
+        <%else%>
+            <ul class="navbar-nav ml-auto align-items-center">
+                <li class="nav-item"> <%= link_to 'ログイン', new_user_session_path,      class:"nav-link"%></li>
+                <li class="nav-item"> <%= link_to '新規登録', new_user_registration_path, class:"nav-link"%></li>
+            </ul>
+        <%end%>
+    </nav>
+</div>

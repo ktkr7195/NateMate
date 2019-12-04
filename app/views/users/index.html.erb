@@ -1,0 +1,18 @@
+<%=provide(:title,"ユーザー")%>
+<%=render'/static_pages/search_form_users'%>
+    <%if @user_search_feeds.any?%>
+    <div class="font-weight-bold text-muted">
+        <span>検索結果:</span><%=@user_search_feeds.count%><span class="font-weight-normal">件</span>
+    </div>
+    <div class="conteiner">
+        <div class="card-group　mx-auto">
+            <div class="row">
+                <%=render partial: 'users', collection: @user_search_feeds, as: "user"%>
+            </div>
+        </div>
+    </div>
+    <%else%>
+        <p class="text-center mt-5">ユーザーが見つかりませんでした</p>
+    <%end%>
+
+

@@ -1,9 +1,19 @@
-<%=@user.name%>
-<%=link_to 'アカウント情報編集',edit_user_registration_path%>
-<h2>あなたのコレクション</h2>
-<%if @user.microposts.any?%>
-<ol>
-<%=render @microposts%>
-</ol>
-<%=paginate @microposts%>
+<%provide(:title,@user.name)%>
+<div class="text-center">
+<% @user ||= current_user %>
+<%if @user.avatar?%>
+  <%= image_tag @user.avatar.url,size:"200x200",class:"avatarTypeCircle" %>
+<%else%>
+  <%= image_tag '/assets/default.jpg/',size:"200x200" %>
 <%end%>
+<span class="personalName"><%=@user.name%></span>
+<%if @user==current_user%>
+  <%=link_to edit_user_registration_path do %>
+  <i class="fas fa-cog text-muted"></i>
+  <%end%>
+<%end%>
+
+
+<%= render 'follow_btn' %>
+<%= render 'feed_tabs' %>
+

@@ -1,47 +1,61 @@
-<h2>アカウント情報編集 </h2>
+<%provide(:title,"アカウント情報編集")%>
+<div class="text-center">
+    <h2 class="font-weight-bold">アカウント情報編集</h2>
+<div class="form-group mt-5">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+<div class="avatar_prev">
+      <% if current_user.avatar.present? %>
+        <%= image_tag current_user.avatar.url(:thumb),size:"220x220",class:"avatarTypeCircle", id: :img_prev%>
+      <% else %>
+        <%= image_tag "/assets/default.jpg",size:"220x220",class:"avatarTypeCircle",  id: :img_prev%>
+      <% end %>
+</div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+      <div class="field border-bottom mt-2">
+        <label class="btn btn-warning" id="prev" onClick="$('#present_img').click()"><span>画像を選択</span>
+          <%= f.file_field :avatar,id:"present_img",autofocus: true,class:"form-control-file",style: "display:none;"%><br />
+        </label><br />
+        <%= f.label :remove_avatar_check_box%>
+        <%= f.check_box :remove_avatar%>
+      </div>
 
-  <div class="field">
-    <%= f.label :user_name%><br />
-    <%= f.text_field :name, autofocus: true%>
-  </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+      <div class="field border-bottom">
+        <%= f.label :user_name%><br />
+        <%= f.text_field :name, autofocus: true,class:"form-control border-0"%>
+      </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+      <div class="field border-bottom">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" ,class:"form-control border-0"%>
+      </div>
 
-  <div class="field">
-    <%= f.label :password %> <i>(変更しない場合は何も入力しない)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %><i>文字以上)</i></em>
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
+
+      <div class="field border-bottom">
+        <%= f.label :newpassword %>
+        <%= f.password_field :password, autocomplete: "new-password" ,class:"form-control border-0"%>
+      </div>
+
+    <div class="field border-bottom">
+        <%= f.label :newpassword_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" ,class:"form-control border-0"%>
+      </div>
+
+      <div class="field border-bottom">
+        <%= f.label :current_password %> <br />
+        <%= f.password_field :current_password, autocomplete: "current-password" ,class:"form-control border-0"%>
+      </div>
+
+      <div class="actions mt-5">
+        <%= f.submit "更新" ,class:"btn btn-lg btn-warning"%>
+      </div>
     <% end %>
-  </div>
+</div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+    <%= link_to "戻る", :back%>
+</div>
 
-  <div class="field">
-    <%= f.label :current_password %> <br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "更新" %>
-  </div>
-<% end %>
-
-<h3>JunkLifeを退会</h3>
-
-<p>退会する場合、このアカウントの情報、投稿したデータは削除されます。 <%= button_to "退会", registration_path(resource_name), data: { confirm: "アカウントを完全に削除します" }, method: :delete %></p>
-
-<%= link_to "戻る", :back %>
