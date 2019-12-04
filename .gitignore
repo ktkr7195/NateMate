@@ -31,6 +31,6 @@ yarn-debug.log*
 .yarn-integrity
 
 /public/uploads
-/app/assets/images
+
 
 .env
