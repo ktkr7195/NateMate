@@ -3,7 +3,7 @@
   <h2 class="font-weight-bold">ログイン</h2>
    <%- flash.each do |name, msg| -%>
     <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
-  <%- end -%> 
+  <%- end -%>
 <div class="form-group mt-5">
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
