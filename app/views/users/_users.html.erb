@@ -13,7 +13,11 @@
         <%if user.avatar?%>
             <%link_to image_tag(user.avatar.url,size:"30x30",class:"avatarTypeCircle"),user%>
         <%else%>
+<<<<<<< HEAD
             <%=link_to (image_tag "../../public/images/default.jpg",size:"30x30",class:"avatarTypeCircle"),user%>
+=======
+            <%=link_to (image_tag asset_path("default.jpg"),size:"30x30",class:"avatarTypeCircle"),user%>
+>>>>>>> [fix]パスの指定にasset_pathを使用
         <%end%>
         <%=link_to user.name,user,class:"text-dark"%>
     </div>
