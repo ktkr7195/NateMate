@@ -12,7 +12,7 @@
       <% if @user.avatar.present? %>
         <%= image_tag current_user.avatar.url, id: :img_prev,size:"200x200",class:"avatarTypeCircle" %>
       <% else %>
-        <%= image_tag "/assets/default.jpg", id: :img_prev,size:"200x200",class:"avatarTypeCircle"%>
+        <%= image_tag asset_path("default.jpg"), id: :img_prev,size:"200x200",class:"avatarTypeCircle"%>
       <% end %>
 </div>
 
