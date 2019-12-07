@@ -50,13 +50,7 @@ test:
 #
 production:
   <<: *default
-<<<<<<< HEAD
-  database: natemate_production
-  username: root
-  password: mgo2.ruru
-=======
   database: test_db
   username: <%=ENV['RDS_USERNAME']%>
   password: <%=ENV['RDS_PASSWORD']%>
   host: <%=ENV['RDS_HOST']%>
->>>>>>> b938f68de097c729c472d6b1be2f926d9c8768ca
