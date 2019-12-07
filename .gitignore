@@ -31,6 +31,11 @@ yarn-debug.log*
 .yarn-integrity
 
 /public/uploads
+<<<<<<< HEAD
 
+=======
+>>>>>>> b938f68de097c729c472d6b1be2f926d9c8768ca
 
-.env
+/.nvm
+/.env
+/.DS_Store
