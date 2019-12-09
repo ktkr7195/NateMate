@@ -1,33 +1,15 @@
 # NateMate
 自然を対象にした画像共有SNSです。
 
-<<<<<<< HEAD
-=======
 ログインページより、テストユーザーとしてログインできます。
 
->>>>>>> b938f68de097c729c472d6b1be2f926d9c8768ca
 ## URL
 
 
 ## 使用技術
 - Ruby 2.5.1, Rails 6.0.1
-<<<<<<< HEAD
-- webpacker: SASS,Bootstrap4,JQuery
-
-## 機能一覧
-- ユーザー登録、ログイン機能(devise)
-- ユーザー情報変更機能
-- 管理ユーザー機能
-- 画像、記事投稿、削除、編集機能
-- プロフィール画像、投稿画像プレビュー機能
-- 投稿一覧、投稿詳細表示機能
-- ユーザー一覧機能
-- 検索機能(記事検索、ユーザー検索)
-- ページネーション機能
-- Ajaxを用いた、いいね、フォロー機能
-=======
 - Docker,Docker-compose
-- AWS (VPC,EC2,)
+- AWS (VPC,EC2,RDS,Route53,ACM,ALB)
 - Capistrano3
 - webpacker: SASS,Bootstrap4,JQuery
 
@@ -41,5 +23,4 @@
 - ユーザー一覧機能
 - 検索機能(投稿、ユーザー)
 - いいね、フォロー機能(Ajax)
->>>>>>> b938f68de097c729c472d6b1be2f926d9c8768ca
 - Dos攻撃など、過剰なアクセスに対する制限機能
