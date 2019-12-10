@@ -4,14 +4,15 @@
 ログインページより、テストユーザーとしてログインできます。
 
 ## URL
-
+- https://natemate.com
 
 ## 使用技術
 - Ruby 2.5.1, Rails 6.0.1
 - Docker,Docker-compose
-- AWS (VPC,EC2,RDS,Route53,ACM,ALB)
-- Capistrano3
+- AWS (VPC,EC2,ECS,RDS,S3,Route53,ACM,ALB)
+- Circle CI/CD
 - webpacker: SASS,Bootstrap4,JQuery
+- Rspec
 
 ## 機能一覧
 - 管理ユーザー機能(ユーザー、投稿を管理)
