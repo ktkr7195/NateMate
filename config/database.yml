@@ -50,7 +50,7 @@ test:
 #
 production:
   <<: *default
-  database: test_db
-  username: <%=ENV['RDS_USERNAME']%>
-  password: <%=ENV['RDS_PASSWORD']%>
-  host: <%=ENV['RDS_HOST']%>
+  database: sampleDB
+  user: sampleUser
+  password: sample
+  host: sampleHost
