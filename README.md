@@ -9,7 +9,7 @@
 ## 使用技術
 - Ruby 2.5.1, Rails 6.0.1
 - Docker,Docker-compose
-- AWS (VPC,EC2,ECS,RDS,S3,Route53,ACM,ALB)
+- AWS (VPC,EC2,ECS,RDS,S3,SES,Route53,ACM,ALB)
 - Circle CI/CD
 - webpacker: SASS,Bootstrap4,JQuery
 - Rspec
@@ -24,4 +24,4 @@
 - ユーザー一覧機能
 - 検索機能(投稿、ユーザー)
 - いいね、フォロー機能(Ajax)
-- Dos攻撃など、過剰なアクセスに対する制限機能
+- 過剰なアクセスに対する制限機能
