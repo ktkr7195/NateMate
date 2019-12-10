@@ -50,7 +50,7 @@ test:
 #
 production:
   <<: *default
-  database: sampleDB
-  user: sampleUser
+  database: sample
+  username: sample
   password: sample
-  host: sampleHost
+  host:     sample
