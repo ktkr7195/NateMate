@@ -15,12 +15,15 @@ default: &default
   pool: 5
   username: root
   password: password
-  host: db
+  host: localhost
 
 
 development:
   <<: *default
-  database: <%= EBV['DB_NAME_DEV'] %>
+  database: <%= ENV['DB_NAME_DEV'] %>
+  username: root
+  password: password
+  host: localhost
 
   # Warning: The database defined as "test" will be erased and
   # re-generated from your development database when you run "rake".
