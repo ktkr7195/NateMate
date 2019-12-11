@@ -11,13 +11,15 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :like_microposts, through: :likes, source: :micropost
 
-  validates :name,presence: :true, length:{ maximum: 15 }
-  validates :email,presence: :true
-  validates :password, presence:true,length:{ minimum: 6 }
-  validates :password_confirmation,presence: :true
+  validates :name,presence: true, uniqueness: { case_sensitive: true }, length: { minimum: 4, maximum: 15 }
+
+  VALID_EMAIL_REGEX =  /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
+  validates :email,presence: true,length: { maximum: 255 },
+                   format:{ with: VALID_EMAIL_REGEX },
+                   uniqueness: { case_sensitive: false }
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :confirmable
 
   mount_uploader :avatar, AvatarUploader
 
