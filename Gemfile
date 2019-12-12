@@ -21,7 +21,7 @@ gem 'kaminari'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'bootsnap', '>= 1.4.2', require: false
-gem 'aws-ses'
+gem 'aws-sdk-rails'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
