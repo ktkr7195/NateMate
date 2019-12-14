@@ -8,7 +8,7 @@
                         <%=link_to image_tag(current_user.avatar.url, size:"35x35",
                                              class:"avatarTypeCircle"), current_user,class:"nav-link navAvatar"%>
                     <%else%>
-                        <%=link_to image_tag("/assets/default.jpg",   size:"35x35",
+                        <%=link_to image_tag(asset_path("default.jpg"),   size:"35x35",
                                              class:"avatartypeCircle"), current_user,class:"nav-link navAvatar"%>
                     <%end%>
                 </li>

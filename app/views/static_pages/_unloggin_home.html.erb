@@ -2,11 +2,11 @@
     <div class="row">
         <div class="col-12">
             <ul class="slider mb-auto mt-auto">
-                <li><img src="/assets/flower.jpg"  ></li>
-                <li><img src="/assets/lion.jpg"    ></li>
-                <li><img src="/assets/space.jpg"   ></li>
-                <li><img src="/assets/forest.jpg"  ></li>
-                <li><img src="/assets/mountain.jpg"></li>
+                <li><img src="<%= asset_path "flower.jpg"  %>"  ></li>
+                <li><img src="<%= asset_path "lion.jpg"    %>"  ></li>
+                <li><img src="<%= asset_path "space.jpg"   %>"  ></li>
+                <li><img src="<%= asset_path "forest.jpg"  %>"  ></li>
+                <li><img src="<%= asset_path "mountain.jpg"%>"  ></li>
             </ul>
         </div>
     </div>
@@ -17,7 +17,7 @@
         <div class="topCopy col-12 text-center mt-5 mb-5">
             <h1 class="font-weight-bold">石ころから宇宙まで、NateMateで共有しよう</h1><br />
             <p>道ばたの花、飼っている動物、遠くの惑星、自分しか知らない景色...</p>
-            <p>NateMateは、そんなNature(自然)をデジタルに保存、公開するSNSサービスです</p>
+            <p>NateMateは、そんなNature(自然)をデジタルに保存、公開できるSNSです</p>
             <%=link_to '投稿する',new_user_registration_path,class:'btn btn-warning btn-lg homeBtn'%>
         </div>
     </div>

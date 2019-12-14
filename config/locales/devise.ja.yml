@@ -8,6 +8,7 @@ ja:
         name: "ユーザーネーム"
         current_password: "現在のパスワード"
         email: "メールアドレス"
+        resend_email: "送信先のメールアドレス"
         password: "パスワード"
         password_confirmation: "パスワード再入力"
         newpassword: "新しいパスワード"

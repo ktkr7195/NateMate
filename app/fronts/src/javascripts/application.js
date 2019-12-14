@@ -1,4 +1,5 @@
-$(function(){
+$( document ).on('turbolinks:load',function(){
+//slick,slider
   $('.slider').slick({
     autoplay:true,
     autoplaySpeed:4000,
@@ -10,10 +11,10 @@ $(function(){
     });
     $('.slick-dots li').on('mouseover', function() {
         $('.slider').slick('goTo', $(this).index());
-});
+    });
 });
 $( document ).on('turbolinks:load',function() {
-
+//画像プレビュー
 function readURL(input) {
   if (input.files && input.files[0]) {
   var reader = new FileReader();

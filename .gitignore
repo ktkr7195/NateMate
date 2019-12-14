@@ -31,6 +31,7 @@ yarn-debug.log*
 .yarn-integrity
 
 /public/uploads
-/app/assets/images
-
-.env
+config/secrets.yml
+/.nvm
+/.env
+/.DS_Store
