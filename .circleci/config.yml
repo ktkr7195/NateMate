@@ -29,7 +29,7 @@ jobs:
       # Download and cache dependencies
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "Gemfile.lock" }}-{{ checksum "package.json.lock" }}-{{ checksum "yarn.lock" }}
+            - v1-dependencies-{{ checksum "Gemfile.lock" }}-{{ checksum "package.lock.json" }}-{{ checksum "yarn.lock" }}
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
@@ -47,7 +47,7 @@ jobs:
             - ./vendor/bundle
             - ./node_modules
             - ./node_modules
-          key: v1-dependencies-{{ checksum "Gemfile.lock" }}-{{ checksum "package.json.lock" }}-{{ checksum "yarn.lock" }}
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}-{{ checksum "package.lock.json" }}-{{ checksum "yarn.lock" }}
       #データベースセットアップ
       - run: mv config/database.yml.ci config/database.yml
       - run: bundle exec rake db:create
