@@ -19,7 +19,7 @@ jobs:
           - MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
           - MYSQL_ROOT_HOST: '%'
 
-      - images: circleci/node:latest
+      - image: circleci/node:latest
 
     working_directory: ~/repo
 
