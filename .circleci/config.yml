@@ -6,20 +6,15 @@ version: 2
 jobs:
   build:
     docker:
-      # specify the version you desire here
+      # Ruby
       - image: circleci/ruby:2.5.1-node-browsers
         environment:
           - RAILS_ENV: test
-
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
+      # MySQL
       - image: circleci/mysql:5.7
         environment:
           - MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
           - MYSQL_ROOT_HOST: '%'
-
-      - image: circleci/node:latest
 
     working_directory: ~/repo
 
@@ -29,9 +24,15 @@ jobs:
       # Download and cache dependencies
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "Gemfile.lock" }}-{{ checksum "package.lock.json" }}-{{ checksum "yarn.lock" }}
+            - v1-dependencies-{{ checksum "Gemfile.lock" }}-{{ checksum "yarn.lock" }}
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
+      # node.jsのアップデート
+      - run:
+          name: update node v12.13.0
+          command: |
+          curl -sSL "https://nodejs.org/dist/v11.10.0/node-v11.10.0-linux-x64.tar.xz" | sudo tar --strip-components=2 -xJ -C /usr/local/bin/ node-v11.10.0-linux-x64/bin/node
+          curl https://www.npmjs.com/install.sh | sudo bash
 
       - run:
           name: install dependencies
@@ -46,8 +47,7 @@ jobs:
           paths:
             - ./vendor/bundle
             - ./node_modules
-            - ./node_modules
-          key: v1-dependencies-{{ checksum "Gemfile.lock" }}-{{ checksum "package.lock.json" }}-{{ checksum "yarn.lock" }}
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}-{{ checksum "yarn.lock" }}
       #データベースセットアップ
       - run: mv config/database.yml.ci config/database.yml
       - run: bundle exec rake db:create
