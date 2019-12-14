@@ -1,5 +1,6 @@
-<p><%= @email %>NateMateへようこそ!</p>
+<p><%= @email %></p>
+<p>NateMateへようこそ!</p>
 
-<p>下記のリンクからメールアドレスを認証してください</p>
+<p>下記のリンクからアカウントを有効化してください</p>
 
 <p><%= link_to 'アカウントを有効化', confirmation_url(@resource, confirmation_token: @token) %></p>
