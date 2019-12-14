@@ -36,7 +36,7 @@ jobs:
           command: |
             bundle install --jobs=4 --retry=3 --path vendor/bundle
       - run:
-          name: update node.js
+          name: update node.js v12.13.0
           command: |
             curl -sSL "https://nodejs.org/dist/v12.13.0/node-v12.13.0-linux-x64.tar.xz" | sudo tar --strip-components=2 -xJ -C /usr/local/bin/ node-v12.13.0-linux-x64/bin/node
             curl https://www.npmjs.com/install.sh | sudo bash
