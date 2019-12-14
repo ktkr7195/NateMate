@@ -4,8 +4,8 @@ services:
     build: .
     command: bundle exec bin/webpack-dev-server
     volumes:
-      - .:/app
-      - /app/node_modules/
+      - .:/App
+      - /App/node_modules/
     ports:
       - "3035:3035"
   rails:
@@ -17,6 +17,8 @@ services:
     depends_on:
       - db
       - webpacker
+    volumes:
+      - .:/App
   db:
     image: mysql:5.7.28
     environment:
@@ -24,7 +26,7 @@ services:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: app_development
     ports:
-      - "3306:3306"
+      - "3307:3307"
 
 
 
