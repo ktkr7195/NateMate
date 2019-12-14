@@ -7,9 +7,9 @@
   <%= image_tag asset_path('default.jpg'),size:"200x200" %>
 <%end%>
 <span class="personalName"><%=@user.name%></span>
-<%if @user==current_user%>
+<%if @user==current_user && @user.name != "guest"%>
   <%=link_to edit_user_registration_path do %>
-  <i class="fas fa-cog text-muted"></i>
+    <i class="fas fa-cog text-muted"></i>
   <%end%>
 <%end%>
 
