@@ -9,10 +9,9 @@ class MicropostsController < ApplicationController
     def create
         @micropost = current_user.microposts.build(micropost_params)
         if @micropost.save
-          flash[:notice] = "コレクトしました！"
-          redirect_to current_user
+          redirect_to current_user, notice:"投稿しました！"
         else
-          flash[:notice]='コレクトに失敗しました'
+          flash.now[:alert]='コレクトに失敗しました'
           @followimg_users_feed=[]
           @feed=[]
           redirect_to new_micropost_path
@@ -29,8 +28,7 @@ class MicropostsController < ApplicationController
 
       def destroy
         @micropost.destroy
-        flash[:success] = "コレクションを削除しました"
-        redirect_to request.referrer || root_url
+        redirect_to request.referrer || root_url, notice:"投稿を削除しました"
       end
 
       def correct_user
