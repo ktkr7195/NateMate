@@ -6,7 +6,6 @@ working_directory rails_root
 timeout 30
 preload_app true
 
-# unicorn.sock ファイルの PATH を変更する場合は nginx.conf の修正も必要です
 listen "#{rails_root}/tmp/unicorn.sock"
 pid "#{rails_root}/tmp/unicorn.pid"
 

@@ -56,4 +56,4 @@ production:
   database: sample
   username: sample
   password: sample
-  host:     sample
+  host:    sample

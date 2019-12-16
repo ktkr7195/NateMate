@@ -5,17 +5,31 @@ set :application, "NateMate"
 set :repo_url, "git@github.com:TadayoshiOtsuka/NateMate.git"
 set :rbenv_ruby, '2.5.1'
 
-# Default branch is :master
+#Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, "/var/www/rails/NateMate"
 set :log_level, :debug
 
+set :linked_files, %w{config/database.yml}
+
+set :linked_dirs, %w{log tmp/backup tmp/pids tmp/cache tmp/sockets public/system　vendor/bundle}
+
 namespace :deploy do
     desc 'Restart application'
     task :restart do
       invoke 'unicorn:restart'
+    end
+
+    desc 'Upload database.yml'
+    task :upload do
+      on roles(:app) do |host|
+        if test "[ ! -d #{shared_path}/config ]"
+          execute "mkdir -p #{shared_path}/config"
+        end
+        upload!('config/database.yml', "#{shared_path}/config/database.yml")
+      end
     end
 
     desc 'Create database'
@@ -47,10 +61,10 @@ namespace :deploy do
 # set :pty, true
 
 # Default value for :linked_files is []
-append :linked_files, "config/database.yml"
+#append :linked_files, "config/database.yml"
 
 # Default value for linked_dirs is []
-append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
+#append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
