@@ -12,7 +12,7 @@ set :rbenv_ruby, '2.5.1'
 set :deploy_to, "/var/www/rails/NateMate"
 set :log_level, :debug
 
-set :linked_files, %w{config/database.yml}
+set :linked_files, %w{config/database.yml config/master.key}
 
 set :linked_dirs, %w{log tmp/backup tmp/pids tmp/cache tmp/sockets public/system　vendor/bundle}
 
