@@ -1,5 +1,5 @@
 # config valid for current version and patch releases of Capistrano
-lock "3.4.0"
+lock "3.11.2"
 
 set :application, "NateMate"
 set :repo_url, "git@github.com:TadayoshiOtsuka/NateMate.git"
