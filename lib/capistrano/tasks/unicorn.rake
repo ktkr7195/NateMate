@@ -6,7 +6,7 @@ namespace :unicorn do
 
     def start_unicorn
         within current_path do
-          execute :unicorn, "-c #{fetch(:unicorn_config)} -E #{fetch(:rails_env)} -D"
+          execute :unicorn_rails, "-c #{fetch(:unicorn_config)} -E #{fetch(:rails_env)} -D"
         end
     end
 
