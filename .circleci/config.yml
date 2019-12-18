@@ -79,7 +79,7 @@ jobs:
           destination: test-results
 
       - add_ssh_keys:
-          ingerprints:
+          fingerprints:
             - "04:15:2e:87:4d:4a:26:5a:69:9d:af:77:cd:6c:bd:58"
 
       - deploy:
