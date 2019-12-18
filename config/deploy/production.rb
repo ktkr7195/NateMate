@@ -49,6 +49,13 @@
 #
 # The server-based syntax can be used to override options:
 # ------------------------------------
+
+set :stage, :production
+set :rails_env, 'production'
+
+set :branch, ENV['BRANCH_NAME'] || 'master'
+
+set :migration_role, 'db'
  server "54.92.45.5",
    user: "tadayoshi",
    roles: %w{web app db},

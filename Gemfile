@@ -28,10 +28,11 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
   gem "factory_bot_rails"
-  gem 'capistrano'
-  gem 'capistrano-bundler'
-  gem 'capistrano-rails'
-  gem 'capistrano-rbenv'
+  gem 'capistrano',require: false
+  gem 'capistrano-bundler',require: false
+  gem 'capistrano-rails',require: false
+  gem 'capistrano-rbenv',require: false
+  gem 'capistrano3-puma',require: false
   gem 'bcrypt_pbkdf'
   gem 'ed25519'
 end
