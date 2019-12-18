@@ -1,5 +1,4 @@
 # set lets
-root = "/var/www/rails/NateMate/current"
 $worker  = 2
 $timeout = 30
 $app_dir = "/var/www/rails/NateMate/current"
@@ -18,9 +17,6 @@ pid $pid
 preload_app true
 # before starting processes
 
-before_exec do |server|
-  ENV['BUNDLE_GEMFILE'] = "#{root}/Gemfile"
-end
 
 before_fork do |server, worker|
   defined?(ActiveRecord::Base) and ActiveRecord::Base.connection.disconnect!
