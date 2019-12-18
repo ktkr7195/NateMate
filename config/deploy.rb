@@ -50,7 +50,6 @@ append :rbenv_map_bins, "puma", "pumactl"
 # Default value for keep_releases is 5
 set :keep_releases, 3
 
-# bundle installの並列実行数
 set :bundle_jobs, 4
 
 namespace :puma do
