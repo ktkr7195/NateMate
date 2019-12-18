@@ -18,8 +18,8 @@ set :linked_dirs, %w{log tmp/backup tmp/pids tmp/cache tmp/sockets public/system
 
 namespace :deploy do
     desc 'Restart application'
-    task :restart do
-      invoke 'unicorn:restart'
+    task :start do
+      invoke 'unicorn:start'
     end
 
     desc 'Upload database.yml'
