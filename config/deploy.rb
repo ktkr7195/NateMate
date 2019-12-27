@@ -19,6 +19,9 @@ set :deploy_to, "/var/www/rails/NateMate"
 # set :format_options, command_output: true, log_file: "log/capistrano.log", color: :auto, truncate: :auto
 set :format, :pretty
 set :log_level, :debug
+
+set :puma_threads,  [4, 16]
+set :puma_workers, 0
 # Default value for :pty is false
 set :pty, true
 
