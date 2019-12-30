@@ -56,7 +56,7 @@ set :rails_env, 'production'
 set :branch, ENV['BRANCH_NAME'] || 'master'
 
 set :migration_role, 'db'
- server "natemate.com",
+ server "54.92.45.5",
    user: "tadayoshi",
    roles: %w{web app db},
    port: 22,
