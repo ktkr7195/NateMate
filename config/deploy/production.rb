@@ -62,7 +62,7 @@ set :migration_role, 'db'
    port: 22,
    ssh_options: {
      user: "tadayoshi", # overrides user setting above
-     keys: %w(~/.ssh/natemate_rsa),
+     keys: %w(~/.ssh/id_rsa),
      forward_agent: true,
      auth_methods: %w(publickey)
      # password: "please use keys"
