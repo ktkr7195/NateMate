@@ -1,24 +1,27 @@
 # NateMate
-自然を対象にした画像共有SNSです
-
-ログインページからおためしログインをクリックで、ゲストアカウントでログインできます
+道端の石ころや遠くの星にも、必ず名前やエピソードがあります。
+NateMateは、
+普段目にしても気に止めない。見たり聞いたことはあっても詳しくは知らない。
+そんな自然の新たな発見や感動、知識を共有するSNSです。
 
 ## URL
 - https://natemate.com
+ログインページからおためしログインをクリックで、ゲストアカウントとしてログインできます。
 
 ## 使用技術
 - Ruby 2.5.1, Rails 6.0.1
+- webpacker: Sass,Bootstrap4,JQuery
 - Docker,Docker-compose
-- AWS (VPC,EC2,ECS,RDS,S3,SES,Route53,ACM,ALB)
-- Circle CI/CD
-- webpacker: SASS,Bootstrap4,JQuery
+- AWS (VPC,EC2,ECS,RDSforMySQL,S3,SES,Route53,ACM,ALB)
+- Circle CI/CD(Capistrano3)
+- terraform
 - Rspec
 
 ## 機能一覧
 - 管理ユーザー機能(ユーザー、投稿を管理)
 - ユーザー登録,ログイン,編集機能(devise)
 - 画像記事投稿、削除機能
-- 画像プレビュー機能
+- 画像プレビュー機能(Ajax)
 - 投稿一覧、投稿詳細表示機能
 - ページネーション機能
 - ユーザー一覧機能
