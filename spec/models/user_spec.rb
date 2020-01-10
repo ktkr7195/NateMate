@@ -121,6 +121,25 @@ RSpec.describe User, type: :model do
     expect(rei.following?(asuka)).to eq false
   end
 
+  it 'フォロー中のユーザーが削除されると、フォローが解消される' do
+    rei   = create(:user)
+    asuka = create(:user)
+    rei.follow(asuka)
+    expect(rei.following?(asuka)).to eq true
+    asuka.destroy
+    expect(rei.following?(asuka)).to eq false
+  end
+
+  it 'フォローされているユーザーが削除されると、フォローされていた状態が解消される' do
+    rei   = create(:user)
+    asuka = create(:user)
+    rei.follow(asuka)
+    expect(asuka.followers.include?(rei)).to eq true
+    rei.destroy
+    expect(asuka.followers.include?(rei)).to eq false
+  end
+
+
 
 
 

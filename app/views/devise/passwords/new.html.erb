@@ -1,13 +1,17 @@
 <div class="text-center">
-  <h2>パスワードを忘れてしまったら</h2>
+  <h2 class="font-weight-bold">パスワードを忘れてしまったら</h2>
+     <%- flash.each do |name, msg| -%>
+    <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+  <%- end -%>
+  <div class="form-group mt-5">
     <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource %>
-    <div class="field">
+    <div class="field border-bottom">
       <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control border-0"%>
     </div>
     <div class="actions">
-      <%= f.submit "パスワード再設定のメールを送信" %>
+      <%= f.submit "パスワード再設定のメールを送信", {class:"btn btn-warning btn-lg mt-5"} %>
     </div>
     <% end %>
+    </div>
 </div>

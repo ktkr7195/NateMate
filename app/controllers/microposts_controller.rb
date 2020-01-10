@@ -11,7 +11,7 @@ class MicropostsController < ApplicationController
         if @micropost.save
           redirect_to current_user, notice:"投稿しました！"
         else
-          flash.now[:alert]='コレクトに失敗しました'
+          flash.now[:alert]='投稿に失敗しました'
           @followimg_users_feed=[]
           @feed=[]
           redirect_to new_micropost_path
