@@ -28,6 +28,13 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
   gem "factory_bot_rails"
+  gem 'capistrano',        require: false
+  gem 'capistrano-bundler',require: false
+  gem 'capistrano-rails',  require: false
+  gem 'capistrano-rbenv',  require: false
+  gem 'capistrano3-puma',  require: false
+  gem 'bcrypt_pbkdf'
+  gem 'ed25519'
 end
 
 group :development do
@@ -46,12 +53,7 @@ group :test do
 end
 
 group :production do
-  gem 'pg', '0.20.0'
   gem 'fog', '1.42'
 end
 
-group :production, :staging do
-  gem 'unicorn', '5.4.1'
-end
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

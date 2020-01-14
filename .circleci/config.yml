@@ -56,7 +56,7 @@ jobs:
       #静的ファイルセットアップ
       - run: bundle exec bin/webpack
 
-      # run Rspec
+      # run Rspec.
       - run:
           name: run rspec
           command: |
@@ -77,3 +77,12 @@ jobs:
       - store_artifacts:
           path: /tmp/test-results
           destination: test-results
+
+      - add_ssh_keys:
+          fingerprints:
+            - "04:15:2e:87:4d:4a:26:5a:69:9d:af:77:cd:6c:bd:58"
+
+      - deploy:
+          name: Capistrano deploy
+          command: |
+            bundle exec cap production deploy
