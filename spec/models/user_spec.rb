@@ -27,6 +27,12 @@ RSpec.describe User, type: :model do
     expect(@user.errors).to be_added(:name,:blank)
   end
 
+  it "nameが空白のユーザーを許可しない" do
+    @user.name = "   "
+    @user.valid?
+    expect(@user.errors).to be_added(:name,:blank)
+  end
+
   it 'emailが存在しないユーザーを許可しない' do
     @user.email = nil
     @user.valid?
