@@ -21,7 +21,7 @@ class MicropostsController < ApplicationController
     def show
       @post = Micropost.find(params[:id])
       require 'exifr/jpeg'
-      @exif = EXIFR::JPEG.new(Rails.root.to_s+"/public#{@post.picture.url}")
+      @exif = EXIFR::JPEG.new(Rails.root.to_s+"/public/#{@post.picture.url}")
       @lat = @exif.gps_latitude.to_f
       @lng = @exif.gps_longitude.to_f
     end
