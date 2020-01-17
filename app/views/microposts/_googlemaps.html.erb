@@ -1,0 +1,34 @@
+<div id='map'></div>
+<style>
+#map{
+  height: 350px;
+  width:  700px;
+  margin-top:15px;
+}
+</style>
+<script>
+    function initMap(){
+        let map = new google.maps.Map(document.getElementById('map'), {
+        <% if @lat && @lng %>
+            center: {lat:<%=@lat%>, lng:<%=@lng%>},
+        <%else%>
+            center: {lat:35.6804, lng: 139.769017},
+        <%end%>
+            zoom: 10
+        });
+
+        <% if @lat && @lng %>
+            var exif_position = {lat:<%=@lat%>, lng:<%=@lng%>};
+        <%else%>
+            var exif_position = {lat: 35.6804, lng: 139.769017};
+        <%end%>
+
+        var markerOptions = {
+            map: map,
+            position: exif_position,
+            };
+        var marker = new google.maps.Marker(markerOptions);
+    };
+
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKzRFzRm9R9J2m33cap0TI04MoJfad4iY&callback=initMap" async defer></script>

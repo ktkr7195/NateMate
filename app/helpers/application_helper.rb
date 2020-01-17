@@ -9,6 +9,13 @@ module ApplicationHelper
         end
     end
 
+    def get_exif
+        require 'exifr/jpeg'
+        exif = EXIFR::JPEG.new(self.file.file)
+        @latitude = exif.GPSLatitude
+        @longitude = exif.GPSLongitude
+    end
+
 
     def resource_name
         :user

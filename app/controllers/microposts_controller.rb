@@ -16,30 +16,37 @@ class MicropostsController < ApplicationController
           @feed=[]
           redirect_to new_micropost_path
         end
+    end
+
+    def show
+      @post = Micropost.find(params[:id])
+      require 'exifr/jpeg'
+      @exif = EXIFR::JPEG.new(Rails.root.to_s+"/public#{@post.picture.url}")
+      @lat = @exif.gps_latitude.to_f
+      @lng = @exif.gps_longitude.to_f
+    end
+
+    def index
+    end
+
+
+
+    def destroy
+      @micropost.destroy
+      redirect_to request.referrer || root_url, notice:"投稿を削除しました"
+    end
+
+    def correct_user
+      @micropost = current_user.microposts.find_by(id: params[:id])
+      redirect_to root_url if @micropost.nil?
+    end
+
+
+    private
+
+      def micropost_params
+        params.require(:micropost).permit(:title,:content,:picture)
       end
-      def show
-        @post=Micropost.find(params[:id])
-      end
-
-      def index
-      end
 
 
-
-      def destroy
-        @micropost.destroy
-        redirect_to request.referrer || root_url, notice:"投稿を削除しました"
-      end
-
-      def correct_user
-        @micropost = current_user.microposts.find_by(id: params[:id])
-        redirect_to root_url if @micropost.nil?
-      end
-
-
-      private
-
-        def micropost_params
-          params.require(:micropost).permit(:title,:content,:picture)
-        end
 end
