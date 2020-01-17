@@ -3,25 +3,50 @@
 <%else%>
     <%provide(:title,"無題")%>
 <%end%>
+
 <div class="conteiner">
     <div class="row">
         <div class="col-12 text-center">
-        <%=image_tag(@post.picture.url,class:"postPicture")%>
+            <%=image_tag(@post.picture.url,class:"postPicture")%>
         </div>
-        <div class="col-12 text-center">
-        <%if @post.title%>
-            <h2 class="font-weight-bold mt-2"><%=@post.title%></h2>
-        <%end%>
-        <%if @post.content%>
-            <span><%=@post.content%></span>
-        <%end%>
+
+        <ul class="nav nav-tabs justify-content-center col-12 mt-3">
+            <li class="nav-item">
+                <a href="#detail" class="nav-link border-top-0 text-muted active" data-toggle="tab"><i class="far fa-newspaper"></i></a>
+            </li>
+            <li class="nav-item">
+                <a href="#postmap" class="nav-link border-top-0 text-muted" data-toggle="tab"><i class="fas fa-globe-asia"></i></a>
+            </li>
+        </ul>
+
+        <div class="tab-content mx-auto">
+            <div id="detail" class="tab-pane active">
+                <div class="mx-auto">
+                    <%if @post.title%>
+                        <h2 class="font-weight-bold mt-2"><%=@post.title%></h2>
+                    <%end%>
+                    <%if @post.content%>
+                        <span><%=@post.content%></span>
+                    <%end%>
+                </div>
+            </div>
+            <div id="postmap" class="tab-pane">
+                <div class="col-12">
+                <%if @exif.gps_latitude && @exif.gps_longitude%>
+                    <%=render '/microposts/googlemaps'%>
+                <%else%>
+                <p class="text-muted mt-5">位置情報が登録されていません</p>
+                <%end%>
+                </div>
+            </div>
         </div>
-        <div class="col-12 text-center">
+
+        <div class="col-12 text-center mt-2">
             <span class="text-muted">by </span>
         <%if @post.user.avatar?%>
-        <%=link_to image_tag(@post.user.avatar.url,size:"40x40",class:"avatarTypeCircle"),@post.user%>
+            <%=link_to image_tag(@post.user.avatar.url,size:"40x40",class:"avatarTypeCircle"),@post.user%>
         <%else%>
-        <%=link_to image_tag(asset_path('default.jpg'),size:"40x40",class:"avatarTypeCircle"),@post.user%>
+            <%=link_to image_tag(asset_path('default.jpg'),size:"40x40",class:"avatarTypeCircle"),@post.user%>
         <%end%>
         <%=link_to @post.user.name,@post.user,class:"text-muted"%>
         </div>

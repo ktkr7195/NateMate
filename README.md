@@ -12,16 +12,17 @@ NateMateは、
 - Ruby 2.5.1, Rails 6.0.1
 - webpacker: Sass,Bootstrap4,JQuery
 - Docker,Docker-compose
-- AWS (VPC,EC2,ECS,RDSforMySQL,S3,SES,Route53,ACM,ALB)
+- AWS (VPC,RDSforMySQL,S3,SES,Route53,ACM,ALB)
 - Circle CI/CD(Capistrano3)
-- terraform
 - Rspec
+- GoogleMapsAPI
 
 ## 機能一覧
 - 管理ユーザー機能(ユーザー、投稿を管理)
 - ユーザー登録,ログイン,編集機能(devise)
 - 画像記事投稿、削除機能
 - 画像プレビュー機能(Ajax)
+- 画像のExif情報から緯度経度を取得,GoogleMapsAPIで表示(Ajax)
 - 投稿一覧、投稿詳細表示機能
 - ページネーション機能
 - ユーザー一覧機能
