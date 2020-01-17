@@ -22,7 +22,7 @@ class MicropostsController < ApplicationController
       @post = Micropost.find(params[:id])
       require 'exifr/jpeg'
       if Rails.env == 'production'
-        @exif = EXIFR::JPEG.new(@post.picture.url)
+        @exif = EXIFR::JPEG.new(open(@post.picture.url))
       else
         @exif = EXIFR::JPEG.new(Rails.root.to_s+"/public/#{@post.picture.url}")
       end
