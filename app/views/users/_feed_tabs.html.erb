@@ -19,7 +19,7 @@
 
         <%if @user.microposts.any?%>
           <div class="font-weight-bold text-muted">
-                <%=@user.microposts.count%><span class="font-weight-normal">collected</span>
+                <%=@user.microposts.count%><span class="font-weight-normal"> collected</span>
           </div>
                 <div class="conteiner">
                     <div class="card-group　mx-auto">
@@ -43,9 +43,15 @@
     <div id="followingUser" class="tab-pane">
     <%if @following_users.any?%>
         <div class="font-weight-bold text-muted">
-          <%=@following_users.count%><span class="text-muted font-weight-normal">following</span>
+          <%=@following_users.count%><span class="text-muted font-weight-normal"> following</span>
         </div>
-        <%=render partial: 'users', collection: @following_users, as: "user"%>
+            <div class="conteiner">
+                <div class="card-group　mx-auto">
+                    <div class="row">
+                        <%=render partial: 'users', collection: @following_users, as: "user"%>
+                    </div>
+                  </div>
+              </div>
     <%else%>
       <%if @user==current_user%>
         <p class="mt-5">フォローしているユーザーはいません...</p>
@@ -60,9 +66,15 @@
     <div id="follower" class="tab-pane">
       <%if @followers.any?%>
         <div class="font-weight-bold text-muted">
-          <%=@followers.count%><span class="text-muted font-weight-normal">followers</span>
+          <%=@followers.count%><span class="text-muted font-weight-normal"> followers</span>
         </div>
-          <%=render partial: 'users', collection: @followers, as: "user"%>
+            <div class="conteiner">
+                <div class="card-group　mx-auto">
+                    <div class="row">
+                      <%=render partial: 'users', collection: @followers, as: "user"%>
+                    </div>
+                  </div>
+              </div>
       <%else%>
           <%if@user==current_user%>
             <p class="mt-5">フォロワーはまだいないようです...</p>
@@ -74,7 +86,7 @@
     <div id="likes" class="tab-pane">
       <%if @liking_posts.any?%>
           <div class="font-weight-bold text-muted">
-     <%=@liking_posts.count%><span class="text-muted font-weight-normal">likes</span>
+     <%=@liking_posts.count%><span class="text-muted font-weight-normal"> likes</span>
     </div>
     <div class="conteiner">
         <div class="card-group　mx-auto">

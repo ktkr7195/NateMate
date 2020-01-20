@@ -1,5 +1,4 @@
 
-
 /* header */
 
 header{
@@ -25,58 +24,65 @@ header{
 
 }
 
-
-
-.feedName{
-    margin-top:15px;
-    margin-bottom:10px;
-}
-
-.card-img-top{
-    border-radius: 7px;
-}
-.card{
-    padding-left:15px;
-}
-
-.avatarTypeCircle{
-    border-radius: 50%;
-}
-
 body{
     width:80%;
     margin-right: auto;
     margin-left : auto;
 
+    li {
+        list-style: none;
+    }
+
     .personalName{
         font-size:20px;
         font-weight:bold;
     }
-
+    .postLikesBtn{
+        margin-left:890px;
     }
+
+    .feedName{
+        margin-top:15px;
+        margin-bottom:10px;
+    }
+
+    .card-img-top{
+        border-radius: 7px;
+    }
+    .card{
+        padding-left:15px;
+    }
+
+    .avatarTypeCircle{
+        border-radius: 50%;
+    }
+
+    .postCards{
+        margin-top:25px;
+    }
+    .homeBtn{
+        margin-top:15px;
+        margin-bottom:20px;
+    }
+    .feedName{
+        margin-top:15px;
+        margin-bottom:10px;
+    }
+    .topCopy{
+        display:block;
+        margin-top:15px;
+    }
+    .postPrev{
+        border-radius:5px;
+    }
+}
+
 footer{
     width:80%;
     margin-right: auto;
     margin-left : auto;
 }
-.postCards{
-    margin-top:25px;
-}
-.homeBtn{
-    margin-top:15px;
-    margin-bottom:20px;
-}
-.feedName{
-    margin-top:15px;
-    margin-bottom:10px;
-}
-.topCopy{
-    display:block;
-    margin-top:15px;
-}
-.postPrev{
-    border-radius:5px;
-}
+
 
 /*slick setting*/
 

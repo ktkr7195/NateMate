@@ -1,0 +1,7 @@
+
+  <% if current_user==@micropost.user%>
+    <%= link_to @micropost,method: :delete,
+                                data:{confirm:"コレクションから「#{@micropost.title}」を削除します"} do%>
+    <i class="fas fa-trash-alt text-muted"></i>
+    <%end%>
+  <%end%>

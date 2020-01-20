@@ -3,7 +3,7 @@ class MicropostsController < ApplicationController
     before_action :correct_user,only:[:destroy]
 
     def new
-      @microposts = current_user.microposts.build if user_signed_in?
+      @micropost = current_user.microposts.build if user_signed_in?
     end
 
     def create
@@ -14,18 +14,20 @@ class MicropostsController < ApplicationController
           flash.now[:alert]='投稿に失敗しました'
           @followimg_users_feed=[]
           @feed=[]
-          redirect_to new_micropost_path
+          render 'microposts/new'
         end
     end
 
     def show
-      @post = Micropost.find(params[:id])
+      @micropost = Micropost.find(params[:id])
+      @this_post_liking_users = @micropost.like_users.page(params[:page])
       require 'exifr/jpeg'
       if Rails.env == 'production'
-        @exif = EXIFR::JPEG.new(open(@post.picture.url))
+        @exif = EXIFR::JPEG.new(open(@micropost.picture.url))
       else
-        @exif = EXIFR::JPEG.new(Rails.root.to_s+"/public/#{@post.picture.url}")
+        @exif = EXIFR::JPEG.new(Rails.root.to_s+"/public/#{@micropost.picture.url}")
       end
+
       @lat = @exif.gps_latitude.to_f
       @lng = @exif.gps_longitude.to_f
     end
@@ -37,7 +39,7 @@ class MicropostsController < ApplicationController
 
     def destroy
       @micropost.destroy
-      redirect_to request.referrer || root_url, notice:"投稿を削除しました"
+      redirect_to current_user
     end
 
     def correct_user
