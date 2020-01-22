@@ -36,7 +36,6 @@ yarn-debug.log*
 /.env
 /.DS_Store
 /.rspec
-/.ruby-version
 /.browserslistrc
 
 *.terraform
