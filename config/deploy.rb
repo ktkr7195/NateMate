@@ -27,7 +27,7 @@ set :pty, true
 
 # Default value for :linked_files is []
 # append :linked_files, "config/database.yml"
-set :linked_files, %w{config/database.yml config/master.key config/secrets.yml}
+set :linked_files, %w{config/database.yml config/master.key}
 
 set :linked_dirs, %w{log tmp/backup tmp/pids tmp/cache tmp/sockets public/system　vendor/bundle}
 
