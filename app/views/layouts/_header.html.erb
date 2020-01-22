@@ -44,8 +44,14 @@
             </ul>
         <%else%>
             <ul class="navbar-nav ml-auto align-items-center">
-                <li class="nav-item"> <%= link_to 'ログイン', new_user_session_path,      class:"nav-link"%></li>
-                <li class="nav-item"> <%= link_to '新規登録', new_user_registration_path, class:"nav-link"%></li>
+                <li class="nav-item"> <%= link_to new_user_session_path,      class:"nav-link" do%>
+                                        <i class="fas fa-sign-in-alt"></i><span> ログイン</span>
+                                      <%end%>
+                </li>
+                <li class="nav-item"> <%= link_to new_user_registration_path, class:"nav-link" do%>
+                                        <i class="fas fa-user-plus fa-lg"></i>
+                                      <%end%>
+                </li>
             </ul>
         <%end%>
     </nav>
