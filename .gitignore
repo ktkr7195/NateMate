@@ -21,8 +21,8 @@
 .byebug_history
 
 # Ignore master key for decrypting credentials and more.
-/config/master.key
-/config/secrets.yml
+*/master.key
+*secrets.yml
 
 /public/packs
 /public/packs-test
@@ -35,3 +35,10 @@ yarn-debug.log*
 /.nvm
 /.env
 /.DS_Store
+/.rspec
+/.ruby-version
+/.browserslistrc
+
+*.terraform
+*.tfstate*
+
