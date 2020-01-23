@@ -38,6 +38,7 @@ yarn-debug.log*
 /.rspec
 /.browserslistrc
 
-*.terraform
+*/.terraform
 *.tfstate*
+*.tfvars
 

@@ -19,12 +19,12 @@ function readURL(input) {
   if (input.files && input.files[0]) {
   var reader = new FileReader();
   reader.onload = function (e) {
-$('#img_prev').attr('src', e.target.result);
+$('#js_imgPrev').attr('src', e.target.result);
   }
   reader.readAsDataURL(input.files[0]);
   }
 }
-$("#present_img").change(function(){
+$("#js_presentImg").change(function(){
   readURL(this);
 });
 
