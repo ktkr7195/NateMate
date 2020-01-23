@@ -7,6 +7,10 @@ resource "aws_vpc" "natemate-vpc" {
   tags = {
     Name = "VPC_for_NateMate"
   }
+
+  lifecycle {
+    prevent_destroy = true
+  }
 }
 
 resource "aws_subnet" "natemate-subnet" {

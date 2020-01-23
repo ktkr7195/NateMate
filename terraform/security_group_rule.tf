@@ -32,7 +32,7 @@ resource "aws_security_group_rule" "instance-group-3" {
   to_port   = 443
   protocol  = "tcp"
   cidr_blocks = ["0.0.0.0/0",
-    "0.0.0.0/16"]
+  "0.0.0.0/16"]
   security_group_id = aws_security_group.instance-group.id
 }
 
