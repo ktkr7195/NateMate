@@ -5,8 +5,12 @@ header{
     width:85%;
     margin-right: auto;
     margin-left : auto;
+
     .navbar-brand{
         font-size:27px;
+    }
+    .titleMin{
+        font-size:20px;
     }
     .userName{
         padding-top:2px;
@@ -38,7 +42,7 @@ body{
         font-weight:bold;
     }
     .postLikesBtn{
-        margin-left:890px;
+        margin-left:860px;
     }
 
     .feedName{

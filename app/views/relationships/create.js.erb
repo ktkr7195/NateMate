@@ -1,2 +1,2 @@
-$("#follow_form").html("<%= escape_javascript(render('users/unfollow')) %>");
-$("#followers").html('<%= @user.followers.count %>');
+$("#js-followForm").html("<%= escape_javascript(render('users/unfollow')) %>");
+$("#js-followers").html('<%= @user.followers.count %>');
