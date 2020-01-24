@@ -9,11 +9,6 @@
             <%end%>
                 <%=link_to post.user.name, post.user,class:"float-left text-dark"%>
                 <span class="float-left ml-2 text-muted"><%=post.created_at.strftime("%Y-%m-%d")%></span>
-                <%if post.user==current_user%>
-                    <%=link_to('#',class:"float-right") do%>
-                        <i class="fas fa-bars fa-fw text-muted mt-1"></i>
-                    <%end%>
-                <%end%>
                 <span class="float-right" id="micropost-<%= post.id %>">
                     <%=render partial: '/likes/likes_btn',locals: { post: post }%>
                 </span>
