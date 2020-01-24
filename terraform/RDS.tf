@@ -19,6 +19,10 @@ resource "aws_db_instance" "natemate-db" {
     "slowquery",
   ]
 
+  lifecycle {
+    prevent_destroy = true
+  }
+
 }
 
 variable "aws_db_user" {}

@@ -5,15 +5,16 @@ resource "aws_instance" "natemate-ec2" {
   vpc_security_group_ids  = [aws_security_group.instance-group.id]
   subnet_id               = aws_subnet.natemate-subnet.id
   disable_api_termination = true
-
   root_block_device {
     volume_type = "gp2"
     volume_size = 8
   }
-
   tags = {
     Name                 = "natemate_ec2"
     "natemate-instance2" = ""
+  }
+  lifecycle {
+    prevent_destroy = true
   }
 }
 
