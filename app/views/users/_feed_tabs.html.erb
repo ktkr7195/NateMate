@@ -31,7 +31,7 @@
                   </div>
               </div>
         <%else%>
-            <%if @user==current_user%>
+            <%if current_user?(@user)%>
                 <p class="mt-5">まだコレクションがありません</p>
                 <p>これでは寂しいですね...</p>
                 <%= link_to '投稿する', new_micropost_path, class:"btn btn-warning"%>
@@ -53,7 +53,7 @@
                   </div>
               </div>
     <%else%>
-      <%if @user==current_user%>
+      <%if current_user?(@user)%>
         <p class="mt-5">フォローしているユーザーはいません...</p>
         <p>気の合う仲間を探してみましょう！</p>
         <%=render'/static_pages/search_form_users'%>
@@ -76,7 +76,7 @@
                   </div>
               </div>
       <%else%>
-          <%if@user==current_user%>
+          <%if current_user?(@user)%>
             <p class="mt-5">フォロワーはまだいないようです...</p>
           <%else%>
             <p class="mt-5">フォロワーはいません</p>
@@ -97,7 +97,7 @@
         </div>
     </div>
       <%else%>
-        <%if @user==current_user%>
+        <%if current_user?(@user)%>
           <p class="mt-5">まだいいねしていません...</p>
           <p>あなたのお気に入りを探しにいきましょう！</p>
           <%=render'/static_pages/search_form'%>

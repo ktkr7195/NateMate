@@ -5,7 +5,7 @@
         <% if user_signed_in? %>
             <ul class="navbar-nav mr-auto align-items-center">
                 <li class="nav-item">
-                    <%if current_user.avatar?%>
+                    <%if user_avatar_valid?(current_user)%>
                         <%=link_to image_tag(current_user.avatar.url, size:"35x35",
                                              class:"avatarTypeCircle"), current_user,class:"nav-link navAvatar"%>
                     <%else%>

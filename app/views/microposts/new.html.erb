@@ -6,7 +6,7 @@
       <%= render "layouts/error_messages", model: f.object %>
 
       <div class="postPicturePrev mt-5">
-        <% if @micropost.picture.present? %>
+        <% if picture_valid?(@micropost) %>
           <%= image_tag @micropost.picture.url(:thumb), id: :js_imgPrev,class:"postPrev"%>
         <% else %>
           <%=image_tag asset_path("defaultPicture.jpg"),id: :js_imgPrev,size:"550x450",class:"postPrev"%>

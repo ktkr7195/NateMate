@@ -2,7 +2,7 @@
 
 class Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
-
+  before_action :delete_redundant_flash
   # GET /resource/sign_in
   # def new
   #   super
@@ -18,7 +18,13 @@ class Users::SessionsController < Devise::SessionsController
   #   super
   # end
 
-  # protected
+  protected
+
+  def delete_redundant_flash
+    if flash[:notice].present?
+       flash.delete(:notice)
+    end
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_in_params
