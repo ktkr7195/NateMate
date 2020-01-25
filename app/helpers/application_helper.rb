@@ -9,13 +9,6 @@ module ApplicationHelper
         end
     end
 
-    def get_exif
-        require 'exifr/jpeg'
-        exif = EXIFR::JPEG.new(self.file.file)
-        @latitude = exif.GPSLatitude
-        @longitude = exif.GPSLongitude
-    end
-
 
     def resource_name
         :user
@@ -27,5 +20,22 @@ module ApplicationHelper
 
      def devise_mapping
         @devise_mapping ||= Devise.mappings[:user]
+     end
+
+     def current_user?(user)
+        return false unless user == current_user
+        true
+     end
+
+     def avatar_valid?(model)
+        model.user.avatar.present?
+     end
+
+     def user_avatar_valid?(user)
+        user.avatar.present?
+     end
+
+     def picture_valid?(model)
+        model.picture.present?
      end
 end

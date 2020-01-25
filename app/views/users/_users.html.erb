@@ -2,7 +2,7 @@
 <%if controller_name=='microposts' && action_name=='show'%>
     <div class="card border-0 col-12">
         <div class="card-body">
-            <%if user.avatar?%>
+            <%if user_avatar_valid?(user)%>
                 <%link_to image_tag(user.avatar.url,size:"30x30",class:"avatarTypeCircle"),user%>
             <%else%>
                 <%=link_to (image_tag asset_path("default.jpg"),size:"30x30",class:"avatarTypeCircle"),user%>
@@ -15,7 +15,7 @@
     <!--画面サイズmd以上-->
     <div class="card border-0 col-sm-6 col-md-4 col-xl-3 d-none d-sm-block postCards" style="width: 100px">
             <div class="card-body">
-                <%if user.avatar?%>
+                <%if user_avatar_valid?(user)%>
                     <%=link_to image_tag(user.avatar.url,size:"200x200",class:'avatarTypeCircle'),user%><br />
                 <%else%>
                     <%=link_to image_tag(asset_path('default.jpg'),size:"200x200",class:'avatarTyoeCircle'),user%><br />
@@ -26,7 +26,7 @@
     <!--画面サイズsm以下-->
     <div class="card border-0 col-12 d-block d-sm-none">
         <div class="card-body">
-            <%if user.avatar?%>
+            <%if user_avatar_valid?(user)%>
                 <%link_to image_tag(user.avatar.url,size:"30x30",class:"avatarTypeCircle"),user%>
             <%else%>
                 <%=link_to (image_tag asset_path("default.jpg"),size:"30x30",class:"avatarTypeCircle"),user%>

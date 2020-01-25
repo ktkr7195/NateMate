@@ -1,8 +1,8 @@
 
 <div class="card border-0 col-6 col-sm-6 col-md-4 postCards" style="width: 100px">
     <%=link_to image_tag(post.picture.url,size:"100x300",class:"card-img-top"),post%>
-        <div class="card-body">
-            <%if post.user.avatar?%>
+        <div class="card-body border-bottom">
+            <%if avatar_valid?(post)%>
                  <%=link_to image_tag(post.user.avatar.url,size:"30x30",class:'avatarTypeCircle float-left mr-2'),post.user%>
             <%else%>
                 <%=link_to image_tag(asset_path('default.jpg'),size:"30x30",class:'avatarTyoeCircle float-left mr-2'),post.user%>
@@ -12,7 +12,6 @@
                 <span class="float-right" id="micropost-<%= post.id %>">
                     <%=render partial: '/likes/likes_btn',locals: { post: post }%>
                 </span>
-
         </div>
 </div>
 

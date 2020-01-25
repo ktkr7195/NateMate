@@ -9,10 +9,10 @@
                 <div class="conteiner">
                     <div class="card-group　mx-auto">
                         <div class="row">
-                      <%=render partial: '/microposts/postcards', collection: @search_feeds, as: "post"%>
-</div>
-</div>
-</div>
+                          <%=render partial: '/microposts/postcards', collection: @search_feeds, as: "post"%>
+                        </div>
+                    </div>
+                </div>
           <%=paginate @search_feeds%>
         <%else%>
               <div class="text-center">
