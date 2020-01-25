@@ -8,9 +8,10 @@
 
 ## 使用技術
 - Ruby 2.5.1, Rails 6.0.1
-- webpacker: Sass,Bootstrap4,JQuery
+- webpacker: SASS,Bootstrap4,JQuery
 - Docker,Docker-compose
-- AWS (VPC,EC2,RDSforMySQL,S3,SES,Route53,ACM,ALB)
+- nginx,puma
+- AWS (VPC,EC2,RDS for MySQL,S3,SES,Route53,ACM,ALB)
 - Terraform
 - Circle CI/CD(Capistrano3)
 - Rspec
@@ -27,5 +28,4 @@
 - いいね、フォロー機能(Ajax)
 - ユーザー一覧、フォローフォロワー一覧、投稿をいいねしたユーザー一覧機能
 - 検索機能(投稿、ユーザー)
-- 過剰なアクセスに対する制限機能
 - 単体テスト、統合テスト機能(Rspec)
