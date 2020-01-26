@@ -3,7 +3,7 @@ module MicropostsHelper
   def get_exif(model)
     require 'exifr/jpeg'
     @exif = if Rails.env.production?
-              EXIFR::JPEG.new(File.open(model.picture.url))
+              EXIFR::JPEG.new(open(model.picture.url))
             else
               EXIFR::JPEG.new(Rails.root.to_s + "/public/#{model.picture.url}")
             end
