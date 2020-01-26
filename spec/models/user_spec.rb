@@ -5,55 +5,53 @@ RSpec.describe User, type: :model do
     @user = build(:user)
   end
 
-
   it 'ユーザー登録が可能である' do
     expect(build(:user)).to be_valid
   end
 
   it 'name,email,password,password_cofirmationがユーザー登録に必要である' do
     user = User.new(
-      name:                   'sample user',
-      email:                  'sample@sample.com',
-      password:               'password',
-      password_confirmation:  'password'
+      name: 'sample user',
+      email: 'sample@sample.com',
+      password: 'password',
+      password_confirmation: 'password'
     )
     expect(user).to be_valid
   end
 
-
   it'nameが存在しないユーザーを許可しない' do
     @user.name = nil
     @user.valid?
-    expect(@user.errors).to be_added(:name,:blank)
+    expect(@user.errors).to be_added(:name, :blank)
   end
 
-  it "nameが空白のユーザーを許可しない" do
-    @user.name = "   "
+  it 'nameが空白のユーザーを許可しない' do
+    @user.name = '   '
     @user.valid?
-    expect(@user.errors).to be_added(:name,:blank)
+    expect(@user.errors).to be_added(:name, :blank)
   end
 
   it 'emailが存在しないユーザーを許可しない' do
     @user.email = nil
     @user.valid?
-    expect(@user.errors).to be_added(:email,:blank)
+    expect(@user.errors).to be_added(:email, :blank)
   end
 
   it 'passwordが存在しないユーザーを許可しない' do
-    @user.password = @user.password_confirmation = " " * 6
+    @user.password = @user.password_confirmation = ' ' * 6
     @user.valid?
-    expect(@user.errors).to be_added(:password,:blank)
+    expect(@user.errors).to be_added(:password, :blank)
   end
 
   it 'passwordとpassword_confirmationの一致しないユーザーを許可しない' do
     @user.password = 'password'
     @user.password_confirmation = 'aaaaaaaa'
     @user.valid?
-    expect(@user.errors).to be_added(:password_confirmation,:confirmation,attribute: 'パスワード')
+    expect(@user.errors).to be_added(:password_confirmation, :confirmation, attribute: 'パスワード')
   end
 
   it 'nameが4文字未満のユーザーを許可しない' do
-    @user.name='a' * 3
+    @user.name = 'a' * 3
     @user.valid?
     expect(@user.errors).to be_added(:name, :too_short, count: 4)
   end
@@ -93,22 +91,22 @@ RSpec.describe User, type: :model do
 
   it 'nameが一意でないユーザーを許可しない' do
     user  = create(:user, name: 'sample')
-    user2 =  build(:user, name: 'sample')
+    user2 = build(:user, name: 'sample')
     user2.valid?
     expect(user2.errors).to be_added(:name, :taken, value: 'sample')
   end
 
   it 'nameの一意性は大文字小文字を区別する' do
-    user  = create(:user,name: 'jack')
-    user2 =  build(:user,name: 'jAck')
+    user  = create(:user, name: 'jack')
+    user2 = build(:user, name: 'jAck')
     expect(user2).to be_valid
   end
 
   it 'emailが一意でないユーザーを許可しない' do
-    user  = create(:user, email:'sample@sample.jp')
-    user2 =  build(:user, email:'sample@sample.jp')
+    user  = create(:user, email: 'sample@sample.jp')
+    user2 = build(:user, email: 'sample@sample.jp')
     user2.valid?
-    expect(user2.errors).to be_added(:email, :taken,value:'sample@sample.jp')
+    expect(user2.errors).to be_added(:email, :taken, value: 'sample@sample.jp')
   end
 
   it 'emailは全て小文字で保存される' do
@@ -116,7 +114,6 @@ RSpec.describe User, type: :model do
     @user.save!
     expect(@user.reload.email).to eq 'sample@sample.jp'
   end
-
 
   it'ユーザーが他のユーザーをフォロー、フォロー解除可能である' do
     rei   = create(:user)
@@ -144,9 +141,4 @@ RSpec.describe User, type: :model do
     rei.destroy
     expect(asuka.followers.include?(rei)).to eq false
   end
-
-
-
-
-
 end

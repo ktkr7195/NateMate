@@ -4,10 +4,14 @@
     <a href="#mypost" class="nav-link border-top-0 text-muted d-block d-sm-none" data-toggle="tab">投稿</a>
   </li>
   <li class="nav-item">
-    <a href="#followingUser" class="nav-link border-top-0 text-muted" data-toggle="tab">フォロー中 <span id="js-following"><%=@user.following.count%></span></a>
+    <a href="#followingUser" class="nav-link border-top-0 text-muted" data-toggle="tab">
+             フォロー中 <span id="js-following"><%= @user.following.count %></span>
+    </a>
   </li>
   <li class="nav-item">
-    <a href="#follower" class="nav-link border-top-0 text-muted" data-toggle="tab">フォロワー <span id="js-followers"><%=@user.followers.count%></span></a>
+    <a href="#follower" class="nav-link border-top-0 text-muted" data-toggle="tab">
+             フォロワー <span id="js-followers"><%= @user.followers.count %></span>
+    </a>
   </li>
   <li class="nav-item">
     <a href="#likes" class="nav-link border-top-0 text-muted" data-toggle="tab">いいね</a>
@@ -16,93 +20,89 @@
 
 <div class="tab-content text-center">
     <div id="mypost" class="tab-pane active">
-
-        <%if @user.microposts.any?%>
+        <% if @user.microposts.any? %>
           <div class="font-weight-bold text-muted">
-                <%=@user.microposts.count%><span class="font-weight-normal"> collected</span>
+                <%= @user.microposts.count %><span class="font-weight-normal"> collected</span>
           </div>
-                <div class="conteiner">
-                    <div class="card-group　mx-auto">
-                        <div class="row">
-                      <%=render partial: '/microposts/postcards', collection: @feed, as: "post"%>
-
-            <%=paginate @feed%>
+              <div class="conteiner">
+                  <div class="card-group　mx-auto">
+                      <div class="row">
+                        <%= render partial: '/microposts/postcards', collection: @feed, as: "post" %>
+                        <%= paginate @feed %>
                       </div>
                   </div>
               </div>
-        <%else%>
-            <%if current_user?(@user)%>
+        <% else %>
+            <% if current_user?(@user) %>
                 <p class="mt-5">まだコレクションがありません</p>
                 <p>これでは寂しいですね...</p>
-                <%= link_to '投稿する', new_micropost_path, class:"btn btn-warning"%>
-            <%else%>
+                <%= link_to '投稿する', new_micropost_path, class:"btn btn-warning" %>
+            <% else %>
                 <p class="mt-5">コレクションがありません</p>
-            <%end%>
-        <%end%>
+            <% end %>
+        <% end %>
     </div>
     <div id="followingUser" class="tab-pane">
-    <%if @following_users.any?%>
+      <% if @following_users.any? %>
         <div class="font-weight-bold text-muted">
-          <%=@following_users.count%><span class="text-muted font-weight-normal"> following</span>
+            <%= @following_users.count %><span class="text-muted font-weight-normal"> following</span>
         </div>
             <div class="conteiner">
                 <div class="card-group　mx-auto">
                     <div class="row">
-                        <%=render partial: 'users', collection: @following_users, as: "user"%>
+                        <%= render partial: 'users', collection: @following_users, as: "user" %>
                     </div>
                   </div>
               </div>
-    <%else%>
-      <%if current_user?(@user)%>
-        <p class="mt-5">フォローしているユーザーはいません...</p>
-        <p>気の合う仲間を探してみましょう！</p>
-        <%=render'/static_pages/search_form_users'%>
-      <%else%>
-        <p>フォローしているユーザーはいません</p>
-      <%end%>
-    <%end%>
-
+      <% else %>
+          <% if current_user?(@user) %>
+            <p class="mt-5">フォローしているユーザーはいません...</p>
+            <p>気の合う仲間を探してみましょう！</p>
+            <%= render'/static_pages/search_form_users' %>
+          <% else %>
+            <p>フォローしているユーザーはいません</p>
+          <% end %>
+      <% end %>
     </div>
     <div id="follower" class="tab-pane">
-      <%if @followers.any?%>
+      <% if @followers.any? %>
         <div class="font-weight-bold text-muted">
-          <%=@followers.count%><span class="text-muted font-weight-normal"> followers</span>
+          <%= @followers.count %><span class="text-muted font-weight-normal"> followers</span>
         </div>
             <div class="conteiner">
                 <div class="card-group　mx-auto">
                     <div class="row">
-                      <%=render partial: 'users', collection: @followers, as: "user"%>
+                      <%= render partial: 'users', collection: @followers, as: "user" %>
                     </div>
-                  </div>
-              </div>
-      <%else%>
-          <%if current_user?(@user)%>
+                </div>
+            </div>
+      <% else %>
+          <% if current_user?(@user) %>
             <p class="mt-5">フォロワーはまだいないようです...</p>
-          <%else%>
+          <% else %>
             <p class="mt-5">フォロワーはいません</p>
-          <%end%>
-      <%end%>
+          <% end %>
+      <% end %>
     </div>
     <div id="likes" class="tab-pane">
-      <%if @liking_posts.any?%>
-          <div class="font-weight-bold text-muted">
-     <%=@liking_posts.count%><span class="text-muted font-weight-normal"> likes</span>
-    </div>
+      <% if @liking_posts.any? %>
+        <div class="font-weight-bold text-muted">
+          <%= @liking_posts.count %><span class="text-muted font-weight-normal"> likes</span>
+        </div>
     <div class="conteiner">
         <div class="card-group　mx-auto">
             <div class="row">
-              <%=render partial: '/microposts/postcards', collection: @liking_posts, as: "post"%>
-
+              <%= render partial: '/microposts/postcards', collection: @liking_posts, as: "post" %>
             </div>
         </div>
     </div>
-      <%else%>
-        <%if current_user?(@user)%>
+      <% else %>
+        <% if current_user?(@user) %>
           <p class="mt-5">まだいいねしていません...</p>
           <p>あなたのお気に入りを探しにいきましょう！</p>
-          <%=render'/static_pages/search_form'%>
-        <%else%>
+          <%= render'/static_pages/search_form' %>
+        <% else %>
           <p class="mt-5">いいねした投稿はありません</p>
-        <%end%>
-      <%end%>
-    </div>
+        <% end %>
+      <% end %>
+</div>

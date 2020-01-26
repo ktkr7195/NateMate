@@ -13,37 +13,37 @@
         <div class="tab-content mx-auto">
             <div id="detail" class="tab-pane active">
                 <div class="text-center">
-                    <h2 class="font-weight-bold mt-2"><%=@micropost.title%></h2>
-                    <%if @micropost.content%>
-                        <span><%=@micropost.content%></span>
-                    <%end%>
+                    <h2 class="font-weight-bold mt-2"><%= @micropost.title %></h2>
+                    <% if @micropost.content %>
+                        <span><%= @micropost.content %></span>
+                    <% end %>
                 </div>
             </div>
             <div id="postmap" class="tab-pane">
                 <div class="col-12">
-                <%if @exif.gps_latitude && @exif.gps_longitude%>
-                    <%=render '/microposts/googlemaps'%>
-                <%else%>
-                <p class="text-muted mt-5">位置情報が登録されていません</p>
-                <%end%>
+                <% if @exif.gps_latitude && @exif.gps_longitude %>
+                    <%= render '/microposts/googlemaps' %>
+                <% else %>
+                    <p class="text-muted mt-5">位置情報が登録されていません</p>
+                <% end %>
                 </div>
             </div>
             <div id="likesUsers" class="tab-pane text-center">
                 <div class="col-12">
-                <%if @micropost.likes.any?%>
-                <div class="font-weight-bold text-muted">
-                    <%=@micropost.likes.count%><span class="text-muted font-weight-normal"> likes</span>
-                </div>
+                <% if @micropost.likes.any? %>
+                    <div class="font-weight-bold text-muted">
+                        <%= @micropost.likes.count %><span class="text-muted font-weight-normal"> likes</span>
+                    </div>
                     <div class="conteiner">
                         <div class="card-group">
                             <div class="row">
-                                <%=render partial: '/users/users', collection: @this_post_liking_users, as: "user"%>
+                                <%= render partial: '/users/users', collection: @this_post_liking_users, as: "user" %>
                             </div>
                         </div>
                     </div>
-                <%else%>
+                <% else %>
                     <p class="text-muted mt-5">いいねはまだありません</p>
-                <%end%>
+                <% end %>
                 </div>
             </div>
         </div>

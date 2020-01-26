@@ -21,9 +21,7 @@ class Users::SessionsController < Devise::SessionsController
   protected
 
   def delete_redundant_flash
-    if flash[:notice].present?
-       flash.delete(:notice)
-    end
+    flash.delete(:notice) if flash[:notice].present?
   end
 
   # If you have extra params to permit, append them to the sanitizer.

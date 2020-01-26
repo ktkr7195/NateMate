@@ -1,10 +1,9 @@
-<%provide(:title,"ログイン")%>
+<% provide(:title,"ログイン") %>
 <div class="text-center">
   <h2 class="font-weight-bold">ログイン</h2>
-
-<div class="form-group mt-5">
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <%=render "layouts/flash"%>
+  <div class="form-group mt-5">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= render 'layouts/flash' %>
 
     <div class="field border-bottom">
       <%= f.label :email %><br />
@@ -26,8 +25,7 @@
     <div class="actions">
      <%= f.submit "ログイン",{class:"btn btn-lg btn-warning mt-2"} %>
     </div>
-  <% end %>
-  <%=render 'devise/shared/guest_loginbtn'%>
-</div>
-
+    <% end %>
+    <%= render 'devise/shared/guest_loginbtn' %>
+  </div>
 </div>

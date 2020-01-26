@@ -1,63 +1,69 @@
 <div>
     <nav class="navbar navbar-expand navbar-light mb-3">
-        <%= link_to 'NateMate', root_path, class: "navbar-brand font-weight-bold d-none d-sm-block",data: {"turbolinks" => false}%>
-        <%= link_to 'NateMate', root_path, class: "navbar-brand titleMin font-weight-bold d-block d-sm-none",data: {"turbolinks" => false}%>
+        <%= link_to 'NateMate', root_path, class: "navbar-brand font-weight-bold d-none d-sm-block",
+                                           data: { "turbolinks" => false } %>
+        <%= link_to 'NateMate', root_path, class: "navbar-brand titleMin font-weight-bold d-block d-sm-none",
+                                           data: { "turbolinks" => false } %>
         <% if user_signed_in? %>
             <ul class="navbar-nav mr-auto align-items-center">
                 <li class="nav-item">
-                    <%if user_avatar_valid?(current_user)%>
-                        <%=link_to image_tag(current_user.avatar.url, size:"35x35",
-                                             class:"avatarTypeCircle"), current_user,class:"nav-link navAvatar"%>
-                    <%else%>
-                        <%=link_to image_tag(asset_path("default.jpg"),   size:"35x35",
-                                             class:"avatartypeCircle"), current_user,class:"nav-link navAvatar"%>
-                    <%end%>
+                    <% if user_avatar_valid?(current_user) %>
+                        <%= link_to image_tag(current_user.avatar.url, size:"35x35",
+                                             class:"avatarTypeCircle"), current_user,class:"nav-link navAvatar" %>
+                    <% else %>
+                        <%= link_to image_tag(asset_path("default.jpg"),   size:"35x35",
+                                             class:"avatartypeCircle"), current_user,class:"nav-link navAvatar" %>
+                    <% end %>
                 </li>
                 <li class="nav-item userName d-none d-md-block"><%= link_to current_user.name, current_user, class:"nav-link" %></li>
-                <li class="nav-item d-none d-sm-block"><%= link_to users_path, class:"nav-link usersIcon" do%></li>
+                <li class="nav-item d-none d-sm-block"><%= link_to users_path, class:"nav-link usersIcon" do %>
                     <i class="fas fa-users fa-2x fa-fw d-none d-sm-block"></i>
-                <%end%>
+                    <% end %>
+                </li>
             </ul>
+
             <ul class="navbar-nav align-items-center">
-                <li class="nav-item"><%= link_to new_micropost_path, class:"nav-link btn nav-btn" do %></li>
+                <li class="nav-item"><%= link_to new_micropost_path, class:"nav-link btn nav-btn" do %>
                     <i class="fas fa-paper-plane fa-2x fa-fw"></i>
-                <%end%>
+                    <% end %>
+                </li>
                 <li class="dropdown">
                     <a href="#" class="btn nav-btn nav-link" data-toggle="dropdown"><i class="fas fa-align-justify fa-2x"></i></a>
                     <ul class="dropdown-menu dropdown-menu-right">
-                        <li class="dropdown-item nav-item"><%= link_to users_path,class:"d-block d-sm-none nav-link" do%>
+                        <li class="dropdown-item nav-item"><%= link_to users_path,class:"d-block d-sm-none nav-link" do %>
                                                                 <i class="fas fa-users"></i><span> ユーザー検索</span>
-                                                           <%end%>
+                                                           <% end %>
                         </li>
-                        <li class="dropdown-item nav-item"><%= link_to current_user,class:"nav-link" do%>
+                        <li class="dropdown-item nav-item"><%= link_to current_user,class:"nav-link" do %>
                                                                 <i class="fas fa-user"></i><span> マイページ</span>
-                                                           <%end%>
+                                                           <% end %>
                         </li>
-                        <li class="dropdown-item nav-item"><%= link_to destroy_user_session_path,method: :delete, class:"nav-link" do%>
+                        <li class="dropdown-item nav-item"><%= link_to destroy_user_session_path,method: :delete, class:"nav-link" do %>
                                                                 <i class="fas fa-sign-out-alt"></i><span> ログアウト</span>
-                                                           <%end%>
+                                                           <% end %>
                         </li>
-                        <li class="dropdown-item nav-item"><%= link_to '/contact',class:"nav-link" do%>
+                        <li class="dropdown-item nav-item"><%= link_to '/contact',class:"nav-link" do %>
                                                                 <i class="fas fa-phone-alt"></i><span> お問い合わせ</span>
-                                                           <%end%>
+                                                           <% end %>
                         </li>
                     </ul>
                 </li>
             </ul>
-        <%else%>
+        <% else %>
             <ul class="navbar-nav ml-auto align-items-center">
-                <li class="nav-item d-none d-sm-block"> <%= link_to new_user_session_path,      class:"nav-link" do%>
+                <li class="nav-item d-none d-sm-block"> <%= link_to new_user_session_path, class:"nav-link" do %>
                                                             <i class="fas fa-sign-in-alt"></i><span> ログイン</span>
-                                                        <%end%>
-                <li class="nav-item d-block d-sm-none"> <%= link_to new_user_session_path,      class:"nav-link" do%>
-                                                            <i class="fas fa-sign-in-alt fa-lg"></i>
-                                                        <%end%>
+                                                        <% end %>
                 </li>
-                <li class="nav-item"> <%= link_to new_user_registration_path, class:"nav-link" do%>
+                <li class="nav-item d-block d-sm-none"> <%= link_to new_user_session_path, class:"nav-link" do %>
+                                                            <i class="fas fa-sign-in-alt fa-lg"></i>
+                                                        <% end %>
+                </li>
+                <li class="nav-item"> <%= link_to new_user_registration_path, class:"nav-link" do %>
                                         <i class="fas fa-user-plus fa-lg"></i>
-                                      <%end%>
+                                      <% end %>
                 </li>
             </ul>
-        <%end%>
+        <% end %>
     </nav>
 </div>

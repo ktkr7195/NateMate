@@ -10,17 +10,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  #def create
+  # def create
   # super
-  #end
+  # end
 
   # GET /resource/edit
   def edit
-     super
-     if current_user.remove_avatar
-        current_user.avatar=nil
-     end
-   end
+    super
+    current_user.avatar = nil if current_user.remove_avatar
+  end
 
   # PUT /resource
   # def update
@@ -54,12 +52,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # The path used after sign up.
-  #def after_sign_up_path_for(resource)
-    #super(resource)
-  #end
+  # def after_sign_up_path_for(resource)
+  # super(resource)
+  # end
 
   # The path used after sign up for inactive accounts.
-  def after_inactive_sign_up_path_for(resource)
+  def after_inactive_sign_up_path_for(_resource)
     new_user_session_path
   end
 end

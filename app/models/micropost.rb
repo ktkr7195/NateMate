@@ -4,9 +4,9 @@ class Micropost < ApplicationRecord
   has_many :like_users, through: :likes, source: :user
   default_scope -> { order(created_at: :desc) }
   mount_uploader :picture, PictureUploader
-  validates :user_id,presence: true
-  validates :title,  presence: true,length: { maximum: 20 }
-  validates :content,length: { maximum: 140 }
+  validates :user_id, presence: true
+  validates :title, presence: true, length: { maximum: 20 }
+  validates :content, length: { maximum: 140 }
   validates :picture, presence: { message: 'が選択されていません' }
 
   def like(user)
