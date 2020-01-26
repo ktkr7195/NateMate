@@ -12,10 +12,8 @@
 
         <div class="tab-content mx-auto">
             <div id="detail" class="tab-pane active">
-                <div class="mx-auto">
-                    <%if @micropost.title%>
-                        <h2 class="font-weight-bold mt-2"><%=@micropost.title%></h2>
-                    <%end%>
+                <div class="text-center">
+                    <h2 class="font-weight-bold mt-2"><%=@micropost.title%></h2>
                     <%if @micropost.content%>
                         <span><%=@micropost.content%></span>
                     <%end%>
