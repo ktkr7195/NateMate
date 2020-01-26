@@ -31,4 +31,4 @@
         var marker = new google.maps.Marker(markerOptions);
     };
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKzRFzRm9R9J2m33cap0TI04MoJfad4iY&callback=initMap" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%=Rails.application.credentials.dig(:google,:api_key)%>&callback=initMap" async defer></script>
