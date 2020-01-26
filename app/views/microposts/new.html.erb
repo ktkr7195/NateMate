@@ -1,31 +1,33 @@
-<%provide(:title,"新規投稿")%>
+<% provide(:title,"新規投稿") %>
 <div class="text-center">
     <h1 class="font-weight-bold">新しいコレクション</h1>
     <div class="form-group mt-5">
-      <%=form_for(@micropost) do |f|%>
-      <%= render "layouts/error_messages", model: f.object %>
+      <%= form_for(@micropost) do |f| %>
+        <%= render "layouts/error_messages", model: f.object %>
 
-      <div class="postPicturePrev mt-5">
-        <% if picture_valid?(@micropost) %>
-          <%= image_tag @micropost.picture.url(:thumb), id: :js_imgPrev,class:"postPrev"%>
-        <% else %>
-          <%=image_tag asset_path("defaultPicture.jpg"),id: :js_imgPrev,size:"550x450",class:"postPrev"%>
+          <div class="postPicturePrev mt-5">
+            <% if picture_valid?(@micropost) %>
+              <%= image_tag @micropost.picture.url(:thumb), id: :js_imgPrev, class:"postPrev" %>
+            <% else %>
+              <%= image_tag asset_path("defaultPicture.jpg"), id: :js_imgPrev,size:"550x450", class:"postPrev" %>
+            <% end %>
+          </div>
+          <div class="field border-bottom mt-2 picChooseBtn">
+            <label for="js_presentImg" class="btn btn-warning"><span>画像を選択</span>
+              <%= f.file_field :picture, accept: 'image/jpeg,image/png', id: :js_presentImg, autofocus: true,
+                                     class:"form-control-file", style: "display:none;" %><br />
+            </label><br />
+          </div>
+
+            <div class="field border-bottom">
+              <%= f.text_field :title, placeholder:"この写真にタイトルをつけましょう！", class:"form-control border-0 mt-2" %><br />
+            </div>
+
+            <div class="field border-bottom">
+              <%= f.text_area :content, placeholder:"  この写真についてもっと教えてください！",
+                                        class:"form-area border-0 mt-2", size: "58x8" %><br />
+            </div>
+            <%= f.submit '投稿する！', class:"btn btn-lg btn-warning mt-5" %>
         <% end %>
-      </div>
-      <div class="field border-bottom mt-2 picChooseBtn">
-        <label for="js_presentImg" class="btn btn-warning"><span>画像を選択</span>
-          <%= f.file_field :picture,accept: 'image/jpeg,image/png' ,id: :js_presentImg,autofocus: true,class:"form-control-file",style: "display:none;"%><br />
-        </label><br />
-      </div>
-
-<div class="field border-bottom">
-    <%=f.text_field :title,placeholder:"この写真にタイトルをつけましょう！",class:"form-control border-0 mt-2"%><br />
-</div>
-<div class="field border-bottom">
-    <%=f.text_area :content,placeholder:"  この写真についてもっと教えてください！",class:"form-area border-0 mt-2",size: "58x8"%><br />
-</div>
-    <%=f.submit '投稿する！',class:"btn btn-lg btn-warning mt-5"%>
-
-    <%end%>
     </div>
 </div>

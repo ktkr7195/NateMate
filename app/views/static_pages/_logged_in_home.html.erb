@@ -2,39 +2,38 @@
     <h1 class="font-weight-bold homeTopCopy">Hello Nature!</h1>
     <p>さあ、新しい世界を探しに行きましょう！</p>
 </div>
-<%= render'/static_pages/search_form'%>
-
+<%= render'/static_pages/search_form' %>
 <ul class="nav nav-tabs justify-content-center mt-5">
-  <li class="nav-item">
-    <a href="#newPostFeed" class="nav-link border-top-0 text-muted active" data-toggle="tab">新着</a>
-  </li>
-  <li class="nav-item">
-    <a href="#followingUserFeed" class="nav-link border-top-0 text-muted" data-toggle="tab">タイムライン</a>
-  </li>
+    <li class="nav-item">
+        <a href="#newPostFeed" class="nav-link border-top-0 text-muted active" data-toggle="tab">新着</a>
+    </li>
+    <li class="nav-item">
+        <a href="#followingUserFeed" class="nav-link border-top-0 text-muted" data-toggle="tab">タイムライン</a>
+    </li>
 </ul>
 
 <div class="tab-content text-center">
     <div id="newPostFeed" class="tab-pane active">
-            <%if @feed.any?%>
-                <div class="conteiner">
-                    <div class="card-group　mx-auto">
-                        <div class="row">
-                            <%=render partial: '/microposts/postcards', collection: @feed, as: "post"%>
-                        </div>
+        <% if @feed.any? %>
+            <div class="conteiner">
+                <div class="card-group　mx-auto">
+                    <div class="row">
+                        <%= render partial: '/microposts/postcards', collection: @feed, as: "post" %>
                     </div>
                 </div>
-            <%end%>
+            </div>
+        <% end %>
     </div>
     <div id="followingUserFeed" class="tab-pane">
-            <%if @following_users_feed.any?%>
-                <div class="conteiner">
-                    <div class="card-group　mx-auto">
-                        <div class="row">
-                            <%=render partial: '/microposts/postcards', collection: @following_users_feed, as: "post"%>
-                        </div>
+        <% if @following_users_feed.any? %>
+            <div class="conteiner">
+                <div class="card-group　mx-auto">
+                    <div class="row">
+                        <%= render partial: '/microposts/postcards', collection: @following_users_feed, as: "post" %>
                     </div>
-                <div>
-            <%end%>
+                </div>
+            <div>
+        <% end %>
     </div>
 </div>
 

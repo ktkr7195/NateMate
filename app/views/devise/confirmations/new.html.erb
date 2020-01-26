@@ -1,19 +1,17 @@
 <div class="text-center">
-<h2 class="font-weight-bold mb-5">アカウント有効化メール再送</h2>
+  <h2 class="font-weight-bold mb-5">アカウント有効化メール再送</h2>
 
-<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+  <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
-
   <div class="field border-bottom">
     <%= f.label :resend_email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email",
-    value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email),
-    class:'form-control border-0'%>
+                      value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email),
+                      class:'form-control border-0'%>
   </div>
-
   <div class="actions mt-5">
     <%= f.submit "再送する" ,class:"btn btn-warning btn-lg"%>
   </div>
-<% end %>
+  <% end %>
 </div>
 

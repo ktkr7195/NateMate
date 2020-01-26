@@ -1,5 +1,5 @@
-<%flash.each do |key,value|%>
+<% flash.each do |key,value| %>
     <div class="text-danger mb-3">
-        <i class="fas fa-exclamation-triangle"></i><%=content_tag(:span, value, class: "flash flash__#{key}")%>
+        <i class="fas fa-exclamation-triangle"></i><%= content_tag(:span, value, class: "flash flash__#{key}") %>
     </div>
-<%end%>
+<% end %>

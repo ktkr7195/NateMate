@@ -1,11 +1,11 @@
 <% if user_signed_in? && @user != current_user %>
-<div id="js-followForm">
-    <%if current_user.following?(@user)%>
-        <%= render 'unfollow' %>
-    <%else%>
-        <%= render 'follow' %>
-    <%end%>
-<%end%>
-</div>
+    <div id="js-followForm">
+        <% if current_user.following?(@user) %>
+            <%= render 'unfollow' %>
+        <% else %>
+            <%= render 'follow' %>
+        <% end %>
+    </div>
+<% end %>
 
 
