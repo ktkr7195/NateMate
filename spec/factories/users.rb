@@ -5,5 +5,19 @@ FactoryBot.define do
     password                { 'password' }
     password_confirmation   { 'password' }
     confirmed_at            { Date.today }
+
+  trait :guest do
+    name     { 'guest' }
+    email    { 'guest@guest.com' }
+    password { 'password' }
+  end
+
+  trait :unconfirmed_user do
+    name  { 'uncomfirmed' }
+    email { 'unconfirmed@user.com' }
+    password { 'password' }
+    confirmed_at { nil }
+  end
+
   end
 end

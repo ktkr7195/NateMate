@@ -15,13 +15,13 @@
                 <div class="text-center">
                     <h2 class="font-weight-bold mt-2"><%= @micropost.title %></h2>
                     <% if @micropost.content %>
-                        <span><%= @micropost.content %></span>
+                        <span style="white-space:pre-wrap"><%= @micropost.content %></span>
                     <% end %>
                 </div>
             </div>
             <div id="postmap" class="tab-pane">
                 <div class="col-12">
-                <% if @exif.gps_latitude && @exif.gps_longitude %>
+                <% if exif_valid?(@micropost) %>
                     <%= render '/microposts/googlemaps' %>
                 <% else %>
                     <p class="text-muted mt-5">位置情報が登録されていません</p>

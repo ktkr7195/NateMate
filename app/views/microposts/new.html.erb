@@ -19,15 +19,21 @@
             </label><br />
           </div>
 
-            <div class="field border-bottom">
-              <%= f.text_field :title, placeholder:"この写真にタイトルをつけましょう！", class:"form-control border-0 mt-2" %><br />
-            </div>
+          <div class="field text-muted">
+            <%= f.check_box :exif_is_valid %>
+            <%= f.label :exif_is_valid, '画像の位置情報を使用します' %>
+          </div>
 
-            <div class="field border-bottom">
-              <%= f.text_area :content, placeholder:"  この写真についてもっと教えてください！",
-                                        class:"form-area border-0 mt-2", size: "58x8" %><br />
-            </div>
-            <%= f.submit '投稿する！', class:"btn btn-lg btn-warning mt-5" %>
+          <div class="field border-bottom">
+            <%= f.text_field :title, placeholder:"この写真にタイトルをつけましょう！(20字以内)", class:"form-control border-0 mt-2" %><br />
+            <span></span>
+          </div>
+
+          <div class="field border-bottom">
+            <%= f.text_area :content, placeholder:"  この写真についてもっと教えてください！(140字以内)",
+                                      class:"form-area border-0 mt-2", size: "58x8" %><br />
+          </div>
+          <%= f.submit '投稿する！', class:"btn btn-lg btn-warning mt-5" %>
         <% end %>
     </div>
 </div>

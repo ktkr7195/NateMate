@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_01_055105) do
+ActiveRecord::Schema.define(version: 2020_02_02_103203) do
 
   create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.integer "user_id"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 2019_12_01_055105) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "picture"
     t.string "title"
+    t.boolean "exif_is_valid", default: true, null: false
     t.index ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_microposts_on_user_id"
   end

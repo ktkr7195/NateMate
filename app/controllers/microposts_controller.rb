@@ -1,5 +1,5 @@
 class MicropostsController < ApplicationController
-  before_action :authenticate_user!, only: %i[new create destroy index]
+  before_action :authenticate_user!, only: %i[new create destroy]
   before_action :correct_user, only: [:destroy]
 
   def new
@@ -20,7 +20,7 @@ class MicropostsController < ApplicationController
   def show
     @micropost = Micropost.find(params[:id])
     @this_post_liking_users = @micropost.like_users.page(params[:page])
-    get_exif(@micropost)
+    get_exif(@micropost) if @micropost.exif_is_valid == true
   end
 
   def index
@@ -39,6 +39,6 @@ class MicropostsController < ApplicationController
   end
 
   def micropost_params
-    params.require(:micropost).permit(:title, :content, :picture)
+    params.require(:micropost).permit(:title, :content, :picture, :exif_is_valid)
   end
 end
