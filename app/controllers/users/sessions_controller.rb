@@ -5,7 +5,7 @@ class Users::SessionsController < Devise::SessionsController
   before_action :delete_redundant_flash
   # GET /resource/sign_in
   # def new
-  #   super
+  #  super
   # end
 
   # POST /resource/sign_in
