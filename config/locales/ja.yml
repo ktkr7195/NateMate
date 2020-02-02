@@ -10,6 +10,7 @@ ja:
         title: タイトル
         picture: 画像
         content: 本文
+        exif: 画像の位置情報を使用します
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
