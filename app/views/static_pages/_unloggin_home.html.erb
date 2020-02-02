@@ -24,12 +24,16 @@
 
 <div class="border mb-5"></div>
 
-<h2 class="text-center font-weight-bold">みんなのコレクション</h2>
-    <div class="conteiner">
-        <div class="card-group　mx-auto">
-            <div class="row">
-                <%= render partial: '/microposts/postcards', collection: @feed, as: "post" %>
+<h2 class="text-center font-weight-bold mb-3">みんなのコレクション</h2>
+    <%= render 'search_form' %>
+        <div class="conteiner">
+            <div class="card-group　mx-auto">
+                <div class="row">
+                    <%= render partial: '/microposts/postcards', collection: @feed, as: "post" %>
+                    <div class="mx-auto">
+                        <%= paginate @feed %>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
 
