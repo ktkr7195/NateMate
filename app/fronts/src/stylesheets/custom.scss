@@ -79,6 +79,28 @@ body{
     .postPrev{
         border-radius:5px;
     }
+    .field{
+        width:40%;
+        margin:0 auto
+    }
+    .postPicture{
+        width:700px;
+        height:700px;
+        border-radius: 5px;
+    }
+    .homeTopCopy{
+        font-size:80px;
+    }
+    .likeBtn{
+        background:none;
+        border:none;
+    }
+    .likeBtn:focus{
+        outline:0;
+    }
+    .fa-bars{
+        font-size:18px;
+    }
 }
 
 footer{
@@ -105,29 +127,7 @@ padding-right:50px;
 .slick-dots{
     right:0px;
 }
-.field{
-    width:40%;
-    margin:0 auto
-}
-.postPicture{
-    width:700px;
-    height:700px;
-    border-radius: 5px;
-}
-.homeTopCopy{
-    font-size:80px;
-}
-.likeBtn{
-    background:none;
-    border:none;
 
-}
-.likeBtn:focus{
-    outline:0;
-}
-.fa-bars{
-    font-size:18px;
-}
 
 
 
