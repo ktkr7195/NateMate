@@ -28,7 +28,9 @@
                   <div class="card-group　mx-auto">
                       <div class="row">
                         <%= render partial: '/microposts/postcards', collection: @feed, as: "post" %>
-                        <%= paginate @feed %>
+                        <div class="mx-auto">
+                            <%= paginate @feed %>
+                        </div>
                       </div>
                   </div>
               </div>
@@ -51,6 +53,9 @@
                 <div class="card-group　mx-auto">
                     <div class="row">
                         <%= render partial: 'users', collection: @following_users, as: "user" %>
+                        <div class="mx-auto">
+                            <%= paginate @following_users %>
+                        </div>
                     </div>
                   </div>
               </div>
@@ -73,6 +78,9 @@
                 <div class="card-group　mx-auto">
                     <div class="row">
                       <%= render partial: 'users', collection: @followers, as: "user" %>
+                      <div class="mx-auto">
+                          <%= paginate @followers %>
+                      </div>
                     </div>
                 </div>
             </div>
@@ -93,6 +101,9 @@
         <div class="card-group　mx-auto">
             <div class="row">
               <%= render partial: '/microposts/postcards', collection: @liking_posts, as: "post" %>
+              <div class="mx-auto">
+                <%= paginate @liking_posts %>
+              </div>
             </div>
         </div>
     </div>
