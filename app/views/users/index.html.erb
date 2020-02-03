@@ -8,6 +8,9 @@
             <div class="card-group　mx-auto">
                 <div class="row">
                     <%= render partial: 'users', collection: @user_search_feeds, as: "user" %>
+                    <div class="mx-auto">
+                        <%= paginate @user_search_feeds %>
+                    </div>
                 </div>
             </div>
         </div>

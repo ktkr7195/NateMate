@@ -16,6 +16,7 @@
       <% end %>
     <% end %>
 <% else %>
-  <span class="text-muted"><%= post.likes.count %> いいね！</span>
+  <span class="text-muted d-sm-block d-none"><%= post.likes.count %> いいね！</span>
+  <span class="text-muted d-sm-none d-block"><i class="fas fa-heart text-danger fa-fw"></i> <%= post.likes.count %></span>
 <% end %>
 

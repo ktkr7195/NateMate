@@ -3,13 +3,13 @@
     <h1 class="font-weight-bold">新しいコレクション</h1>
     <div class="form-group mt-5">
       <%= form_for(@micropost) do |f| %>
-        <%= render "layouts/error_messages", model: f.object %>
+        <%= render "shared/error_messages", model: f.object %>
 
           <div class="postPicturePrev mt-5">
             <% if picture_valid?(@micropost) %>
-              <%= image_tag @micropost.picture.url(:thumb), id: :js_imgPrev, class:"postPrev" %>
+              <%= image_tag @micropost.picture.url(:thumb), id: :js_imgPrev, class:"postPrev img-fluid" %>
             <% else %>
-              <%= image_tag asset_path("defaultPicture.jpg"), id: :js_imgPrev,size:"550x450", class:"postPrev" %>
+              <%= image_tag asset_path("defaultPicture.jpg"), id: :js_imgPrev,size:"550x450", class:"postPrev img-fluid" %>
             <% end %>
           </div>
           <div class="field border-bottom mt-2 picChooseBtn">

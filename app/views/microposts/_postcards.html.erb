@@ -1,13 +1,14 @@
 <div class="card border-0 col-6 col-sm-6 col-md-4 postCards" style="width: 100px">
-    <%= link_to image_tag(post.picture.url,size:"100x300",class:"card-img-top"),post %>
+    <%= link_to image_tag(post.picture.url, size:"700x700",class:"card-img-top img-fluid"),post %>
         <div class="card-body border-bottom">
+            <i class="text-muted float-left">by</i>
             <% if avatar_valid?(post) %>
-                <%= link_to image_tag(post.user.avatar.url, size:"30x30", class:'avatarTypeCircle float-left mr-2'),post.user %>
+                <%= link_to image_tag(post.user.avatar.url, size:"30x30", class:'avatarTypeCircle float-left mr-sm-2'),post.user %>
             <% else %>
-                <%= link_to image_tag(asset_path('default.jpg'), size:"30x30", class:'avatarTyoeCircle float-left mr-2'),post.user %>
+                <%= link_to image_tag(asset_path('default.jpg'), size:"30x30", class:'avatarTypeCircle float-left mr-sm-2'),post.user %>
             <% end %>
-                <%= link_to post.user.name, post.user,class:"float-left text-dark" %>
-                <span class="float-left ml-2 text-muted"><%=post.created_at.strftime("%Y-%m-%d")%></span>
+                <%= link_to post.user.name, post.user,class:"float-left text-dark d-none d-sm-block" %>
+                <span class="float-left ml-2 text-muted  d-sm-block d-none"><%=post.created_at.strftime("%Y-%m-%d")%></span>
                 <span class="float-right" id="micropost-<%= post.id %>">
                     <%= render partial: '/likes/likes_btn',locals: { post: post } %>
                 </span>
