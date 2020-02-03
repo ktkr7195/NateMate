@@ -9,10 +9,10 @@
                 <li class="nav-item">
                     <% if user_avatar_valid?(current_user) %>
                         <%= link_to image_tag(current_user.avatar.url, size:"35x35",
-                                             class:"avatarTypeCircle"), current_user,class:"nav-link navAvatar" %>
+                                             class:"avatarTypeCircle"), current_user, class:"nav-link navAvatar" %>
                     <% else %>
-                        <%= link_to image_tag(asset_path("default.jpg"),   size:"35x35",
-                                             class:"avatartypeCircle"), current_user,class:"nav-link navAvatar" %>
+                        <%= link_to image_tag(asset_path("default.jpg"), size:"35x35",
+                                             class:"avatartypeCircle"), current_user, class:"nav-link navAvatar" %>
                     <% end %>
                 </li>
                 <li class="nav-item userName d-none d-md-block"><%= link_to current_user.name, current_user, class:"nav-link" %></li>
@@ -30,19 +30,19 @@
                 <li class="dropdown">
                     <a href="#" class="btn nav-btn nav-link" data-toggle="dropdown"><i class="fas fa-align-justify fa-2x"></i></a>
                     <ul class="dropdown-menu dropdown-menu-right">
-                        <li class="dropdown-item nav-item"><%= link_to users_path,class:"d-block d-sm-none nav-link" do %>
+                        <li class="dropdown-item nav-item"><%= link_to users_path, class:"d-block d-sm-none nav-link" do %>
                                                                 <i class="fas fa-users"></i><span> ユーザー検索</span>
                                                            <% end %>
                         </li>
-                        <li class="dropdown-item nav-item"><%= link_to current_user,class:"nav-link" do %>
+                        <li class="dropdown-item nav-item"><%= link_to current_user, class:"nav-link" do %>
                                                                 <i class="fas fa-user"></i><span> マイページ</span>
                                                            <% end %>
                         </li>
-                        <li class="dropdown-item nav-item"><%= link_to destroy_user_session_path,method: :delete, data:{confirm:"ログアウトしてよろしいですか？"}, class:"nav-link" do %>
+                        <li class="dropdown-item nav-item"><%= link_to destroy_user_session_path, method: :delete, data:{confirm:"ログアウトしてよろしいですか？"}, class:"nav-link" do %>
                                                                 <i class="fas fa-sign-out-alt"></i><span> ログアウト</span>
                                                            <% end %>
                         </li>
-                        <li class="dropdown-item nav-item"><%= link_to '/contact',class:"nav-link" do %>
+                        <li class="dropdown-item nav-item"><%= link_to '/contact', class:"nav-link" do %>
                                                                 <i class="fas fa-phone-alt"></i><span> お問い合わせ</span>
                                                            <% end %>
                         </li>
