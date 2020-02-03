@@ -19,11 +19,11 @@
                 <div class="card-group　mx-auto">
                     <div class="row">
                         <%= render partial: '/microposts/postcards', collection: @feed, as: "post" %>
+                        <div class="mx-auto">
+                            <%= paginate @feed %>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="justify-content-center ">
-                <%= paginate @feed %>
             </div>
         <% end %>
     </div>
@@ -33,11 +33,11 @@
                 <div class="card-group　mx-auto">
                     <div class="row">
                         <%= render partial: '/microposts/postcards', collection: @following_users_feed, as: "post" %>
+                        <div class="mx-auto">
+                            <%= paginate @feed %>
+                        </div>
                     </div>
                 </div>
-            <div>
-            <div class="justify-content-center">
-                <%= paginate @following_users_feed %>
             </div>
         <% end %>
     </div>
