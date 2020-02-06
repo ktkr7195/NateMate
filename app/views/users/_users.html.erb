@@ -3,7 +3,7 @@
     <div class="card border-0 col-12">
         <div class="card-body">
             <% if user_avatar_valid?(user) %>
-                <% link_to image_tag(user.avatar.url,size:"30x30",class:"avatarTypeCircle"),user %>
+                <%= link_to image_tag(user.avatar.url,size:"30x30",class:"avatarTypeCircle"),user %>
             <% else %>
                 <%= link_to (image_tag asset_path("default.jpg"),size:"30x30",class:"avatarTypeCircle"),user %>
             <% end %>
@@ -27,7 +27,7 @@
     <div class="card border-0 col-12 d-block d-sm-none">
         <div class="card-body">
             <% if user_avatar_valid?(user) %>
-                <% link_to image_tag(user.avatar.url,size:"30x30",class:"avatarTypeCircle"),user %>
+                <%= link_to image_tag(user.avatar.url,size:"30x30",class:"avatarTypeCircle"),user %>
             <% else %>
                 <%= link_to (image_tag asset_path("default.jpg"),size:"30x30",class:"avatarTypeCircle"),user %>
             <% end %>
