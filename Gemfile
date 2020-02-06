@@ -34,6 +34,7 @@ group :development, :test do
   gem 'capistrano-rails', require: false
   gem 'capistrano-rbenv', require: false
   gem 'capistrano3-puma', require: false
+  gem 'capistrano-rails-console'
   gem 'ed25519'
   gem 'factory_bot_rails'
   gem 'rspec-rails'
