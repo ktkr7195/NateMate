@@ -1,0 +1,73 @@
+<input name="post_json" type="hidden" value=<%= @post_json_data %> class='post_json'/>
+<div id='map' class="mx-auto text-muted">Loading...</div>
+<style>
+#map{
+  height: 400px;
+  width:  95%;
+  margin-top:25px;
+  background-image:url("<%= asset_path("loading.gif") %>");
+  background-repeat:no-repeat;
+  background-position: center center;
+}
+</style>
+<script>
+    function initMap() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          function(position) {
+            var LatLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+            var mapOptions = {
+              zoom : 5,
+              center : LatLng
+            };
+            var map = new google.maps.Map(document.getElementById("map"),mapOptions);
+
+            var primarymarker = new google.maps.Marker({
+              map : map,
+              position : LatLng,
+              animation: google.maps.Animation.DROP
+            });
+            var post_json = $('.post_json').val();
+            var post_data = JSON.parse(post_json);
+
+            post_data.map(post => {
+              const postmarker = new google.maps.Marker({
+                position: {lat: post.latitude, lng: post.longitude},
+                map: map,
+                animation: google.maps.Animation.DROP
+              });
+
+              var picture_tag = "<img src='"+ post.picture.url +"' width=200px height=150px>"
+
+              var infoWindow = new google.maps.InfoWindow({
+                  content: picture_tag+="<div><a href='/microposts/"+ post.id + "'>"+ post.title +"</a></div>",
+                  maxWidth: 1000
+              });
+              google.maps.event.addListener(postmarker, 'click', function(event) {
+                        infoWindow.open(map, postmarker);
+              });
+            });
+          },
+          function(error) {
+            switch(error.code) {
+              case 1:
+                alert("位置情報の利用が許可されていません");
+                break;
+              case 2:
+                alert("現在位置が取得できませんでした");
+                break;
+              case 3:
+                alert("タイムアウトになりました");
+                break;
+              default:
+                alert("その他のエラー(エラーコード:"+error.code+")");
+                break;
+            };
+          }
+        );
+      } else {
+                alert("お使いのブラウザはは位置情報に対応していません");
+      };
+    };
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%=Rails.application.credentials.dig(:google,:api_key)%>&callback=initMap" async defer></script>
