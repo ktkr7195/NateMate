@@ -1,4 +1,4 @@
-<div id='map'></div>
+<div id='map' class="mx-auto"></div>
 <style>
 #map{
   height: 350px;
@@ -10,16 +10,16 @@
 <script>
     function initMap(){
         let map = new google.maps.Map(document.getElementById('map'), {
-        <% if @lat && @lng %>
-            center: {lat:<%=@lat%>, lng:<%=@lng%>},
+        <% if @micropost.latitude && @micropost.longitude %>
+            center: {lat:<%=@micropost.latitude%>, lng:<%=@micropost.longitude%>},
         <% else %>
             center: {lat:35.6804, lng: 139.769017},
         <% end %>
             zoom: 10
         });
 
-        <% if @lat && @lng %>
-            var exif_position = {lat:<%=@lat%>, lng:<%=@lng%>};
+        <% if @micropost.latitude && @micropost.longitude %>
+            var exif_position = {lat:<%=@micropost.latitude%>, lng:<%=@micropost.longitude%>};
         <% else %>
             var exif_position = {lat: 35.6804, lng: 139.769017};
         <% end %>

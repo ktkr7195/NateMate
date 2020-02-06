@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
 
   protected
 
-  # 新規登録、ログイン後のリダイレクト先を変更
+  # 新規登録、ログイン後のリダイレクト先
   def after_sign_in_path_for(_resource)
     current_user
   end

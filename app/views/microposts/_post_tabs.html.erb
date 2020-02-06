@@ -19,16 +19,14 @@
                     <% end %>
                 </div>
             </div>
-            <div id="postmap" class="tab-pane">
-                <div class="col-12">
+            <div id="postmap" class="tab-pane col-12">
                 <% if exif_valid?(@micropost) %>
                     <%= render '/microposts/googlemaps' %>
                 <% else %>
                     <p class="text-muted mt-5">位置情報が登録されていません</p>
                 <% end %>
-                </div>
             </div>
-            <div id="likesUsers" class="tab-pane text-center">
+            <div id="likesUsers" class="tab-pane">
                 <div class="col-12">
                 <% if @micropost.likes.any? %>
                     <div class="font-weight-bold text-muted">

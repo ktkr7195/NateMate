@@ -9,6 +9,10 @@ class MicropostsController < ApplicationController
   def create
     @micropost = current_user.microposts.build(micropost_params)
     if @micropost.save
+      get_exif(@micropost) if @micropost.exif_is_valid == true
+      if @lat && @lng
+        @micropost.update_attributes(latitude: @lat, longitude: @lng)
+      end
       redirect_to current_user
     else
       @followimg_users_feed = []
@@ -20,7 +24,6 @@ class MicropostsController < ApplicationController
   def show
     @micropost = Micropost.find(params[:id])
     @this_post_liking_users = @micropost.like_users.page(params[:page])
-    get_exif(@micropost) if @micropost.exif_is_valid == true
   end
 
   def index

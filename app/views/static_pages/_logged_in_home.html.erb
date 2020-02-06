@@ -5,7 +5,10 @@
 <%= render'/static_pages/search_form' %>
 <ul class="nav nav-tabs justify-content-center mt-5">
     <li class="nav-item">
-        <a href="#newPostFeed" class="nav-link border-top-0 text-muted active" data-toggle="tab">新着</a>
+        <a href="#geolocationMap" class="nav-link border-top-0 text-muted active" data-toggle="tab">Myマップ</a>
+    </li>
+    <li class="nav-item">
+        <a href="#newPostFeed" class="nav-link border-top-0 text-muted" data-toggle="tab">新着</a>
     </li>
     <li class="nav-item">
         <a href="#followingUserFeed" class="nav-link border-top-0 text-muted" data-toggle="tab">タイムライン</a>
@@ -13,7 +16,14 @@
 </ul>
 
 <div class="tab-content text-center">
-    <div id="newPostFeed" class="tab-pane active">
+    <div id="geolocationMap" class="tab-pane active">
+        <div class="conteiner">
+            <div class="row">
+                <%= render 'geolocation_map'%>
+            </div>
+        </div>
+    </div>
+    <div id="newPostFeed" class="tab-pane">
         <% if @feed.any? %>
             <div class="conteiner">
                 <div class="card-group　mx-auto">

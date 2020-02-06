@@ -13,8 +13,9 @@ $( document ).on('turbolinks:load',function(){
         $('.slider').slick('goTo', $(this).index());
     });
 });
-$( document ).on('turbolinks:load',function() {
+
 //画像プレビュー
+$( document ).on('turbolinks:load',function() {
 function readURL(input) {
   if (input.files && input.files[0]) {
   var reader = new FileReader();
@@ -27,5 +28,4 @@ $('#js_imgPrev').attr('src', e.target.result);
 $("#js_presentImg").change(function(){
   readURL(this);
 });
-
 });
