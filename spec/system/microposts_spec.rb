@@ -10,7 +10,7 @@ RSpec.describe 'Microposts', type: :system, js: true do
         fill_in 'メールアドレス', with: @user.email
         fill_in 'パスワード', with: @user.password
         click_button 'ログイン'
-        expect(page).to have_content 'コレクション'
+        expect(page).to have_content "コレクション"
 
       end
 

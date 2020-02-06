@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
 
   # 新規登録、ログイン後のリダイレクト先
   def after_sign_in_path_for(_resource)
-    root_path
+    current_user
   end
 
   def configure_permitted_parameters
