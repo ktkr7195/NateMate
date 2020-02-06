@@ -17,7 +17,7 @@
                 <% if avatar_valid?(@micropost) %>
                     <%= link_to image_tag(@micropost.user.avatar.url,size:"40x40",class:"avatarTypeCircle"),@micropost.user %>
                 <% else %>
-                    <%=link_to image_tag(asset_path('default.jpg'),size:"40x40",class:"avatarTypeCircle"),@micropost.user %>
+                    <%= link_to image_tag(asset_path('default.jpg'),size:"40x40",class:"avatarTypeCircle"),@micropost.user %>
                 <% end %>
             <%= link_to @micropost.user.name,@micropost.user,class:"text-muted" %>
             <%= render "delete_icon" %>
