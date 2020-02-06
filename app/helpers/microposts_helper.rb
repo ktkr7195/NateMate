@@ -9,10 +9,12 @@ module MicropostsHelper
             end
     @lat = @exif.gps_latitude.to_f
     @lng = @exif.gps_longitude.to_f
+
+  rescue EXIFR::MalformedImage, EXIFR::MalformedJPEG
   end
 
   def exif_valid?(model)
-    return true if model.exif_is_valid == true && @exif.gps_latitude && @exif.gps_longitude
+    return true if model.exif_is_valid == true && model.latitude && model.longitude
 
     false
   end
