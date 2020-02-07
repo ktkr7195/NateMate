@@ -42,3 +42,5 @@ yarn-debug.log*
 *.tfstate*
 *.tfvars
 
+*sitemap.xml.gz
+
