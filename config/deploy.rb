@@ -80,12 +80,11 @@ namespace :deploy do
     task :sitemap do
       on roles(:app) do
        within release_path do
-          execute :bundle, :exec, :rake, 'sitemap:create RAILS_ENV=production'
+          execute :bundle, :exec, :rake, 'sitemap:create'
           end
        end
     end
 before :starting,:check_revision
-after :deploy,:sitemap
 after :finishing,:compile_assets
 after :finishing,:cleanup
 end
