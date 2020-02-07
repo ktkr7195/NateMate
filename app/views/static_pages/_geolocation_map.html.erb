@@ -16,6 +16,7 @@
         navigator.geolocation.getCurrentPosition(
           function(position) {
             var LatLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+
             var mapOptions = {
               zoom : 5,
               center : LatLng
@@ -25,7 +26,7 @@
             var primarymarker = new google.maps.Marker({
               map : map,
               position : LatLng,
-              animation: google.maps.Animation.DROP
+              zindex: 2
             });
             var post_json = $('.post_json').val();
             var post_data = JSON.parse(post_json);
@@ -34,10 +35,12 @@
               const postmarker = new google.maps.Marker({
                 position: {lat: post.latitude, lng: post.longitude},
                 map: map,
+                zindex: 1,
+                icon: 'https://maps.google.com/mapfiles/ms/icons/green-dot.png',
                 animation: google.maps.Animation.DROP
               });
 
-              var picture_tag = "<img src='"+ post.picture.url +"' width=200px height=150px>"
+              var picture_tag = "<img src='"+ post.picture.url +"' width=200px height=150px>";
 
               var infoWindow = new google.maps.InfoWindow({
                   content: picture_tag+="<div><a href='/microposts/"+ post.id + "'>"+ post.title +"</a></div>",
