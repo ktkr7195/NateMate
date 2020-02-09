@@ -12,16 +12,12 @@
         let map = new google.maps.Map(document.getElementById('map'), {
         <% if @micropost.latitude && @micropost.longitude %>
             center: {lat:<%=@micropost.latitude%>, lng:<%=@micropost.longitude%>},
-        <% else %>
-            center: {lat:35.6804, lng: 139.769017},
         <% end %>
             zoom: 10
         });
 
         <% if @micropost.latitude && @micropost.longitude %>
             var exif_position = {lat:<%=@micropost.latitude%>, lng:<%=@micropost.longitude%>};
-        <% else %>
-            var exif_position = {lat: 35.6804, lng: 139.769017};
         <% end %>
 
         var markerOptions = {

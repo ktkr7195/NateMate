@@ -23,6 +23,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :confirmable
 
   mount_uploader :avatar, AvatarUploader
+  paginates_per 9
 
   def following_users_feed
     following_ids = "SELECT followed_id FROM relationships

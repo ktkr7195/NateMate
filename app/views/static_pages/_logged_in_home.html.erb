@@ -27,11 +27,11 @@
         <% if @feed.any? %>
             <div class="conteiner">
                 <div class="card-group　mx-auto">
-                    <div class="row">
+                    <div id="new_post_list" class="row">
                         <%= render partial: '/microposts/postcards', collection: @feed, as: "post" %>
-                        <div class="mx-auto">
-                            <%= paginate @feed %>
-                        </div>
+                    </div>
+                    <div class="text-center mt-2">
+                        <%= link_to_next_page @feed, 'さらに表示', remote: true, params: { type: :new_post_list }, id: 'view_more', class: 'btn btn-warning btn-lg'%>
                     </div>
                 </div>
             </div>
@@ -41,11 +41,11 @@
         <% if @following_users_feed.any? %>
             <div class="conteiner">
                 <div class="card-group　mx-auto">
-                    <div class="row">
+                    <div id="friendly_post_list" class="row">
                         <%= render partial: '/microposts/postcards', collection: @following_users_feed, as: "post" %>
-                        <div class="mx-auto">
-                            <%= paginate @feed %>
-                        </div>
+                    </div>
+                    <div class="text-center mt-2">
+                        <%= link_to_next_page @following_users_feed, 'さらに表示', remote: true, params: { type: :friendly_post_list }, id: 'view_more', class: 'btn btn-warning btn-lg'%>
                     </div>
                 </div>
             </div>

@@ -26,11 +26,11 @@
           </div>
               <div class="conteiner">
                   <div class="card-group　mx-auto">
-                      <div class="row">
+                      <div id="post_list" class="row">
                         <%= render partial: '/microposts/postcards', collection: @feed, as: "post" %>
-                        <div class="mx-auto">
-                            <%= paginate @feed %>
-                        </div>
+                      </div>
+                      <div class="text-center mt-2">
+                          <%= link_to_next_page @feed,'さらに表示',remote: true, params: { type: :post_list }, id: "view_more", class: "btn btn-warning btn-lg" %>
                       </div>
                   </div>
               </div>
@@ -51,11 +51,11 @@
         </div>
             <div class="conteiner">
                 <div class="card-group　mx-auto">
-                    <div class="row">
+                    <div id="following_list" class="row">
                         <%= render partial: 'users', collection: @following_users, as: "user" %>
-                        <div class="mx-auto">
-                            <%= paginate @following_users %>
-                        </div>
+                    </div>
+                    <div class="text-center mt-2">
+                        <%= link_to_next_page @following_users, 'さらに表示',remote: true, params: { type: :following_list }, id: 'view_more', class: 'btn btn-warning btn-lg' %>
                     </div>
                   </div>
               </div>
@@ -76,11 +76,11 @@
         </div>
             <div class="conteiner">
                 <div class="card-group　mx-auto">
-                    <div class="row">
+                    <div id="follower_list" class="row">
                       <%= render partial: 'users', collection: @followers, as: "user" %>
-                      <div class="mx-auto">
-                          <%= paginate @followers %>
-                      </div>
+                    </div>
+                    <div class="text-center mt-2">
+                      <%= link_to_next_page @followers,'さらに表示', remote: true, params: { type: :follower_list }, id: 'view_more', class: 'btn btn-warning btn-lg' %>
                     </div>
                 </div>
             </div>
@@ -99,11 +99,11 @@
         </div>
     <div class="conteiner">
         <div class="card-group　mx-auto">
-            <div class="row">
+            <div id="liking_list" class="row">
               <%= render partial: '/microposts/postcards', collection: @liking_posts, as: "post" %>
-              <div class="mx-auto">
-                <%= paginate @liking_posts %>
-              </div>
+            </div>
+            <div class="text-center mt-2">
+              <%= link_to_next_page @liking_posts, 'さらに表示',remote: true, params: { type: :liking_list },id: 'view_more', class: 'btn btn-warning btn-lg' %>
             </div>
         </div>
     </div>

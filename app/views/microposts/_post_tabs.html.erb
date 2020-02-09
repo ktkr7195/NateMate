@@ -20,7 +20,7 @@
                 </div>
             </div>
             <div id="postmap" class="tab-pane col-12">
-                <% if exif_valid?(@micropost) %>
+                <% if exif_valid?(@micropost) || address_valid?(@micropost)%>
                     <%= render '/microposts/googlemaps' %>
                 <% else %>
                     <p class="text-muted mt-5">位置情報が登録されていません</p>
