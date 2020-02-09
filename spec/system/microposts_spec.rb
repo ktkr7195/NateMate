@@ -19,6 +19,7 @@ RSpec.describe 'Microposts', type: :system, js: true do
 
         expect(page).to have_selector 'h1',text: '新しいコレクション'
         expect(page).to have_field 'js_presentImg',visible: false
+        expect(page).to have_field placeholder:'例)東京都渋谷区'
         expect(page).to have_field placeholder:'この写真にタイトルをつけましょう！(20字以内)'
         expect(page).to have_field placeholder:'  この写真についてもっと教えてください！(140字以内)'
         expect(page).to have_button '投稿する！'
@@ -28,7 +29,8 @@ RSpec.describe 'Microposts', type: :system, js: true do
         visit '/microposts/new'
 
         attach_file 'js_presentImg',"#{Rails.root}/spec/fixtures/test.jpg", visible: false
-        find('.form-control').set('sample_title')
+        find('.address-form').set('北海道札幌市')
+        find('.title-form').set('sample_title')
         find('.form-area').set('sample_content')
         click_button '投稿する！'
 
@@ -39,6 +41,10 @@ RSpec.describe 'Microposts', type: :system, js: true do
         @micropost = Micropost.first
         expect(@micropost.title).to eq('sample_title')
         expect(@micropost.content).to eq('sample_content')
+        expect(@micropost.address).to eq('北海道札幌市')
+        #geocodingが正確に行われているか
+        expect(@micropost.latitude).to eq(43.0614)
+        expect(@micropost.longitude).to eq(141.355)
 
         #投稿詳細ページに遷移
         visit "/microposts/#{@micropost.id}"
