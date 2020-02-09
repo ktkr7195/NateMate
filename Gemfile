@@ -27,6 +27,7 @@ gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 4.0'
 gem 'sitemap_generator'
 gem 'whenever', require: false
+gem 'geocoder'
 
 group :development, :test do
   gem 'bcrypt_pbkdf'
