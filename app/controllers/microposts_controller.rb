@@ -9,7 +9,7 @@ class MicropostsController < ApplicationController
   def create
     @micropost = current_user.microposts.build(micropost_params)
     if @micropost.save
-      get_exif(@micropost) if @micropost.exif_is_valid == true
+      get_exif(@micropost) if @micropost.exif_is_valid == true && @micropost.address.blank?
       if @lat && @lng
         @micropost.update_attributes(latitude: @lat, longitude: @lng)
       end
@@ -42,6 +42,6 @@ class MicropostsController < ApplicationController
   end
 
   def micropost_params
-    params.require(:micropost).permit(:title, :content, :picture, :exif_is_valid)
+    params.require(:micropost).permit(:title, :content, :picture, :exif_is_valid, :address, :latitude, :longitude)
   end
 end

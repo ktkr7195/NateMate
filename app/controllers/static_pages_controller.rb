@@ -7,6 +7,13 @@ class StaticPagesController < ApplicationController
     @following_users_feed = current_user.following_users_feed.page(params[:page]).per(6)
     @current_user_post = Micropost.where(user_id: current_user.id).where(exif_is_valid: true)
     @post_json_data = @current_user_post.to_json(only: [:id, :title, :picture, :latitude, :longitude])
+
+    return unless request.xhr?
+
+    case params[:type]
+    when 'new_post_list', 'friendly_post_list'
+      render "shared/#{params[:type]}"
+    end
   end
 
   def contact

@@ -4,16 +4,18 @@
             <%= render'/static_pages/search_form' %>
           </div>
           <div class="font-weight-bold text-muted">
-            <span>検索結果:</span><%= @search_feeds.count %><span class="font-weight-normal">件</span>
+            <span>検索結果:</span><%= @search_count.count %><span class="font-weight-normal">件</span>
           </div>
               <div class="conteiner">
                   <div class="card-group　mx-auto">
-                      <div class="row">
+                      <div id="search_post_list" class="row">
                         <%= render partial: '/microposts/postcards', collection: @search_feeds, as: "post" %>
+                      </div>
+                      <div class="text-center mt-2">
+                        <%= link_to_next_page @search_feeds, 'さらに表示', remote: true, id: 'view_more', class: 'btn btn-warning btn-lg' %>
                       </div>
                   </div>
               </div>
-              <%= paginate @search_feeds %>
         <% else %>
               <div class="text-center">
                 <%= render'/static_pages/search_form' %>
