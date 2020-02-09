@@ -22,6 +22,9 @@
             <div id="postmap" class="tab-pane col-12">
                 <% if exif_valid?(@micropost) || address_valid?(@micropost)%>
                     <%= render '/microposts/googlemaps' %>
+                    <%if @micropost.address %>
+                        <span class="text-muted">from <%= @micropost.address %></span>
+                    <% end %>
                 <% else %>
                     <p class="text-muted mt-5">位置情報が登録されていません</p>
                 <% end %>
