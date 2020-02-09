@@ -12,21 +12,26 @@
               <%= image_tag asset_path("defaultPicture.jpg"), id: :js_imgPrev,size:"550x450", class:"postPrev img-fluid" %>
             <% end %>
           </div>
-          <div class="field border-bottom mt-2 picChooseBtn">
+          <div class="field border-bottom picChooseBtn">
             <label for="js_presentImg" class="btn btn-warning"><span>画像を選択</span>
               <%= f.file_field :picture, accept: 'image/jpeg,image/png', id: :js_presentImg, autofocus: true,
-                                     class:"form-control-file", style: "display:none;" %><br />
-            </label><br />
+                                     class:"form-control-file", style: "display:none;" %>
+            </label>
           </div>
 
-          <div class="field text-muted">
+          <div class="field text-muted font-weight-bold">
             <%= f.check_box :exif_is_valid %>
-            <%= f.label :exif_is_valid, '画像の位置情報を使用します' %>
+            <%= f.label :exif_is_valid, '画像から位置情報を取得' %>
+          </div>
+          <div class="text-muted">or</div>
+　　　　　　<div class="text-muted font-weight-bold">住所から位置情報を取得</div>
+
+          <div class="field border-bottom">
+            <%= f.text_field :address, placeholder:"例)東京都渋谷区一丁目", class:"form-control border-0" %>
           </div>
 
           <div class="field border-bottom">
             <%= f.text_field :title, placeholder:"この写真にタイトルをつけましょう！(20字以内)", class:"form-control border-0 mt-2" %><br />
-            <span></span>
           </div>
 
           <div class="field border-bottom">
