@@ -19,5 +19,12 @@ FactoryBot.define do
     confirmed_at { nil }
   end
 
+  trait :admin do
+    name     { 'admin' }
+    email    { 'admin@admin.com' }
+    password { 'password' }
+    admin    { true }
+  end
+
   end
 end

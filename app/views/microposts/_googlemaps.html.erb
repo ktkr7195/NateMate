@@ -13,7 +13,7 @@
         <% if @micropost.latitude && @micropost.longitude %>
             center: {lat:<%=@micropost.latitude%>, lng:<%=@micropost.longitude%>},
         <% end %>
-            zoom: 10
+            zoom: 7
         });
 
         <% if @micropost.latitude && @micropost.longitude %>
