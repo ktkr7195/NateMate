@@ -76,14 +76,6 @@ namespace :deploy do
       end
     end
 
-    desc 'Generate sitemap'
-    task :sitemap do
-      on roles(:app) do
-       within release_path do
-          execute :bundle, :exec, :rake, 'sitemap:create'
-          end
-       end
-    end
 before :starting,:check_revision
 after :finishing,:compile_assets
 after :finishing,:cleanup
