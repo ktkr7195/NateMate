@@ -9,6 +9,9 @@
             <% end %>
                 <%= link_to post.user.name, post.user,class:"float-left text-dark d-none d-sm-block" %>
                 <span class="float-left ml-2 text-muted  d-sm-block d-none"><%=post.created_at.strftime("%m/%d %H:%M")%></span>
+                <% if exif_valid?(post) || address_valid?(post) %>
+                    <i class="fas fa-map-pin text-danger fa-lg float-left ml-2 d-none d-sm-block"></i>
+                <% end %>
                 <span class="float-right" id="micropost-<%= post.id %>">
                     <%= render partial: '/likes/likes_btn',locals: { post: post } %>
                 </span>

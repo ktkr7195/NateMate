@@ -57,15 +57,15 @@ RSpec.describe User, type: :model do
       expect(@user.errors).to be_added(:name, :too_short, count: 4)
     end
 
-    it 'nameが4文字以上15文字以下のユーザーを許可する' do
+    it 'nameが4文字以上20文字以下のユーザーを許可する' do
       @user.name = 'a' * 5
       expect(@user).to be_valid
     end
 
-    it 'nameが16文字以上のユーザーを許可しない' do
-      @user.name = 'a' * 16
+    it 'nameが21文字以上のユーザーを許可しない' do
+      @user.name = 'a' * 21
       @user.valid?
-      expect(@user.errors).to be_added(:name, :too_long, count: 15)
+      expect(@user.errors).to be_added(:name, :too_long, count: 20)
     end
 
     it 'emailが255文字以下のユーザーを許可する' do

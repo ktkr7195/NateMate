@@ -12,7 +12,7 @@ class User < ApplicationRecord
   has_many :like_microposts, through: :likes, source: :micropost
 
   validates :name, presence: true, uniqueness: { case_sensitive: true },
-                   length: { minimum: 4, maximum: 15 }
+                   length: { minimum: 4, maximum: 20 }
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i.freeze
   validates :email, presence: true, length: { maximum: 255 },
@@ -23,7 +23,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :confirmable
 
   mount_uploader :avatar, AvatarUploader
-  paginates_per 9
+  paginates_per 8
 
   def following_users_feed
     following_ids = "SELECT followed_id FROM relationships

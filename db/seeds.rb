@@ -1,7 +1,11 @@
-User.create!(name: "guest",
-             email: "guest@guest.com",
-             password: "password",
-             password_confirmation: "password",
-             confirmed_at: Time.zone.now,
-             confirmation_sent_at: Time.zone.now,
-            )
+Faker::Config.locale = :en
+20.times do |n|
+    name  = Faker::Name.name
+    email = "sample#{n+1}@sample.com"
+    password = "password"
+    User.create!(name:  name,
+                 email: email,
+                 password:              password,
+                 password_confirmation: password,
+                 confirmed_at: Date.today)
+  end
