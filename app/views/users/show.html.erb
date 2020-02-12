@@ -12,8 +12,8 @@
         <i class="fas fa-user-cog text-muted"></i>
       <% end %>
     <% end %>
-    <% if @user.admin %>
-      <%= button_to "このアカウントを削除", registration_path(resource_name), :data => { :confirm => "本当に削除しますか?" }, :method => :delete %>
+    <% if current_user.admin %>
+      <%= button_to "このアカウントを削除", @user, :data => { :confirm => "本当に削除しますか?" }, :method => :delete %>
     <% end %>
 <%= render 'follow_btn' %>
 <%= render'feed_tabs' %>
