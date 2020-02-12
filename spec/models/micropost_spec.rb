@@ -52,4 +52,10 @@ RSpec.describe Micropost, type: :model do
     micropost.valid?
     expect(micropost.errors).to be_added(:content, :too_long, count: 140)
   end
+
+  it 'titleは、半角、全角スペースを削除して保存される' do
+    micropost.title = 'sa m　ple'
+    micropost.save!
+    expect(micropost.reload.title).to eq 'sample'
+  end
 end

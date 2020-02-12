@@ -27,6 +27,6 @@ class Micropost < ApplicationRecord
 
   private
     def kill_whitespace
-      self.title = title.gsub(/[[:space:]]/, '')
+      self.title = title.gsub(/[[:space:]]/, '') if self.title.present?
     end
 end
