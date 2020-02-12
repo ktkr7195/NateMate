@@ -6,15 +6,15 @@
     <% else %>
       <%= image_tag asset_path('default.jpg'),size:"200x200" %>
     <% end %>
-  <span class="personalName"><%= @user.name %></span>
+  <span class="personalName ml-2">@<%= @user.name %></span>
     <% if current_user?(@user) && @user.name != "guest" %>
       <%= link_to edit_user_registration_path do %>
         <i class="fas fa-user-cog text-muted"></i>
       <% end %>
     <% end %>
+    <%= render 'follow_btn' %>
     <% if current_user.admin %>
-      <%= button_to "このアカウントを削除", @user, :data => { :confirm => "本当に削除しますか?" }, :method => :delete %>
+      <%= button_to "このアカウントを削除", @user, :data => { :confirm => "本当に削除しますか?" }, :method => :delete,class: 'btn-danger' %>
     <% end %>
-<%= render 'follow_btn' %>
 <%= render'feed_tabs' %>
 
