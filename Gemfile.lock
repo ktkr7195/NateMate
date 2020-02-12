@@ -308,7 +308,6 @@ GEM
     fog-xml (0.1.3)
       fog-core
       nokogiri (>= 1.5.11, < 2.0.0)
-    foreman (0.87.0)
     formatador (0.2.5)
     geocoder (1.6.1)
     globalid (0.4.2)
@@ -572,7 +571,6 @@ DEPENDENCIES
   faker
   fog (= 1.42)
   fog-aws
-  foreman
   geocoder
   jbuilder (~> 2.7)
   kaminari

@@ -8,8 +8,8 @@
         <div class="col-12 text-center">
             <%= image_tag(@micropost.picture.url, size:"700x700",class:"postPicture img-fluid") %>
         </div>
-        <span class="postLikesBtn text-right" id="micropost-<%= @micropost.id %>"></span>
-            <%= render partial: '/likes/likes_btn',locals: { post: @micropost } %>
+        <span class="postLikesBtn float-right" id="micropost-<%= @micropost.id %>">
+            <%= render partial: '/likes/likes_btn',locals: { post: @micropost } %></span>
             <%= render 'post_tabs' %>
         <div class="col-12 text-center mt-5">
             <span class="text-muted">by </span>
