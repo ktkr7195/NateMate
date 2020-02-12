@@ -20,7 +20,7 @@ module MicropostsHelper
   end
 
   def address_valid?(model)
-    return true if model.address && model.latitude != 0.0
+    return true if model.address && model.latitude.present? && model.latitude != 0.0
 
     false
   end
