@@ -4,6 +4,7 @@ class Micropost < ApplicationRecord
   has_many :like_users, through: :likes, source: :user
   default_scope -> { order(created_at: :desc) }
   mount_uploader :picture, PictureUploader
+  before_validation :kill_whitespace
   geocoded_by :address
   after_validation :geocode
   validates :user_id, presence: true
@@ -23,4 +24,9 @@ class Micropost < ApplicationRecord
   def like?(user)
     like_users.include?(user)
   end
+
+  private
+    def kill_whitespace
+      self.title = title.gsub(/[[:space:]]/, '') if self.title.present?
+    end
 end
