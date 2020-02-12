@@ -29,7 +29,7 @@
               zindex: 2
             });
             var post_json = $('.post_json').val();
-            var post_data = JSON.parse(post_json);
+            var post_data = JSON.parse(post_json || "null");
 
             post_data.map(post => {
               const postmarker = new google.maps.Marker({

@@ -14,13 +14,15 @@ module MicropostsHelper
   end
 
   def exif_valid?(model)
-    return true if model.exif_is_valid == true && model.latitude && model.longitude && model.latitude != 0.0
+    return true if model.exif_is_valid == true && model.latitude.present? && model.longitude.present? \
+                                               && model.latitude != 0.0 && model.longitude != 0.0
 
     false
   end
 
   def address_valid?(model)
-    return true if model.address && model.latitude.present? && model.latitude != 0.0
+    return true if model.address && model.latitude.present? && model.longitude.present? \
+                                 && model.latitude != 0.0 && model.longitude != 0.0
 
     false
   end
