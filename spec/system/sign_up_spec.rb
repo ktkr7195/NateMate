@@ -16,7 +16,7 @@ RSpec.describe 'Sign_up', type: :system do
   end
 
   describe 'registrations#new' do
-    it 'ユーザーを新規登録し、アカウントを有効化し、ログイン可能' do
+    it 'ユーザーを新規登録可能' do
       visit '/users/sign_up'
 
       fill_in 'ユーザーネーム',with: 'testuser'

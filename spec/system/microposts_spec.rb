@@ -55,6 +55,8 @@ RSpec.describe 'Microposts', type: :system, js: true do
         expect(page.driver.browser.switch_to.alert.text).to eq "コレクションから「#{@micropost.title}」を削除します"
         page.driver.browser.switch_to.alert.accept
         expect(current_path).to eq user_path(@user)
+
+        #投稿が削除されているか
         expect(Micropost.where(id: @user.id).count).to eq 0
       end
     end
