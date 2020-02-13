@@ -22,7 +22,7 @@
 
 # Ignore master key for decrypting credentials and more.
 */master.key
-*secrets.yml
+*/secrets.yml
 
 /public/packs
 /public/packs-test
@@ -38,8 +38,10 @@ yarn-debug.log*
 /.rspec
 /.browserslistrc
 
+# terraform
 */.terraform
 *.tfstate*
 *.tfvars
 
+# sitemap
 *sitemap.xml.gz
