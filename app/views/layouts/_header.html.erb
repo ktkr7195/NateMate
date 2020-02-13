@@ -2,21 +2,21 @@
     <nav class="navbar navbar-expand navbar-light mb-3">
         <%= link_to 'NateMate', root_path, class: "navbar-brand font-weight-bold d-none d-sm-block",
                                            data: { "turbolinks" => false } %>
-        <%= link_to 'NateMate', root_path, class: "navbar-brand titleMin font-weight-bold d-block d-sm-none",
+        <%= link_to 'NateMate', root_path, class: "navbar-brand title-min font-weight-bold d-block d-sm-none",
                                            data: { "turbolinks" => false } %>
         <% if user_signed_in? %>
             <ul class="navbar-nav mr-auto align-items-center">
                 <li class="nav-item">
                     <% if user_avatar_valid?(current_user) %>
                         <%= link_to image_tag(current_user.avatar.url, size:"35x35",
-                                             class:"avatarTypeCircle"), current_user, class:"nav-link navAvatar" %>
+                                             class:"avatarTypeCircle"), current_user, class:"nav-link nav-avatar" %>
                     <% else %>
                         <%= link_to image_tag(asset_path("default.jpg"), size:"35x35",
-                                             class:"avatartypeCircle"), current_user, class:"nav-link navAvatar" %>
+                                             class:"avatarTypeCircle"), current_user, class:"nav-link nav-avatar" %>
                     <% end %>
                 </li>
-                <li class="nav-item userName d-none d-md-block"><%= link_to current_user.name, current_user, class:"nav-link" %></li>
-                <li class="nav-item d-none d-sm-block"><%= link_to users_path, class:"nav-link usersIcon" do %>
+                <li class="nav-item user-name d-none d-md-block"><%= link_to current_user.name, current_user, class:"nav-link" %></li>
+                <li class="nav-item d-none d-sm-block"><%= link_to users_path, class:"nav-link" do %>
                     <i class="fas fa-users fa-2x fa-fw d-none d-sm-block"></i>
                     <% end %>
                 </li>

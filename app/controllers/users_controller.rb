@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     @followers = @user.followers.page(params[:page])
     @liking_posts = @user.like_microposts.page(params[:page])
 
-    #jsリクエストなら
+    #jsリクエストで通過
     return unless request.xhr?
     #renderするjsファイル振り分け
     case params[:type]
