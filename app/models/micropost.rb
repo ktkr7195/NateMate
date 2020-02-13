@@ -11,7 +11,7 @@ class Micropost < ApplicationRecord
   validates :title, presence: true, length: { maximum: 20 }
   validates :content, length: { maximum: 140 }
   validates :picture, presence: { message: 'が選択されていません' }
-  paginates_per 6
+  paginates_per 9
 
   def like(user)
     likes.create(user_id: user.id)
