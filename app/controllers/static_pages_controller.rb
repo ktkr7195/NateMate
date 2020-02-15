@@ -6,7 +6,7 @@ class StaticPagesController < ApplicationController
 
     @following_users_feed = current_user.following_users_feed.page(params[:page])
     @current_user_post = Micropost.where(user_id: current_user.id,exif_is_valid: true).or \
-                        (Micropost.where(user_id: current_user.id).where.not(address: nil,latitude: nil))
+                        (Micropost.where(user_id: current_user.id).where.not(address: nil).where.not(latitude: nil))
     @post_json_data = @current_user_post.to_json(only: %i[id title picture latitude longitude])
 
     return unless request.xhr?
