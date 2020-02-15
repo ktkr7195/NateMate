@@ -19,11 +19,11 @@
     <div class="card border-0 col-sm-6 col-md-4 col-xl-3 d-none d-sm-block post-cards" style="width: 100px">
             <div class="card-body">
                 <% if user_avatar_valid?(user) %>
-                    <%=link_to image_tag(user.avatar.url,size:"200x200",class:'avatar-type-circle'),user %><br />
+                    <%=link_to image_tag(user.avatar.url,size:"200x200",class:'avatar-type-square'),user %>
                 <% else %>
-                    <%=link_to image_tag(asset_path('default.jpg'),size:"200x200",class:'avatar-type-circle'),user %><br />
+                    <%=link_to image_tag(asset_path('default.jpg'),size:"200x200",class:'avatar-type-square'),user %>
                 <% end %>
-                <%= link_to user.name,user,class:"text-dark" %>
+                <span class="text-muted">@</span><%= link_to user.name,user,class:"text-dark" %>
                 <% if follow_exchanged?(user) %>
                     <span><i class="fas fa-hands-helping text-success"></i></span>
                 <% end%>

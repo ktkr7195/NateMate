@@ -7,9 +7,9 @@
 
     <div class="avatar_prev">
       <% if user_avatar_valid?(@user)%>
-        <%= image_tag current_user.avatar.url, id: :js_imgPrev,size:"200x200",class:"avatarTypeCircle" %>
+        <%= image_tag current_user.avatar.url, id: :js_imgPrev,size:"200x200",class:"avatar-type-circle" %>
       <% else %>
-        <%= image_tag asset_path("default.jpg"), id: :js_imgPrev,size:"200x200",class:"avatarTypeCircle"%>
+        <%= image_tag asset_path("default.jpg"), id: :js_imgPrev,size:"200x200",class:"avatar-type-circle"%>
       <% end %>
     </div>
 
