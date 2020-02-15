@@ -5,8 +5,9 @@ class StaticPagesController < ApplicationController
     return unless user_signed_in?
 
     @following_users_feed = current_user.following_users_feed.page(params[:page])
-    @current_user_post = Micropost.where(user_id: current_user.id).where(exif_is_valid: true)
-    @post_json_data = @current_user_post.to_json(only: [:id, :title, :picture, :latitude, :longitude])
+    @current_user_post = Micropost.where(user_id: current_user.id,exif_is_valid: true).or \
+                        (Micropost.where(user_id: current_user.id).where.not(address: nil,latitude: nil))
+    @post_json_data = @current_user_post.to_json(only: %i[id title picture latitude longitude])
 
     return unless request.xhr?
 
