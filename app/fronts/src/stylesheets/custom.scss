@@ -31,15 +31,15 @@ body{
         list-style: none;
     }
 
-    .personalName{
+    .personal-name{
         font-size:20px;
         font-weight:bold;
     }
-    .postLikesBtn{
+    .post-likes-btn{
         margin-left:860px;
     }
 
-    .feedName{
+    .feed-name{
         margin-top:15px;
         margin-bottom:10px;
     }
@@ -51,50 +51,51 @@ body{
         padding-left:15px;
     }
 
-    .avatarTypeCircle{
+    .avatar-type-circle{
         border-radius: 50%;
     }
 
-    .postCards{
+    .post-cards{
         margin-top:25px;
     }
-    .homeBtn{
+    .home-btn{
         margin-top:15px;
         margin-bottom:20px;
     }
-    .feedName{
+    .feed-name{
         margin-top:15px;
         margin-bottom:10px;
     }
-    .topCopy{
+    .top-copy{
         display:block;
         margin-top:15px;
     }
-    .postPrev{
+    .post-prev{
         border-radius:5px;
     }
     .field{
         width:40%;
         margin:0 auto
     }
-    .postPicture{
+    .post-picture{
         width:700px;
         height:700px;
         border-radius: 5px;
     }
-    .homeTopCopy{
+    .home-top-copy{
         font-size:80px;
     }
-    .likeBtn{
+    .like-button{
         background:none;
         border:none;
     }
-    .likeBtn:focus{
+    .like-button:focus{
         outline:0;
     }
     .fa-bars{
         font-size:18px;
     }
+
 }
 
 footer{

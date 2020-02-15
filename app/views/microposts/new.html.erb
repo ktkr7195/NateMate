@@ -7,9 +7,9 @@
 
           <div class="postPicturePrev mt-5">
             <% if picture_valid?(@micropost) %>
-              <%= image_tag @micropost.picture.url, id: :js_imgPrev, size:"600x450", class:"postPrev img-fluid" %>
+              <%= image_tag @micropost.picture.url, id: :js_imgPrev, size:"600x450", class:"post-prev img-fluid" %>
             <% else %>
-              <%= image_tag asset_path("defaultPicture.jpg"), id: :js_imgPrev,size:"550x450", class:"postPrev img-fluid" %>
+              <%= image_tag asset_path("defaultPicture.jpg"), id: :js_imgPrev,size:"550x450", class:"post-rev img-fluid" %>
             <% end %>
           </div>
           <div class="field border-bottom picChooseBtn">

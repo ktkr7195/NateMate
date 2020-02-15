@@ -6,17 +6,17 @@
 <div class="conteiner">
     <div class="row">
         <div class="col-12 text-center">
-            <%= image_tag(@micropost.picture.url, size:"700x700",class:"postPicture img-fluid") %>
+            <%= image_tag(@micropost.picture.url, size:"700x700",class:"post-picture img-fluid") %>
         </div>
-        <span class="postLikesBtn float-right" id="micropost-<%= @micropost.id %>">
+        <span class="post-likes-btn float-right" id="micropost-<%= @micropost.id %>">
             <%= render partial: '/likes/likes_btn',locals: { post: @micropost } %></span>
             <%= render 'post_tabs' %>
         <div class="col-12 text-center mt-5">
             <span class="text-muted">by </span>
                 <% if avatar_valid?(@micropost) %>
-                    <%= link_to image_tag(@micropost.user.avatar.url,size:"40x40",class:"avatarTypeCircle"),@micropost.user %>
+                    <%= link_to image_tag(@micropost.user.avatar.url,size:"40x40",class:"avatar-type-circle"),@micropost.user %>
                 <% else %>
-                    <%= link_to image_tag(asset_path('default.jpg'),size:"40x40",class:"avatarTypeCircle"),@micropost.user %>
+                    <%= link_to image_tag(asset_path('default.jpg'),size:"40x40",class:"avatar-type-circle"),@micropost.user %>
                 <% end %>
             <%= link_to @micropost.user.name,@micropost.user,class:"text-muted border-bottom" %>
             <span class="text-muted">at:<%=@micropost.created_at.strftime("%Y-%m/%d %H:%M")%></span>

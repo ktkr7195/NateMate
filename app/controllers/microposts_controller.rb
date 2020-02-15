@@ -10,9 +10,7 @@ class MicropostsController < ApplicationController
     @micropost = current_user.microposts.build(micropost_params)
     if @micropost.save
       get_exif(@micropost) if @micropost.exif_is_valid == true && @micropost.address.blank?
-      if @lat && @lng
-        @micropost.update_attributes(latitude: @lat, longitude: @lng)
-      end
+      @micropost.update_attributes(latitude: @lat, longitude: @lng) if @lat && @lng
       redirect_to current_user
     else
       @followimg_users_feed = []
@@ -27,6 +25,7 @@ class MicropostsController < ApplicationController
   end
 
   def index
+
   end
 
   def destroy
@@ -46,6 +45,7 @@ class MicropostsController < ApplicationController
   end
 
   def micropost_params
-    params.require(:micropost).permit(:title, :content, :picture, :exif_is_valid, :address, :latitude, :longitude)
+    params.require(:micropost).permit(:title, :content, :picture, :exif_is_valid,
+                                      :address, :latitude, :longitude)
   end
 end

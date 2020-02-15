@@ -7,14 +7,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # GET /resource/sign_up
   # def new
   #  super
-  #end
+  # end
 
   # POST /resource
-   def create
+  def create
     super
     return if resource.errors.any?
-    flash[:success] = "認証用メールを送信しました"
-   end
+
+    flash[:success] = '認証用メールを送信しました'
+  end
 
   # GET /resource/edit
   def edit
