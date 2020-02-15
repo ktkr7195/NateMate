@@ -2,20 +2,23 @@
 <div class="text-center">
   <% @user ||= current_user %>
     <% if user_avatar_valid?(@user) %>
-      <%= image_tag @user.avatar.url,size:"200x200",class:"avatarTypeCircle" %>
+      <%= image_tag @user.avatar.url, size:"200x200", class:"avatar-type-circle" %>
     <% else %>
-      <%= image_tag asset_path('default.jpg'),size:"200x200" %>
+      <%= image_tag asset_path('default.jpg'), size:"200x200", class:"avatar-type-circle"%>
     <% end %>
-  <span class="personalName ml-2">@<%= @user.name %></span>
+  <span class="personal-name ml-2">@<%= @user.name %></span>
     <% if current_user?(@user) && @user.name != "guest" %>
       <%= link_to edit_user_registration_path do %>
         <i class="fas fa-user-cog text-muted"></i>
       <% end %>
     <% end %>
+    <% if f4f?(@user) %>
+      <span><i class="fas fa-hands-helping text-success"></i></span>
+    <% end%>
     <%= render 'follow_btn' %>
     <% if current_user.admin %>
-      <%= button_to "このアカウントを削除", @user, :data => { :confirm => "本当に削除しますか?" }, :method => :delete,class: 'btn-danger' %>
+      <%= button_to "このアカウントを削除", @user, :data => { :confirm => "本当に削除しますか?" }, :method => :delete, class: 'btn-danger' %>
     <% end %>
 </div>
-<%= render'feed_tabs' %>
+<%= render'user_tabs' %>
 
