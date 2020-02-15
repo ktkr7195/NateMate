@@ -8,7 +8,7 @@
         <div class="col-12 text-center">
             <%= image_tag(@micropost.picture.url, size:"700x700",class:"post-picture img-fluid") %>
         </div>
-        <span class="post-likes-btn float-right" id="micropost-<%= @micropost.id %>">
+        <span class="post-likes-btn text-right" id="micropost-<%= @micropost.id %>" style='width: 80%;'>
             <%= render partial: '/likes/likes_btn',locals: { post: @micropost } %></span>
             <%= render 'post_tabs' %>
         <div class="col-12 text-center mt-5">
