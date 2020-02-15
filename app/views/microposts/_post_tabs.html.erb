@@ -3,7 +3,7 @@
                 <a href="#detail" class="nav-link border-top-0 text-muted active" data-toggle="tab"><i class="far fa-newspaper"></i></a>
             </li>
             <li class="nav-item">
-                <a href="#postmap" class="nav-link border-top-0 text-muted" data-toggle="tab"><i class="fas fa-globe-asia"></i></a>
+                <a href="#postMap" class="nav-link border-top-0 text-muted" data-toggle="tab"><i class="fas fa-globe-asia"></i></a>
             </li>
             <li class="nav-item">
                 <a href="#likesUsers" class="nav-link border-top-0 text-muted" data-toggle="tab"><i class="far fa-heart text-muted fa-fw"></i></a>
@@ -19,7 +19,7 @@
                     <% end %>
                 </div>
             </div>
-            <div id="postmap" class="tab-pane col-12">
+            <div id="postMap" class="tab-pane col-12">
                 <% if exif_valid?(@micropost) || address_valid?(@micropost)%>
                     <%= render '/microposts/googlemaps' %>
                     <%if @micropost.address %>

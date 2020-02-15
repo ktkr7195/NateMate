@@ -3,35 +3,44 @@
     <div class="card border-0 col-12">
         <div class="card-body">
             <% if user_avatar_valid?(user) %>
-                <%= link_to image_tag(user.avatar.url,size:"30x30",class:"avatarTypeCircle"),user %>
+                <%= link_to image_tag(user.avatar.url,size:"30x30",class:"avatar-type-circle"),user %>
             <% else %>
-                <%= link_to (image_tag asset_path("default.jpg"),size:"30x30",class:"avatarTypeCircle"),user %>
+                <%= link_to (image_tag asset_path("default.jpg"),size:"30x30",class:"avatar-type-circle"),user %>
             <% end %>
             <%= link_to user.name,user,class:"text-dark" %>
+            <% if follow_exchanged?(user) %>
+                <span><i class="fas fa-hands-helping text-success"></i></span>
+            <% end%>
         </div>
     </div>
 <% else %>
 <!--ユーザー一覧ページ用-->
     <!--画面サイズmd以上-->
-    <div class="card border-0 col-sm-6 col-md-4 col-xl-3 d-none d-sm-block postCards" style="width: 100px">
+    <div class="card border-0 col-sm-6 col-md-4 col-xl-3 d-none d-sm-block post-cards" style="width: 100px">
             <div class="card-body">
                 <% if user_avatar_valid?(user) %>
-                    <%=link_to image_tag(user.avatar.url,size:"200x200",class:'avatarTypeCircle'),user %><br />
+                    <%=link_to image_tag(user.avatar.url,size:"200x200",class:'avatar-type-circle'),user %><br />
                 <% else %>
-                    <%=link_to image_tag(asset_path('default.jpg'),size:"200x200",class:'avatarTyoeCircle'),user %><br />
+                    <%=link_to image_tag(asset_path('default.jpg'),size:"200x200",class:'avatar-type-circle'),user %><br />
                 <% end %>
                 <%= link_to user.name,user,class:"text-dark" %>
+                <% if follow_exchanged?(user) %>
+                    <span><i class="fas fa-hands-helping text-success"></i></span>
+                <% end%>
             </div>
     </div>
     <!--画面サイズsm以下-->
     <div class="card border-0 col-12 d-block d-sm-none">
         <div class="card-body">
             <% if user_avatar_valid?(user) %>
-                <%= link_to image_tag(user.avatar.url,size:"30x30",class:"avatarTypeCircle"),user %>
+                <%= link_to image_tag(user.avatar.url,size:"30x30",class:"avatar-type-circle"),user %>
             <% else %>
-                <%= link_to (image_tag asset_path("default.jpg"),size:"30x30",class:"avatarTypeCircle"),user %>
+                <%= link_to (image_tag asset_path("default.jpg"),size:"30x30",class:"avatar-type-circle"),user %>
             <% end %>
             <%= link_to user.name,user,class:"text-dark" %>
+            <% if follow_exchanged?(user) %>
+                <span><i class="fas fa-hands-helping text-success"></i></span>
+            <% end%>
         </div>
     </div>
 <% end %>

@@ -21,9 +21,13 @@
 <div class="tab-content text-center">
     <div id="mypost" class="tab-pane active">
         <% if @user.microposts.any? %>
-          <div class="font-weight-bold text-muted">
-                <%= @user.microposts.count %><span class="font-weight-normal"> collected</span>
-          </div>
+          <% if @user != current_user && @user_post.any?%>
+            <%= render 'user_map' %>
+            <div class="mt-5 mb-3 border-bottom"></div>
+          <% end %>
+            <div class="font-weight-bold text-muted">
+              <%= @user.microposts.count %><span class="font-weight-normal"> collected</span>
+            </div>
               <div class="conteiner">
                   <div class="card-group　mx-auto">
                       <div id="post_list" class="row">
@@ -47,7 +51,7 @@
     <div id="followingUser" class="tab-pane">
       <% if @following_users.any? %>
         <div class="font-weight-bold text-muted">
-            <%= @following_users.count %><span class="text-muted font-weight-normal"> following</span>
+            <%= @following_users.count %><span class="font-weight-normal"> following</span>
         </div>
             <div class="conteiner">
                 <div class="card-group　mx-auto">
@@ -72,7 +76,7 @@
     <div id="follower" class="tab-pane">
       <% if @followers.any? %>
         <div class="font-weight-bold text-muted">
-          <%= @followers.count %><span class="text-muted font-weight-normal"> followers</span>
+          <%= @followers.count %><span class="font-weight-normal"> followers</span>
         </div>
             <div class="conteiner">
                 <div class="card-group　mx-auto">
@@ -95,7 +99,7 @@
     <div id="likes" class="tab-pane">
       <% if @liking_posts.any? %>
         <div class="font-weight-bold text-muted">
-          <%= @liking_posts.count %><span class="text-muted font-weight-normal"> likes</span>
+          <%= @user.like_microposts.count %><span class="font-weight-normal"> likes</span>
         </div>
     <div class="conteiner">
         <div class="card-group　mx-auto">

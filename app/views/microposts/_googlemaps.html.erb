@@ -1,4 +1,4 @@
-<div id='map' class="mx-auto"></div>
+<div id='map' class='mx-auto'></div>
 <style>
 #map{
   height: 350px;
@@ -10,15 +10,11 @@
 <script>
     function initMap(){
         let map = new google.maps.Map(document.getElementById('map'), {
-        <% if @micropost.latitude && @micropost.longitude %>
-            center: {lat:<%=@micropost.latitude%>, lng:<%=@micropost.longitude%>},
-        <% end %>
-            zoom: 7
+            center: {lat:<%= @micropost.latitude %>, lng:<%= @micropost.longitude %>},
+            zoom: 5
         });
 
-        <% if @micropost.latitude && @micropost.longitude %>
-            var exif_position = {lat:<%=@micropost.latitude%>, lng:<%=@micropost.longitude%>};
-        <% end %>
+        var exif_position = {lat:<%= @micropost.latitude %>, lng:<%= @micropost.longitude %>};
 
         var markerOptions = {
             map: map,
@@ -27,4 +23,4 @@
         var marker = new google.maps.Marker(markerOptions);
     };
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=<%=Rails.application.credentials.dig(:google,:api_key)%>&callback=initMap" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.dig(:google,:api_key) %>&callback=initMap" async defer></script>

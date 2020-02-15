@@ -9,10 +9,10 @@
                 <li class="nav-item">
                     <% if user_avatar_valid?(current_user) %>
                         <%= link_to image_tag(current_user.avatar.url, size:"35x35",
-                                             class:"avatarTypeCircle"), current_user, class:"nav-link nav-avatar" %>
+                                             class:"avatar-type-circle"), current_user, class:"nav-link nav-avatar" %>
                     <% else %>
                         <%= link_to image_tag(asset_path("default.jpg"), size:"35x35",
-                                             class:"avatarTypeCircle"), current_user, class:"nav-link nav-avatar" %>
+                                             class:"avatar-type-circle"), current_user, class:"nav-link nav-avatar" %>
                     <% end %>
                 </li>
                 <li class="nav-item user-name d-none d-md-block"><%= link_to current_user.name, current_user, class:"nav-link" %></li>

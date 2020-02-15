@@ -1,0 +1,45 @@
+<input name="post_json" type="hidden" value=<%= @post_json_data %> class='post_json'/>
+<div id='map' class="mx-auto text-muted">Loading...</div>
+<style>
+#map{
+  height: 400px;
+  width:  95%;
+  margin-top:25px;
+  background-image:url("<%= asset_path("loading.gif") %>");
+  background-repeat:no-repeat;
+  background-position: center center;
+}
+</style>
+<script>
+    function initMap() {
+            var mapOptions = {
+              zoom : 2,
+              center : {lat:38.9598,lng:34.925}
+            };
+            var map = new google.maps.Map(document.getElementById("map"),mapOptions);
+
+            var post_json = $('.post_json').val();
+            var post_data = JSON.parse(post_json || "null");
+
+            post_data.map(post => {
+              const postmarker = new google.maps.Marker({
+                position: {lat: post.latitude, lng: post.longitude},
+                map: map,
+                zindex: 1,
+                icon: 'https://maps.google.com/mapfiles/ms/icons/green-dot.png',
+                animation: google.maps.Animation.DROP
+              });
+
+              var picture_tag = "<img src='"+ post.picture.url +"' width=200px height=150px>";
+
+              var infoWindow = new google.maps.InfoWindow({
+                  content: picture_tag+="<div><a href='/microposts/"+ post.id + "'>"+ post.title +"</a></div>",
+                  maxWidth: 1000
+              });
+              google.maps.event.addListener(postmarker, 'click', function(event) {
+                        infoWindow.open(map, postmarker);
+              });
+            });
+          };
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%=Rails.application.credentials.dig(:google,:api_key)%>&callback=initMap" async defer></script>
