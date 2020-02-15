@@ -6,13 +6,13 @@
     <% else %>
       <%= image_tag asset_path('default.jpg'), size:"200x200", class:"avatar-type-circle"%>
     <% end %>
-  <span class="personal-name ml-2">@<%= @user.name %></span>
-    <% if current_user?(@user) && @user.name != "guest" %>
+  <span class="personal-name ml-2"><span class="text-muted">@</span><%= @user.name %></span>
+    <% if allowed_to_edit?(@user) %>
       <%= link_to edit_user_registration_path do %>
         <i class="fas fa-user-cog text-muted"></i>
       <% end %>
     <% end %>
-    <% if f4f?(@user) %>
+    <% if follow_exchanged?(@user) %>
       <span><i class="fas fa-hands-helping text-success"></i></span>
     <% end%>
     <%= render 'follow_btn' %>
