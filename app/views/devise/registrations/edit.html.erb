@@ -7,9 +7,9 @@
       <%= render "devise/shared/error_messages", resource: resource %>
       <div class="avatar_prev">
         <% if current_user.avatar.present? %>
-          <%= image_tag current_user.avatar.url(:thumb),size:"220x220",class:"avatarTypeCircle", id: :js_imgPrev%>
+          <%= image_tag current_user.avatar.url(:thumb),size:"220x220",class:"avatar-type-circle", id: :js_imgPrev%>
         <% else %>
-          <%= image_tag asset_path("default.jpg"),size:"220x220",class:"avatarTypeCircle",  id: :js_imgPrev%>
+          <%= image_tag asset_path("default.jpg"),size:"220x220",class:"avatar-type-circle",  id: :js_imgPrev%>
         <% end %>
       </div>
 
