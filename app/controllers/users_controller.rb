@@ -5,12 +5,13 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @feed = @user.microposts.page(params[:page])
-    @following_users = @user.following.page(params[:page])
-    @followers = @user.followers.page(params[:page])
     @liking_posts = @user.like_microposts.page(params[:page])
     @user_post = Micropost.where(user_id: @user.id,exif_is_valid: true).where.not(latitude: nil).or \
                 (Micropost.where(user_id: @user.id).where.not(address: nil).where.not(latitude: nil))
     @post_json_data = @user_post.to_json(only: %i[id title picture latitude longitude])
+
+    @following_users = @user.following.page(params[:page])
+    @followers       = @user.followers.page(params[:page])
 
     # jsリクエストで通過
     return unless request.xhr?

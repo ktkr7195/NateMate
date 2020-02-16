@@ -19,7 +19,7 @@
     <div id="geolocationMap" class="tab-pane active">
         <div class="conteiner">
             <div class="row">
-                <%= render 'geolocation_map'%>
+                <%= render 'geolocation_map' %>
             </div>
         </div>
     </div>
@@ -31,7 +31,7 @@
                         <%= render partial: '/microposts/postcards', collection: @feed, as: "post" %>
                     </div>
                     <div class="text-center mt-2">
-                        <%= link_to_next_page @feed, 'さらに表示', remote: true, params: { type: :new_post_list }, id: 'view_more', class: 'btn btn-warning btn-lg'%>
+                        <%= link_to_next_page @feed, 'さらに表示', remote: true, params: { type: :new_post_list }, id: 'view_more', class: 'btn btn-warning btn-lg' %>
                     </div>
                 </div>
             </div>
@@ -45,7 +45,7 @@
                         <%= render partial: '/microposts/postcards', collection: @following_users_feed, as: "post" %>
                     </div>
                     <div class="text-center mt-2">
-                        <%= link_to_next_page @following_users_feed, 'さらに表示', remote: true, params: { type: :friendly_post_list }, id: 'view_more', class: 'btn btn-warning btn-lg'%>
+                        <%= link_to_next_page @following_users_feed, 'さらに表示', remote: true, params: { type: :friendly_post_list }, id: 'view_more', class: 'btn btn-warning btn-lg' %>
                     </div>
                 </div>
             </div>

@@ -34,10 +34,10 @@ RSpec.describe 'Microposts', type: :system, js: true do
         find('.form-area').set('sample_content')
         click_button '投稿する！'
 
-        #ユーザーページにリダイレクトされるか
+        # ユーザーページにリダイレクトされるか
         expect(current_path).to eq user_path(@user)
 
-        #投稿が保存されているか
+        # 投稿が保存されているか
         @micropost = Micropost.first
         expect(@micropost.title).to eq('sample_title')
         expect(@micropost.content).to eq('sample_content')
@@ -46,17 +46,17 @@ RSpec.describe 'Microposts', type: :system, js: true do
         expect(@micropost.latitude).to eq(43.0614)
         expect(@micropost.longitude).to eq(141.355)
 
-        #投稿詳細ページに遷移
+        # 投稿詳細ページに遷移
         visit "/microposts/#{@micropost.id}"
         expect(page).to have_selector 'h2',text: @micropost.title
 
-        #投稿の削除
+        # 投稿の削除
         find('.fa-trash-alt').click
         expect(page.driver.browser.switch_to.alert.text).to eq "コレクションから「#{@micropost.title}」を削除します"
         page.driver.browser.switch_to.alert.accept
         expect(current_path).to eq user_path(@user)
 
-        #投稿が削除されているか
+        # 投稿が削除されているか
         expect(Micropost.where(id: @user.id).count).to eq 0
       end
     end

@@ -1,3 +1,2 @@
 $('#lists').append("<%= escape_javascript(render partial: '/microposts/postcards', collection: @feed, as: "post") %>");
-$("#view_more").replaceWith("<%= escape_javascript(
-link_to_next_page(@feed, 'もっと見る', remote: true, class: 'btn-warning btn btn-lg', id: 'view_more')) %>");
+$("#view_more").replaceWith("<%= escape_javascript(link_to_next_page(@feed, 'もっと見る', remote: true, class: 'btn-warning btn btn-lg', id: 'view_more')) %>");

@@ -1,5 +1,5 @@
 <% if current_user == @micropost.user || current_user.admin %>
-  <%= link_to @micropost,method: :delete,data:{confirm:"コレクションから「#{@micropost.title}」を削除します"} do %>
+  <%= link_to @micropost, method: :delete, data:{confirm:"コレクションから「#{@micropost.title}」を削除します"} do %>
     <i class="fas fa-trash-alt text-muted"></i>
   <% end %>
 <% end %>

@@ -1,4 +1,4 @@
-<% provide(:title,"新規登録") %>
+<% provide(:title, "新規登録") %>
 <div class="text-center">
   <h2 class="font-weight-bold">新規登録</h2>
 <div class="form-group mt-5">
@@ -7,26 +7,26 @@
 
     <div class="avatar_prev">
       <% if user_avatar_valid?(@user)%>
-        <%= image_tag current_user.avatar.url, id: :js_imgPrev,size:"200x200",class:"avatar-type-circle" %>
+        <%= image_tag current_user.avatar.url, id: :js_imgPrev,size:"200x200", class:"avatar-type-circle" %>
       <% else %>
-        <%= image_tag asset_path("default.jpg"), id: :js_imgPrev,size:"200x200",class:"avatar-type-circle"%>
+        <%= image_tag asset_path("default.jpg"), id: :js_imgPrev,size:"200x200", class:"avatar-type-circle" %>
       <% end %>
     </div>
 
     <div class="field border-bottom mt-2">
       <label for="js_presentImg" class="btn btn-warning"><span>画像を変更</span>
-        <%= f.file_field :avatar,id: :js_presentImg,accept: 'image/jpeg,image/png',autofocus: true,class:"form-control-file",style: "display:none;"%><br />
+        <%= f.file_field :avatar, id: :js_presentImg, accept: 'image/jpeg,image/png', autofocus: true, class:"form-control-file", style: "display:none;" %><br />
       </label><br />
     </div>
 
     <div class="field border-bottom">
-      <%= f.label :name%><br />
-      <%= f.text_field :name, autofocus: true, class:"form-control border-0"%>
+      <%= f.label :name %><br />
+      <%= f.text_field :name, autofocus: true, class:"form-control border-0" %>
     </div>
 
     <div class="field border-bottom">
       <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control border-0"%>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control border-0" %>
     </div>
 
     <div class="field border-bottom">
@@ -43,7 +43,7 @@
     </div>
 
     <div class="actions mt-3">
-      <%= f.submit "登録する" ,{class:"btn btn-lg btn-warning"}%>
+      <%= f.submit "登録する", { class:"btn btn-lg btn-warning" } %>
     </div>
   <% end %>
 </div>

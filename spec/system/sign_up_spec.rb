@@ -25,7 +25,7 @@ RSpec.describe 'Sign_up', type: :system do
       fill_in 'パスワード再入力',with: 'password'
       click_button '登録する'
 
-      #ログイン画面にリダイレクト
+      # ログイン画面にリダイレクト
       expect(current_path).to eq new_user_session_path
       expect(page).to have_content '認証用メールを送信しました'
     end

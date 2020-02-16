@@ -4,7 +4,7 @@
     <title><%= full_title(yield(:title)) %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_pack_tag 'application' ,media:'all' %>
+    <%= stylesheet_pack_tag 'application', media:'all' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link href="<%= image_path("favicon.ico") %>" rel="shortcut icon" />
@@ -17,7 +17,7 @@
       <%= yield %>
     </main>
     <footer class="text-center text-muted mt-auto py-4">
-      <%=render 'layouts/footer' %>
+      <%= render 'layouts/footer' %>
     </footer>
   </body>
 </html>

@@ -1,4 +1,4 @@
-<% provide(:title,@user.name) %>
+<% provide(:title, @user.name) %>
 <div class="text-center">
   <% @user ||= current_user %>
     <% if user_avatar_valid?(@user) %>
@@ -14,7 +14,7 @@
     <% end %>
     <% if follow_exchanged?(@user) %>
       <span><i class="fas fa-hands-helping text-success"></i></span>
-    <% end%>
+    <% end %>
     <%= render 'follow_btn' %>
     <% if current_user.admin %>
       <%= button_to "このアカウントを削除", @user, :data => { :confirm => "本当に削除しますか?" }, :method => :delete, class: 'btn-danger' %>
