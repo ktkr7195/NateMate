@@ -1,16 +1,16 @@
 
-<% if current_user!=post.user %>
+<% if current_user != post.user %>
     <% if post.like?(current_user) %>
-      <%= form_for(post.likes.find_by(user_id: current_user.id), method: :delete,remote: true) do |f| %>
-        <%= button_tag type: 'submit',class:"like-button" do %>
+      <%= form_for(post.likes.find_by(user_id: current_user.id), method: :delete, remote: true) do |f| %>
+        <%= button_tag type: 'submit', class:"like-button" do %>
           <i class="fas fa-heart text-danger fa-fw liking-btn"></i>
         <% end %>
         <span class="text-muted"><%=post.likes.count%></span>
       <% end %>
     <% else %>
-      <%= form_for(post.likes.build,remote: true) do |f| %>
+      <%= form_for(post.likes.build, remote: true) do |f| %>
         <div><%= hidden_field_tag :micropost_id, post.id %></div>
-        <%= button_tag type: 'submit',class:"like-button" do %>
+        <%= button_tag type: 'submit', class:"like-button" do %>
           <i class="far fa-heart text-muted fa-fw like-btn"></i>
         <% end %>
         <span class="text-muted"><%= post.likes.count %></span>

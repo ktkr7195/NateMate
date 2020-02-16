@@ -9,13 +9,13 @@
             <% if picture_valid?(@micropost) %>
               <%= image_tag @micropost.picture.url, id: :js_imgPrev, size:"600x450", class:"post-prev img-fluid" %>
             <% else %>
-              <%= image_tag asset_path("defaultPicture.jpg"), id: :js_imgPrev,size:"550x450", class:"post-prev img-fluid" %>
+              <%= image_tag asset_path("defaultPicture.jpg"), id: :js_imgPrev, size:"550x450", class:"post-prev img-fluid" %>
             <% end %>
           </div>
           <div class="field border-bottom picChooseBtn">
             <label for="js_presentImg" class="btn btn-warning"><span>画像を選択</span>
               <%= f.file_field :picture, accept: 'image/jpeg,image/png', id: :js_presentImg, autofocus: true,
-                                     class:"form-control-file", style: "display:none;" %>
+                                         class:"form-control-file", style: "display:none;" %>
             </label>
           </div>
 

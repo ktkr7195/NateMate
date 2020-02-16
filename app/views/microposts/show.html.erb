@@ -1,30 +1,30 @@
 <% if @micropost.title %>
-    <% provide(:title,@micropost.title) %>
+    <% provide(:title, @micropost.title) %>
 <% else %>
-    <% provide(:title,"無題") %>
+    <% provide(:title, "無題") %>
 <% end %>
 <div class="conteiner">
     <div class="row">
         <div class="col-12 text-center">
-            <%= image_tag(@micropost.picture.url, size:"700x700",class:"post-picture img-fluid") %>
+            <%= image_tag(@micropost.picture.url, size:"700x700", class:"post-picture img-fluid") %>
         </div>
         <span class="post-likes-btn text-right" id="micropost-<%= @micropost.id %>" style='width: 80%;'>
-            <%= render partial: '/likes/likes_btn',locals: { post: @micropost } %></span>
+            <%= render partial: '/likes/likes_btn', locals: { post: @micropost } %></span>
             <%= render 'post_tabs' %>
         <div class="col-12 text-center mt-5">
             <span class="text-muted">by </span>
                 <% if avatar_valid?(@micropost) %>
-                    <%= link_to image_tag(@micropost.user.avatar.url,size:"40x40",class:"avatar-type-circle"),@micropost.user %>
+                    <%= link_to image_tag(@micropost.user.avatar.url, size:"40x40", class:"avatar-type-circle"), @micropost.user %>
                 <% else %>
-                    <%= link_to image_tag(asset_path('default.jpg'),size:"40x40",class:"avatar-type-circle"),@micropost.user %>
+                    <%= link_to image_tag(asset_path('default.jpg'), size:"40x40", class:"avatar-type-circle"), @micropost.user %>
                 <% end %>
-            <%= link_to @micropost.user.name,@micropost.user,class:"text-muted border-bottom" %>
-            <span class="text-muted">at:<%=@micropost.created_at.strftime("%Y-%m/%d %H:%M")%></span>
+            <%= link_to @micropost.user.name, @micropost.user, class:"text-muted border-bottom" %>
+            <span class="text-muted">at:<%= @micropost.created_at.strftime("%Y-%m/%d %H:%M") %></span>
             <% if user_signed_in? %>
                 <%= render "delete_icon" %>
             <% end %>
             <% if @micropost.user.admin? %>
-                <%= link_to @micropost,method: :delete,data:{confirm:"コレクションから「#{@micropost.title}」を削除します"} do %>
+                <%= link_to @micropost, method: :delete, data:{confirm:"コレクションから「#{@micropost.title}」を削除します"} do %>
                     <i class="fas fa-trash-alt text-muted"></i>
                 <% end %>
             <% end %>

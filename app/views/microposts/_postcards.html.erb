@@ -1,5 +1,5 @@
 <div class="card border-0 col-6 col-sm-6 col-md-4 post-cards" style="width: 100px">
-    <%= link_to image_tag(post.picture.url, size:"700x700",class:"card-img-top img-fluid"),post %>
+    <%= link_to image_tag(post.picture.url, size:"700x700", class:"card-img-top img-fluid"),post %>
         <div class="card-body border-bottom">
             <i class="text-muted float-left">by</i>
             <% if avatar_valid?(post) %>
@@ -7,13 +7,13 @@
             <% else %>
                 <%= link_to image_tag(asset_path('default.jpg'), size:"30x30", class:'avatar-type-circle float-left mr-sm-2 ml-1 d-none d-sm-block'),post.user %>
             <% end %>
-                <%= link_to post.user.name, post.user,class:"float-left text-dark ml-2 ml-sm-0" %>
+                <%= link_to post.user.name, post.user, class:"float-left text-dark ml-2 ml-sm-0" %>
                 <span class="float-left ml-2 text-muted  d-sm-block d-none"><%= post.created_at.strftime("%m/%d %H:%M") %></span>
                 <% if exif_valid?(post) || address_valid?(post) %>
                     <i class="fas fa-map-pin text-danger fa-lg float-left ml-2 d-none d-sm-block"></i>
                 <% end %>
                 <span class="float-right d-none d-sm-block" id="micropost-<%= post.id %>">
-                    <%= render partial: '/likes/likes_btn',locals: { post: post } %>
+                    <%= render partial: '/likes/likes_btn', locals: { post: post } %>
                 </span>
         </div>
 </div>

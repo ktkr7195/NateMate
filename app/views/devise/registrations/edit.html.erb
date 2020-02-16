@@ -1,5 +1,5 @@
-<%provide(:title,"アカウント情報編集")%>
-<% unless current_user.name == 'guest'%>
+<% provide(:title, "アカウント情報編集") %>
+<% unless current_user.name == 'guest' %>
 <div class="text-center">
     <h2 class="font-weight-bold">アカウント情報編集</h2>
 <div class="form-group mt-5">
@@ -7,28 +7,28 @@
       <%= render "devise/shared/error_messages", resource: resource %>
       <div class="avatar_prev">
         <% if current_user.avatar.present? %>
-          <%= image_tag current_user.avatar.url(:thumb),size:"220x220",class:"avatar-type-circle", id: :js_imgPrev%>
+          <%= image_tag current_user.avatar.url(:thumb), size:"220x220", class:"avatar-type-circle", id: :js_imgPrev%>
         <% else %>
-          <%= image_tag asset_path("default.jpg"),size:"220x220",class:"avatar-type-circle",  id: :js_imgPrev%>
+          <%= image_tag asset_path("default.jpg"), size:"220x220", class:"avatar-type-circle",  id: :js_imgPrev%>
         <% end %>
       </div>
 
       <div class="field border-bottom mt-2">
         <label class="btn btn-warning" id="prev" onClick="$('#js_presentImg').click()"><span>画像を選択</span>
-          <%= f.file_field :avatar,id:"js_presentImg",accept: 'image/jpeg,image/png',autofocus: true,class:"form-control-file",style: "display:none;"%><br />
+          <%= f.file_field :avatar, id:"js_presentImg", accept: 'image/jpeg,image/png', autofocus: true, class:"form-control-file", style: "display:none;"%><br />
         </label><br />
-        <%= f.label :remove_avatar_check_box%>
-        <%= f.check_box :remove_avatar%>
+        <%= f.label :remove_avatar_check_box %>
+        <%= f.check_box :remove_avatar %>
       </div>
 
       <div class="field border-bottom">
-        <%= f.label :user_name%><br />
-        <%= f.text_field :name, autofocus: true,class:"form-control border-0"%>
+        <%= f.label :user_name %><br />
+        <%= f.text_field :name, autofocus: true, class:"form-control border-0" %>
       </div>
 
       <div class="field border-bottom">
         <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" ,class:"form-control border-0"%>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control border-0" %>
       </div>
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -37,21 +37,21 @@
 
       <div class="field border-bottom">
         <%= f.label :newpassword %>
-        <%= f.password_field :password, autocomplete: "new-password" ,class:"form-control border-0"%>
+        <%= f.password_field :password, autocomplete: "new-password", class:"form-control border-0" %>
       </div>
 
       <div class="field border-bottom">
         <%= f.label :newpassword_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "new-password" ,class:"form-control border-0"%>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control border-0" %>
       </div>
 
       <div class="field border-bottom">
         <%= f.label :current_password %> <br />
-        <%= f.password_field :current_password, autocomplete: "current-password" ,class:"form-control border-0"%>
+        <%= f.password_field :current_password, autocomplete: "current-password", class:"form-control border-0" %>
       </div>
 
       <div class="actions mt-5">
-        <%= f.submit "更新" ,class:"btn btn-lg btn-warning"%>
+        <%= f.submit "更新", class:"btn btn-lg btn-warning" %>
       </div>
     <% end %>
 </div>
@@ -59,7 +59,7 @@
 <% else %>
   <div class="text-center mt-5 text-danger">
       <p><i class="fas fa-exclamation-triangle"></i>ゲストユーザーはアカウント情報を編集できません</p>
-      <%=link_to("戻る", current_user)%>
+      <%= link_to("戻る", current_user) %>
   </div>
 <% end %>
 </div>

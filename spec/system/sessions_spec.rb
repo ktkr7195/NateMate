@@ -23,20 +23,20 @@ RSpec.describe 'Sessions', type: :system do
     context 'ログインページで' do
       it 'email,passwordの両方が正しい場合、ログインが可能' do
         visit '/sign_in'
-        #email,password共に未入力
+        # email,password共に未入力
         click_button 'ログイン'
         expect(page).to have_content 'メールアドレスまたはパスワードが違います。'
-        #誤ったemail
+        # 誤ったemail
         fill_in 'メールアドレス', with: 'invalidemail@sample.com'
         fill_in 'パスワード', with: @user.password
         click_button 'ログイン'
         expect(page).to have_content 'メールアドレスまたはパスワードが違います。'
-        #誤ったpassword
+        # 誤ったpassword
         fill_in 'メールアドレス', with: @user.email
         fill_in 'パスワード', with: 'invalidpass'
         click_button 'ログイン'
         expect(page).to have_content 'メールアドレスまたはパスワードが違います。'
-        #有効なemail,password
+        # 有効なemail,password
         fill_in 'メールアドレス', with: @user.email
         fill_in 'パスワード', with: @user.password
         click_button 'ログイン'
@@ -75,13 +75,13 @@ RSpec.describe 'Sessions', type: :system do
         click_button 'ログイン'
         expect(page).to have_content 'コレクション'
 
-        #ヘッダーのドロップダウンを開く
+        # ヘッダーのドロップダウンを開く
         find('.fa-align-justify').click
         click_link 'ログアウト'
         expect(page.driver.browser.switch_to.alert.text).to eq 'ログアウトしてよろしいですか？'
         page.driver.browser.switch_to.alert.accept
 
-        #未ログイン状態のrootへリダイレクトされているか
+        # 未ログイン状態のrootへリダイレクトされているか
         expect(current_path).to eq root_path
         expect(page).to have_content 'ログイン'
       end

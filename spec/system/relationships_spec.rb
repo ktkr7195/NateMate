@@ -10,7 +10,7 @@ RSpec.describe 'Relationships', type: :system, js: true do
                              name:  'connor',
                              email: 'connor@email.com')
 
-            #hankがログイン
+            # hankがログイン
             visit '/sign_in'
             fill_in 'メールアドレス', with: hank.email
             fill_in 'パスワード', with: hank.password
@@ -20,13 +20,13 @@ RSpec.describe 'Relationships', type: :system, js: true do
             visit user_path(connor)
             expect(page).to have_content 'connor'
 
-            #connorをフォローする
+            # connorをフォローする
             click_button 'フォローする'
             expect(page).to have_button 'フォロー中'
             expect(connor.followers.count).to eq(1)
             expect(hank.following.count).to eq(1)
 
-            #connorをフォロー解除する
+            # connorをフォロー解除する
             click_button 'フォロー中'
             expect(page).to have_button 'フォローする'
             expect(connor.followers.count).to eq(0)

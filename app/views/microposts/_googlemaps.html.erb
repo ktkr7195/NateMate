@@ -6,14 +6,12 @@
   margin-top:15px;
 }
 </style>
-
 <script>
     function initMap(){
         let map = new google.maps.Map(document.getElementById('map'), {
             center: {lat:<%= @micropost.latitude %>, lng:<%= @micropost.longitude %>},
             zoom: 5
         });
-
         var exif_position = {lat:<%= @micropost.latitude %>, lng:<%= @micropost.longitude %>};
 
         var markerOptions = {

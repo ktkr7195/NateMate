@@ -20,9 +20,9 @@
                 </div>
             </div>
             <div id="postMap" class="tab-pane col-12">
-                <% if exif_valid?(@micropost) || address_valid?(@micropost)%>
+                <% if exif_valid?(@micropost) || address_valid?(@micropost) %>
                     <%= render '/microposts/googlemaps' %>
-                    <%if @micropost.address %>
+                    <% if @micropost.address %>
                         <span class="text-muted">from <%= @micropost.address %></span>
                     <% end %>
                 <% else %>
