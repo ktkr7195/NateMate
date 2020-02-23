@@ -10,14 +10,16 @@
     <% else %>
       <%= form_for(post.likes.build, remote: true) do |f| %>
         <div><%= hidden_field_tag :micropost_id, post.id %></div>
-        <%= button_tag type: 'submit', class:"like-button" do %>
-          <i class="far fa-heart text-muted fa-fw like-btn"></i>
-        <% end %>
-        <span class="text-muted"><%= post.likes.count %></span>
+          <%= button_tag type: 'submit', class:"like-button" do %>
+            <i class="far fa-heart text-muted fa-fw like-btn"></i>
+          <% end %>
+          <span class="text-muted"><%= post.likes.count %></span>
       <% end %>
     <% end %>
 <% else %>
-  <span class="text-muted d-sm-block d-none"><%= post.likes.count %> いいね！</span>
+  <span class="text-muted d-sm-block d-none">
+      <%= post.likes.count %> いいね！
+  </span>
   <span class="text-muted d-sm-none d-block"><i class="fas fa-heart text-danger fa-fw"></i> <%= post.likes.count %></span>
 <% end %>
 
