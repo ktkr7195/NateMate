@@ -30,38 +30,55 @@
                 <li class="dropdown">
                     <a href="#" class="btn nav-btn nav-link" data-toggle="dropdown"><i class="fas fa-align-justify fa-2x"></i></a>
                     <ul class="dropdown-menu dropdown-menu-right">
-                        <li class="dropdown-item nav-item"><%= link_to users_path, class:"d-block d-sm-none nav-link" do %>
-                                                                <i class="fas fa-users"></i><span> ユーザー検索</span>
-                                                           <% end %>
+                        <li class="dropdown-item nav-item">
+                            <%= link_to users_path, class:"d-block d-sm-none nav-link" do %>
+                                <i class="fas fa-users"></i><span> ユーザー検索</span>
+                            <% end %>
                         </li>
-                        <li class="dropdown-item nav-item"><%= link_to current_user, class:"nav-link" do %>
-                                                                <i class="fas fa-user"></i><span> マイページ</span>
-                                                           <% end %>
+                    <% unless current_page?(root_path) %>
+                        <li class="dropdown-item nav-item">
+                            <%= link_to root_path, class:"nav-link" do %>
+                                <i class="fas fa-home"></i><span> トップページ</span>
+                            <% end %>
                         </li>
-                        <li class="dropdown-item nav-item"><%= link_to destroy_user_session_path, method: :delete, data:{confirm:"ログアウトしてよろしいですか？"}, class:"nav-link" do %>
-                                                                <i class="fas fa-sign-out-alt"></i><span> ログアウト</span>
-                                                           <% end %>
+                    <% end %>
+
+                    <% unless current_page?(current_user) %>
+                        <li class="dropdown-item nav-item">
+                            <%= link_to current_user, class:"nav-link" do %>
+                                <i class="fas fa-user"></i><span> マイページ</span>
+                            <% end %>
                         </li>
-                        <li class="dropdown-item nav-item"><%= link_to '/contact', class:"nav-link" do %>
-                                                                <i class="fas fa-phone-alt"></i><span> お問い合わせ</span>
-                                                           <% end %>
+                    <% end %>
+                        <li class="dropdown-item nav-item">
+                            <%= link_to destroy_user_session_path,method: :delete, data:{confirm:"ログアウトしてよろしいですか？"}, class:"nav-link" do %>
+                                    <i class="fas fa-sign-out-alt"></i><span> ログアウト</span>
+                            <% end %>
+                        </li>
+                        <li class="dropdown-item nav-item">
+                            <%= link_to '/contact', class:"nav-link" do %>
+                                <i class="fas fa-phone-alt"></i><span> お問い合わせ</span>
+                            <% end %>
                         </li>
                     </ul>
                 </li>
             </ul>
         <% else %>
             <ul class="navbar-nav ml-auto align-items-center">
-                <li class="nav-item d-none d-sm-block"> <%= link_to new_user_session_path, class:"nav-link" do %>
-                                                            <i class="fas fa-sign-in-alt"></i><span> ログイン</span>
-                                                        <% end %>
+                <li class="nav-item d-none d-sm-block">
+                    <%= link_to new_user_session_path, class:"nav-link" do %>
+                        <i class="fas fa-sign-in-alt"></i><span> ログイン</span>
+                    <% end %>
                 </li>
-                <li class="nav-item d-block d-sm-none"> <%= link_to new_user_session_path, class:"nav-link" do %>
-                                                            <i class="fas fa-sign-in-alt fa-lg"></i>
-                                                        <% end %>
+                <li class="nav-item d-block d-sm-none">
+                    <%= link_to new_user_session_path, class:"nav-link" do %>
+                        <i class="fas fa-sign-in-alt fa-lg"></i>
+                    <% end %>
                 </li>
-                <li class="nav-item"> <%= link_to new_user_registration_path, class:"nav-link" do %>
-                                        <i class="fas fa-user-plus fa-lg"></i>
-                                      <% end %>
+                <li class="nav-item">
+                    <%= link_to new_user_registration_path, class:"nav-link" do %>
+                        <i class="fas fa-user-plus fa-lg"></i>
+                    <% end %>
                 </li>
             </ul>
         <% end %>
