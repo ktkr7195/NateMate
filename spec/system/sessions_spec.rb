@@ -40,7 +40,8 @@ RSpec.describe 'Sessions', type: :system do
         fill_in 'メールアドレス', with: @user.email
         fill_in 'パスワード', with: @user.password
         click_button 'ログイン'
-        expect(page).to have_content 'マイページ'
+        expect(page).to have_content 'コレクション'
+        expect(page).not_to have_content 'マイページ'
       end
 
       it 'メール認証の完了していないユーザーのログインを許可しない' do
@@ -60,7 +61,8 @@ RSpec.describe 'Sessions', type: :system do
         visit '/sign_in'
 
         click_button 'おためしログイン'
-        expect(page).to have_content 'マイページ'
+        expect(page).to have_content 'コレクション'
+        expect(page).not_to have_content 'マイページ'
       end
     end
   end
@@ -74,6 +76,7 @@ RSpec.describe 'Sessions', type: :system do
         fill_in 'パスワード',with: @user.password
         click_button 'ログイン'
         expect(page).to have_content 'コレクション'
+        expect(page).not_to have_content 'マイページ'
 
         # ヘッダーのドロップダウンを開く
         find('.fa-align-justify').click
@@ -123,7 +126,8 @@ RSpec.describe 'Sessions', type: :system do
         fill_in 'メールアドレス', with: @user.email
         fill_in 'パスワード', with: @user.password
         click_button 'ログイン'
-        expect(page).to have_content 'マイページ'
+        expect(page).to have_content 'コレクション'
+        expect(page).not_to have_content 'マイページ'
 
         visit '/users/sign_in'
         expect(current_path).to eq user_path(@user)
