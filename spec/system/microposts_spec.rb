@@ -43,8 +43,8 @@ RSpec.describe 'Microposts', type: :system, js: true do
         expect(@micropost.content).to eq('sample_content')
         expect(@micropost.address).to eq('北海道札幌市')
         #geocodingが正確に行われているか
-        expect(@micropost.latitude).to eq(43.0614)
-        expect(@micropost.longitude).to eq(141.355)
+        expect(@micropost.latitude.present?).to be_present
+        expect(@micropost.longitude.present?).to be_present
 
         # 投稿詳細ページに遷移
         visit "/microposts/#{@micropost.id}"
