@@ -2,6 +2,14 @@ class UsersController < ApplicationController
   before_action :admin_user, only: :destroy
   before_action :authenticate_user!, only: %i[show index]
 
+
+  #
+  # @param [Array]
+  #
+  #
+  #
+  #
+
   def show
     @user = User.find(params[:id])
     @feed = @user.microposts.page(params[:page])
@@ -15,7 +23,7 @@ class UsersController < ApplicationController
 
     # jsリクエストで通過
     return unless request.xhr?
-    # render振り分け
+    # renderするファイルの振り分け
     case params[:type]
     when 'post_list', 'follower_list', 'following_list', 'liking_list'
       render "shared/#{params[:type]}"
@@ -28,6 +36,7 @@ class UsersController < ApplicationController
   end
 
   def index
+    # jsリクエストで通過
     return unless request.xhr?
 
     case params[:type]
