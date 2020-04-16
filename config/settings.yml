@@ -15,7 +15,7 @@ link_utils:
     mypage: 'マイページ'
     new_registration: '新規登録'
     forget_password: 'パスワードを忘れてしまったら'
-    confirmation_email_resent: '認証メールが届かない方はこちら'
+    confirmation_email_resent: '認証メールが届かない場合はこちら'
     contact: 'お問い合わせ'
 
 messages:
