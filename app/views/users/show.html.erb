@@ -17,7 +17,7 @@
     <% end %>
     <%= render 'follow_btn' %>
     <% if current_user.admin %>
-      <%= button_to "このアカウントを削除", @user, :data => { :confirm => "本当に削除しますか?" }, :method => :delete, class: 'btn-danger' %>
+      <%= button_to Settings.view_utils[:account_delete], @user, :data => { :confirm => Settings.messages[:delete_delete] }, :method => :delete, class: 'btn-danger' %>
     <% end %>
 </div>
 <%= render'user_tabs' %>

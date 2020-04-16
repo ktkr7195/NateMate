@@ -1,5 +1,5 @@
-<% provide(:title, "お問い合わせ") %>
+<% provide(:title, Settings.titles[:contact]) %>
 <div class="text-center">
-    <h1 class="font-weight-bold">お問い合わせ</h1>
-    <p class="mt-5">Email: ohtukayoshi.yoshi@email.com</p>
+    <h1 class="font-weight-bold"><%= Settings.contact_utils[:title] %></h1>
+    <p class="mt-5"><%= Settings.contact_utils[:email] %></p>
 </div>

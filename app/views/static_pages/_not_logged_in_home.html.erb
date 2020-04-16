@@ -14,17 +14,17 @@
 <div class="conteiner">
     <div class="row">
         <div class="top-copy col-12 text-center mt-5 mb-5">
-            <h1 class="font-weight-bold">石ころから宇宙まで、NateMateで共有しよう</h1><br />
-            <p>道ばたの花、飼っている動物、遠くの惑星、自分しか知らない景色...</p>
-            <p>NateMateは、そんなNature(自然)をデジタルに保存、公開できるSNSです</p>
-            <%= link_to '投稿する',new_user_registration_path, class:'btn btn-warning btn-lg home-btn' %>
+            <h1 class="font-weight-bold"><%= Settings.home_utils.introductions[:main] %></h1><br />
+            <p><%= Settings.home_utils.introductions[:sub1] %></p>
+            <p><%= Settings.home_utils.introductions[:sub2] %></p>
+            <%= link_to Settings.post_utils[:submit_post], new_user_registration_path, class:'btn btn-warning btn-lg home-btn' %>
         </div>
     </div>
 </div>
 
 <div class="border mb-5"></div>
 
-<h2 class="text-center font-weight-bold mb-3">みんなのコレクション</h2>
+<h2 class="text-center font-weight-bold mb-3"><%= Settings.home_utils[:post_list] %></h2>
     <%= render 'search_form' %>
         <div class="conteiner">
             <div class="card-group　mx-auto">
@@ -32,7 +32,7 @@
                     <%= render partial: '/microposts/postcards', collection: @feed, as: "post" %>
                 </div>
                 <div class="text-center mt-2">
-                    <%= link_to_next_page @feed, 'もっと見る', remote: true, class: 'btn-warning btn btn-lg', id: 'view_more' %>
+                    <%= link_to_next_page @feed, Settings.view_utils[:more_view2], remote: true, class: 'btn-warning btn btn-lg', id: 'view_more' %>
                 </div>
             </div>
         </div>

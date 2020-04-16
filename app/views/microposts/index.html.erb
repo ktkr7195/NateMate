@@ -1,10 +1,10 @@
-<% provide(:title, "コレクション検索") %>
+<% provide(:title, Settings.titles[:search_post]) %>
         <% if @search_feeds.any? %>
           <div class="text-center">
             <%= render'/static_pages/search_form' %>
           </div>
           <div class="font-weight-bold text-muted">
-            <span>検索結果:</span><%= @search_count.count %><span class="font-weight-normal">件</span>
+            <span><%= Settings.view_utils[:search_result] %></span><%= @search_count.count %><span class="font-weight-normal"><%= Settings.view_utils[:count] %></span>
           </div>
               <div class="conteiner">
                   <div class="card-group　mx-auto">
@@ -12,16 +12,16 @@
                         <%= render partial: '/microposts/postcards', collection: @search_feeds, as: "post" %>
                       </div>
                       <div class="text-center mt-2">
-                        <%= link_to_next_page @search_feeds, 'さらに表示', remote: true, id: 'view_more', class: 'btn btn-warning btn-lg' %>
+                        <%= link_to_next_page @search_feeds, Settings.view_utils[:more_view], remote: true, id: 'view_more', class: 'btn btn-warning btn-lg' %>
                       </div>
                   </div>
               </div>
         <% else %>
               <div class="text-center">
                 <%= render'/static_pages/search_form' %>
-                <h1 class="font-weight-bold mt-3"><%= @q %>Not Found</h1>
-                <p class="pt-2">このキーワードではまだ投稿がないみたいですね...</p>
-                <p>あなたが最初の投稿者になりましょう！</p>
-                <%= link_to '投稿する', new_micropost_path, class:"btn btn-warning btn-lg mt-2" %>
+                <h1 class="font-weight-bold mt-3"><%= @q %><%= Settings.view_utils[:not_found] %></h1>
+                <p class="pt-2"><%= Settings.messages[:post_not_found] %></p>
+                <p><%= Settings.messages[:encourage_post] %></p>
+                <%= link_to Settings.post_utils[:submit_post], new_micropost_path, class:"btn btn-warning btn-lg mt-2" %>
               </div>
         <% end %>

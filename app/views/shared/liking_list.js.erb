@@ -1,3 +1,3 @@
 $('#liking_list').append("<%= escape_javascript(render partial: '/microposts/postcards', collection: @liking_posts, as: "post") %>");
 $("#view_more").replaceWith("<%= escape_javascript(
-link_to_next_page(@liking_posts, 'さらに表示', remote: true, params: { type: :liking_list }, class: 'btn-warning btn btn-lg', id: 'view_more')) %>");
+link_to_next_page(@liking_posts, Settings.view_utils[:more_view], remote: true, params: { type: :liking_list }, class: 'btn-warning btn btn-lg', id: 'view_more')) %>");

@@ -1,5 +1,5 @@
-<%= provide(:title, "ユーザー") %>
-<h1 class="font-weight-bold text-center mb-5">ユーザー検索</h1>
+<%= provide(:title, Settings.titles[:search_user]) %>
+<h1 class="font-weight-bold text-center mb-5"><%= Settings.view_utils[:search_user] %></h1>
 <%= render'/static_pages/search_form_users' %>
     <% if @user_search_feeds.any? %>
         <div class="conteiner">
@@ -8,13 +8,13 @@
                     <%= render partial: 'users', collection: @user_search_feeds, as: "user" %>
                 </div>
                 <div class="text-center">
-                    <%= link_to_next_page @user_search_feeds,"さらに表示",remote: true, params: { type: :user_list },
+                    <%= link_to_next_page @user_search_feeds, Settings.view_utils[:more_view], remote: true, params: { type: :user_list },
                                           id: 'view_more', class: 'btn btn-warning btn-lg' %>
                 </div>
             </div>
         </div>
     <% else %>
-        <p class="text-center mt-5">ユーザーが見つかりませんでした</p>
+        <p class="text-center mt-5"></p>
     <% end %>
 
 

@@ -1,4 +1,4 @@
-<% provide(:title,'ホーム') %>
+<% provide(:title, Settings.titles[:home]) %>
     <% if user_signed_in? %>
         <%= render 'logged_in_home' %>
     <% else %>

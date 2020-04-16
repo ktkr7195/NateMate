@@ -1,3 +1,3 @@
 $('#search_post_list').append("<%= escape_javascript(render partial: '/microposts/postcards', collection: @search_feeds, as: "post") %>");
 $("#view_more").replaceWith("<%= escape_javascript(
-link_to_next_page(@search_feeds, 'さらに表示', remote: true, class: 'btn-warning btn btn-lg', id: 'view_more')) %>");
+link_to_next_page(@search_feeds, Settings.view_utils[:more_view], remote: true, class: 'btn-warning btn btn-lg', id: 'view_more')) %>");

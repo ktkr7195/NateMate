@@ -32,14 +32,14 @@
                         <span class="text-muted">from <%= @micropost.address %></span>
                     <% end %>
                 <% else %>
-                    <p class="text-muted mt-5">位置情報が登録されていません</p>
+                    <p class="text-muted mt-5"><%= Settings.post_utils[:position_none] %></p>
                 <% end %>
             </div>
             <div id="likesUsers" class="tab-pane">
                 <div class="text-center">
                 <% if @micropost.likes.any? %>
                     <div class="font-weight-bold text-muted">
-                        <%= @micropost.likes.count %><span class="text-muted font-weight-normal"> likes</span>
+                        <%= @micropost.likes.count %><span class="text-muted font-weight-normal">&nbsp;<%=Settings.view_utils[:likes_en]%></span>
                     </div>
                     <div class="conteiner">
                         <div class="card-group">
@@ -49,7 +49,7 @@
                         </div>
                     </div>
                 <% else %>
-                    <p class="text-muted mt-5">いいねはまだありません</p>
+                    <p class="text-muted mt-5"><%= Settings.post_utils[:likes_none] %></p>
                 <% end %>
                 </div>
             </div>
