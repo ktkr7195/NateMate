@@ -1,7 +1,7 @@
 <div class="card border-0 col-6 col-sm-6 col-md-4 post-cards" style="width: 100px">
     <%= link_to image_tag(post.picture.url, size:"700x700", class:"card-img-top img-fluid"),post %>
         <div class="card-body border-bottom">
-            <i class="text-muted float-left">by</i>
+            <i class="text-muted float-left"><%= Settings.view_utils[:by] %></i>
             <% if avatar_valid?(post) %>
                 <%= link_to image_tag(post.user.avatar.url, size:"30x30",
                     class:'avatar-type-circle float-left mr-sm-2 ml-1 d-none d-sm-block'),post.user %>

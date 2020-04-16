@@ -15,7 +15,5 @@ RUN apt-get update && apt-get install -y mysql-client --no-install-recommends &&
 
 RUN mkdir /App
 WORKDIR /App
-COPY Gemfile /App/Gemfile
-COPY Gemfile.lock /App/Gemfile.lock
-RUN bundle install
 COPY . /App
+RUN bundle install

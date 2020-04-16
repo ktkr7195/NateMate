@@ -1,5 +1,5 @@
 
-<% if current_user != post.user %>
+<% unless current_user == post.user %>
     <% if post.like?(current_user) %>
       <%= form_for(post.likes.find_by(user_id: current_user.id), method: :delete, remote: true) do |f| %>
         <%= button_tag type: 'submit', class:"like-button" do %>
@@ -18,7 +18,7 @@
     <% end %>
 <% else %>
   <span class="text-muted d-sm-block d-none">
-      <%= post.likes.count %> いいね！
+      <%= post.likes.count %>&nbsp;<%= Settings.view_utils[:like!] %>
   </span>
   <span class="text-muted d-sm-none d-block"><i class="fas fa-heart text-danger fa-fw"></i> <%= post.likes.count %></span>
 <% end %>

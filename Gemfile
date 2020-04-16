@@ -6,6 +6,7 @@ ruby '2.5.1'
 gem 'aws-sdk-rails'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.4.2', require: false
+gem 'config'
 gem 'carrierwave'
 gem 'devise'
 gem 'devise-i18n'

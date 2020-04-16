@@ -17,20 +17,36 @@ module ApplicationHelper
     @devise_mapping ||= Devise.mappings[:user]
   end
 
+  #
+  # 引数に指定したユーザーがログイン中のユーザー自身かどうか判定する
+  # @return [Boolean]
+  #
   def current_user?(user)
     return false unless user == current_user
 
     true
   end
 
-  def avatar_valid?(model)
-    model.user.avatar.present?
-  end
-
+  #
+  # 引数に指定したユーザーのアバター画像が設定されているか判定する
+  # @return [Boolean]
+  #
   def user_avatar_valid?(user)
     user.avatar.present?
   end
 
+  #
+  # 引数に指定した投稿を作成したユーザーのアバター画像が設定されているか判定する
+  # @return [Boolean]
+  #
+  def avatar_valid?(model)
+    model.user.avatar.present?
+  end
+
+  #
+  # 引数に指定した投稿に画像(picture)が設定されているか判定する
+  # @return [Boolean]
+  #
   def picture_valid?(model)
     model.picture.present?
   end

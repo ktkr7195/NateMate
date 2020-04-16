@@ -1,6 +1,6 @@
-<% provide(:title,"新規投稿") %>
+<% provide(:title, Settings.titles[:new_post]) %>
 <div class="text-center">
-    <h1 class="font-weight-bold">新しいコレクション</h1>
+    <h1 class="font-weight-bold"><%= Settings.post_utils[:title] %></h1>
     <div class="form-group mt-5">
       <%= form_for(@micropost) do |f| %>
         <%= render "shared/error_messages", model: f.object %>
@@ -13,7 +13,7 @@
             <% end %>
           </div>
           <div class="field border-bottom picChooseBtn">
-            <label for="js_presentImg" class="btn btn-warning"><span>画像を選択</span>
+            <label for="js_presentImg" class="btn btn-warning"><span><%= Settings.post_utils[:select_image_file] %></span>
               <%= f.file_field :picture, accept: 'image/jpeg,image/png', id: :js_presentImg, autofocus: true,
                                          class:"form-control-file", style: "display:none;" %>
             </label>
@@ -21,24 +21,24 @@
 
           <div class="field text-muted font-weight-bold">
             <%= f.check_box :exif_is_valid %>
-            <%= f.label :exif_is_valid, '画像から位置情報を取得' %>
+            <%= f.label :exif_is_valid, Settings.post_utils[:get_position_from_image] %>
           </div>
-          <div class="text-muted">or</div>
-　　　　　　<div class="text-muted font-weight-bold">住所から位置情報を取得</div>
+          <div class="text-muted"><%= Settings.view_utils[:or] %></div>
+　　　　　　<div class="text-muted font-weight-bold"><%= Settings.post_utils[:get_position_from_address] %></div>
 
           <div class="field border-bottom">
-            <%= f.text_field :address, placeholder:"例)東京都渋谷区", class:"form-control address-form border-0" %>
-          </div>
-
-          <div class="field border-bottom">
-            <%= f.text_field :title, placeholder:"この写真にタイトルをつけましょう！(20字以内)", class:"form-control title-form border-0 mt-2" %><br />
+            <%= f.text_field :address, placeholder: Settings.post_utils[:address_placeholder], class:"form-control address-form border-0" %>
           </div>
 
           <div class="field border-bottom">
-            <%= f.text_area :content, placeholder:"  この写真についてもっと教えてください！(140字以内)",
+            <%= f.text_field :title, placeholder: Settings.post_utils[:title_placeholder], class:"form-control title-form border-0 mt-2" %><br />
+          </div>
+
+          <div class="field border-bottom">
+            <%= f.text_area :content, placeholder: Settings.post_utils[:content_placeholder],
                                       class:"form-area border-0 mt-2", size: "58x8" %><br />
           </div>
-          <%= f.submit '投稿する！', class:"btn btn-lg btn-warning mt-5" %>
+          <%= f.submit Settings.post_utils[:submit_post], class:"btn btn-lg btn-warning mt-5" %>
         <% end %>
     </div>
 </div>

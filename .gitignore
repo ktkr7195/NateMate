@@ -45,3 +45,6 @@ yarn-debug.log*
 
 # sitemap
 *sitemap.xml.gz
+config/settings.local.yml
+config/settings/*.local.yml
+config/environments/*.local.yml

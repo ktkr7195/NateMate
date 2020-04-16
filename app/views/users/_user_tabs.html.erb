@@ -1,20 +1,20 @@
 <ul class="nav nav-tabs justify-content-center">
   <li class="nav-item">
-    <a href="#mypost" class="nav-link border-top-0 text-muted active d-none d-md-block" data-toggle="tab">コレクション</a>
-    <a href="#mypost" class="nav-link border-top-0 text-muted d-block d-sm-none" data-toggle="tab">投稿</a>
+    <a href="#mypost" class="nav-link border-top-0 text-muted active d-none d-md-block" data-toggle="tab"><%= Settings.view_utils[:collection] %></a>
+    <a href="#mypost" class="nav-link border-top-0 text-muted d-block d-sm-none" data-toggle="tab"><%= Settings.view_utils[:post] %></a>
   </li>
   <li class="nav-item">
     <a href="#followingUser" class="nav-link border-top-0 text-muted" data-toggle="tab">
-             フォロー中 <span id="js-following"><%= @user.following.count %></span>
+             <%= Settings.view_utils[:following] %><span id="js-following"><%= @user.following.count %></span>
     </a>
   </li>
   <li class="nav-item">
     <a href="#follower" class="nav-link border-top-0 text-muted" data-toggle="tab">
-             フォロワー <span id="js-followers"><%= @user.followers.count %></span>
+             <%= Settings.view_utils[:follower] %><span id="js-followers"><%= @user.followers.count %></span>
     </a>
   </li>
   <li class="nav-item">
-    <a href="#likes" class="nav-link border-top-0 text-muted" data-toggle="tab">いいね</a>
+    <a href="#likes" class="nav-link border-top-0 text-muted" data-toggle="tab"><%= Settings.view_utils[:likes] %></a>
   </li>
 </ul>
 
@@ -26,59 +26,59 @@
             <div class="mt-5 mb-3 border-bottom"></div>
           <% end %>
             <div class="font-weight-bold text-muted">
-              <%= @user.microposts.count %><span class="font-weight-normal"> collected</span>
+              <%= @user.microposts.count %><span class="font-weight-normal">&nbsp;<%= Settings.view_utils[:collected] %></span>
             </div>
-              <div class="conteiner">
-                  <div class="card-group　mx-auto">
-                      <div id="post_list" class="row">
-                        <%= render partial: '/microposts/postcards', collection: @feed, as: "post" %>
-                      </div>
-                      <div class="text-center mt-2">
-                          <%= link_to_next_page @feed,'さらに表示',remote: true, params: { type: :post_list },
-                                                id: "view_more", class: "btn btn-warning btn-lg" %>
-                      </div>
-                  </div>
-              </div>
+            <div class="conteiner">
+                <div class="card-group　mx-auto">
+                    <div id="post_list" class="row">
+                      <%= render partial: '/microposts/postcards', collection: @feed, as: "post" %>
+                    </div>
+                    <div class="text-center mt-2">
+                        <%= link_to_next_page @feed, Settings.view_utils[:more_view], remote: true, params: { type: :post_list },
+                                              id: "view_more", class: "btn btn-warning btn-lg" %>
+                    </div>
+                </div>
+            </div>
         <% else %>
             <% if current_user?(@user) %>
-                <p class="mt-5">まだコレクションがありません</p>
-                <p>これでは寂しいですね...</p>
-                <%= link_to '投稿する', new_micropost_path, class:"btn btn-warning" %>
+                <p class="mt-5"><%= Settings.messages[:post_none] %></p>
+                <p><%= Settings.messages[:alone] %></p>
+                <%= link_to Settings.post_utils[:submit_post], new_micropost_path, class:"btn btn-warning" %>
             <% else %>
-                <p class="mt-5">コレクションがありません</p>
+                <p class="mt-5"><%= Settings.messages[:post_none] %></p>
             <% end %>
         <% end %>
     </div>
     <div id="followingUser" class="tab-pane">
       <% if @following_users.any? %>
         <div class="font-weight-bold text-muted">
-            <%= @following_users.count %><span class="font-weight-normal"> following</span>
+            <%= @following_users.count %><span class="font-weight-normal">&nbsp;<%= Settings.view_utils[:following_en] %></span>
         </div>
-            <div class="conteiner">
-                <div class="card-group　mx-auto">
-                    <div id="following_list" class="row">
-                        <%= render partial: 'users', collection: @following_users, as: "user" %>
-                    </div>
-                    <div class="text-center mt-2">
-                        <%= link_to_next_page @following_users, 'さらに表示',remote: true, params: { type: :following_list },
-                                              id: 'view_more', class: 'btn btn-warning btn-lg' %>
-                    </div>
-                  </div>
+        <div class="conteiner">
+            <div class="card-group　mx-auto">
+                <div id="following_list" class="row">
+                    <%= render partial: 'users', collection: @following_users, as: "user" %>
+                </div>
+                <div class="text-center mt-2">
+                    <%= link_to_next_page @following_users, Settings.view_utils[:more_view], remote: true, params: { type: :following_list },
+                                          id: 'view_more', class: 'btn btn-warning btn-lg' %>
+                </div>
               </div>
+          </div>
       <% else %>
           <% if current_user?(@user) %>
-            <p class="mt-5">フォローしているユーザーはいません...</p>
-            <p>気の合う仲間を探してみましょう！</p>
+            <p class="mt-5"><%= Settings.messages[:no_following_user] %></p>
+            <p><%= Settings.messages[:encourage_follow] %></p>
             <%= render'/static_pages/search_form_users' %>
           <% else %>
-            <p class="mt-5">フォローしているユーザーはいません</p>
+            <p class="mt-5"><%= Settings.messages[:no_following_user] %></p>
           <% end %>
       <% end %>
     </div>
     <div id="follower" class="tab-pane">
       <% if @followers.any? %>
         <div class="font-weight-bold text-muted">
-          <%= @followers.count %><span class="font-weight-normal"> followers</span>
+          <%= @followers.count %><span class="font-weight-normal">&nbsp;<%= Settings.view_utils[:follower_en] %></span>
         </div>
             <div class="conteiner">
                 <div class="card-group　mx-auto">
@@ -86,42 +86,39 @@
                       <%= render partial: 'users', collection: @followers, as: "user" %>
                     </div>
                     <div class="text-center mt-2">
-                      <%= link_to_next_page @followers,'さらに表示', remote: true, params: { type: :follower_list },
+                      <%= link_to_next_page @followers, Settings.view_utils[:more_view], remote: true, params: { type: :follower_list },
                                             id: 'view_more', class: 'btn btn-warning btn-lg' %>
                     </div>
                 </div>
             </div>
       <% else %>
-          <% if current_user?(@user) %>
-            <p class="mt-5">フォロワーはまだいないようです...</p>
-          <% else %>
-            <p class="mt-5">フォロワーはいません</p>
-          <% end %>
+        <p class="mt-5"><%= Settings.messages[:no_follower] %></p>
       <% end %>
     </div>
+
     <div id="likes" class="tab-pane">
       <% if @liking_posts.any? %>
         <div class="font-weight-bold text-muted">
-          <%= @user.like_microposts.count %><span class="font-weight-normal"> likes</span>
+          <%= @user.like_microposts.count %><span class="font-weight-normal">&nbsp;<%= Settings.view_utils[:likes_en] %></span>
         </div>
-    <div class="conteiner">
-        <div class="card-group　mx-auto">
-            <div id="liking_list" class="row">
-              <%= render partial: '/microposts/postcards', collection: @liking_posts, as: "post" %>
-            </div>
-            <div class="text-center mt-2">
-              <%= link_to_next_page @liking_posts, 'さらに表示',remote: true, params: { type: :liking_list },
-                                    id: 'view_more', class: 'btn btn-warning btn-lg' %>
-            </div>
+        <div class="conteiner">
+          <div class="card-group　mx-auto">
+              <div id="liking_list" class="row">
+                <%= render partial: '/microposts/postcards', collection: @liking_posts, as: "post" %>
+              </div>
+              <div class="text-center mt-2">
+                <%= link_to_next_page @liking_posts, Settings.view_utils[:more_view], remote: true, params: { type: :liking_list },
+                                      id: 'view_more', class: 'btn btn-warning btn-lg' %>
+              </div>
+          </div>
         </div>
-    </div>
       <% else %>
         <% if current_user?(@user) %>
-          <p class="mt-5">まだいいねしていません...</p>
-          <p>あなたのお気に入りを探しにいきましょう！</p>
+          <p class="mt-5"><%= Settings.messages[:no_likes] %></p>
+          <p><%= Settings.messages[:encourage_likes] %></p>
           <%= render'/static_pages/search_form' %>
         <% else %>
-          <p class="mt-5">いいねした投稿はありません</p>
+          <p class="mt-5"><%= Settings.messages[:no_likes] %></p>
         <% end %>
       <% end %>
 </div>

@@ -16,20 +16,33 @@ class Micropost < ApplicationRecord
 
   paginates_per 9
 
+  #
+  # 投稿をいいねする
+  #
   def like(user)
     likes.create(user_id: user.id)
   end
 
+  #
+  # 投稿のいいねを解除する
+  #
   def unlike(user)
     likes.find_by(user_id: user.id).destroy
   end
 
+  #
+  # 引数に指定したユーザーが投稿をいいねしているか判別する
+  # @return [Boolean] true いいねしている / false いいねしていない
+  #
   def like?(user)
     like_users.include?(user)
   end
 
   private
 
+  #
+  # 投稿時のタイトルに入力されるスペースを削除する
+  #
   def kill_whitespace
       self.title = title.gsub(/[[:space:]]/, '') if self.title.present?
   end

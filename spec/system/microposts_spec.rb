@@ -21,7 +21,7 @@ RSpec.describe 'Microposts', type: :system, js: true do
         expect(page).to have_field 'js_presentImg',visible: false
         expect(page).to have_field placeholder:'例)東京都渋谷区'
         expect(page).to have_field placeholder:'この写真にタイトルをつけましょう！(20字以内)'
-        expect(page).to have_field placeholder:'  この写真についてもっと教えてください！(140字以内)'
+        expect(page).to have_field placeholder:'この写真についてもっと教えてください！(140字以内)'
         expect(page).to have_button '投稿する！'
       end
 
