@@ -1,4 +1,4 @@
-lock "~> 3.11.2"
+lock "~> 3.13.0"
 
 set :application, "NateMate"
 set :repo_url, "git@github.com:TadayoshiOtsuka/NateMate.git"
