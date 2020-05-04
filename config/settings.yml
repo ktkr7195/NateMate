@@ -1,11 +1,13 @@
 titles:
     none: '無題'
     home: 'ホーム'
+    login: 'ログイン'
     new_post: '新規投稿'
     search_post: 'コレクション検索'
     search_user: 'ユーザー検索'
     contact: 'お問い合わせ'
     new_registration: '新規登録'
+    edit_registration: 'アカウント情報編集'
 
 link_utils:
     top: 'トップページ'
@@ -17,6 +19,7 @@ link_utils:
     forget_password: 'パスワードを忘れてしまったら'
     confirmation_email_resent: '認証メールが届かない場合はこちら'
     contact: 'お問い合わせ'
+    back: '戻る'
 
 messages:
     logout_confirm: 'ログアウトしてよろしいですか？'
@@ -31,6 +34,7 @@ messages:
     no_likes: 'まだいいねしていません...'
     encourage_likes: 'あなたのお気に入りを探しに行きましょう！'
     has_account: 'アカウントをお持ちですか？'
+    guest_account_edit_info: 'ゲストユーザーはアカウント情報を編集できません'
 
 home_utils:
     hello: 'Hello Nature!'
@@ -56,6 +60,21 @@ post_utils:
     likes_none: 'いいねはまだありません'
     position_none: '位置情報が登録されていません'
 
+session_utils:
+    login: 'ログイン'
+    guest_login: 'おためしログイン'
+    guest_user_id: 'guest@guest.com'
+    guest_user_password: 'password'
+
+registration_utils:
+    new: '新規登録'
+    edit: 'アカウント情報編集'
+    select_image_file: '画像を選択'
+    confirm_new_account: '登録する'
+    confirm_edit: '更新する'
+    validate_password_min_length: '(6文字以上)'
+
+
 view_utils:
     website_name: 'NateMate'
     new_post: '新しいコレクション'
@@ -67,6 +86,7 @@ view_utils:
     collected: 'collected'
     more_view: 'さらに表示'
     more_view2: 'もっと見る'
+    login: 'ログイン'
     post_list: 'コレクション'
     likes: 'いいね'
     likes_en: 'likes'

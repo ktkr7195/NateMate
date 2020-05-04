@@ -1,6 +1,6 @@
-<% provide(:title, "ログイン") %>
+<% provide(:title, Settings.titles[:login]) %>
 <div class="text-center">
-  <h2 class="font-weight-bold">ログイン</h2>
+  <h2 class="font-weight-bold"><%= Settings.session_utils[:login] %></h2>
   <div class="form-group mt-5">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <%= render 'shared/flash' %>
@@ -23,7 +23,7 @@
     <% end %>
 
     <div class="actions">
-     <%= f.submit "ログイン", { class:"btn btn-lg btn-warning mt-2" } %>
+     <%= f.submit Settings.session_utils[:login], { class:"btn btn-lg btn-warning mt-2" } %>
     </div>
     <% end %>
     <%= render 'devise/shared/guest_loginbtn' %>
