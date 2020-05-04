@@ -1,20 +1,20 @@
 class ApplicationController < ActionController::Base
   include MicropostsHelper
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :set_search
+  before_action :set_search_valiables
 
   #
   # 記事検索、ユーザー検索の初期設定
-  # @param [Array] search_count 記事検索結果件数を求める際に対象とする配列
-  # @param [Array] search_feeds 記事検索結果
+  # @param [Array] post_search_result_count 記事検索結果件数を求める際に対象とする配列
+  # @param [Array] post_search_result 記事検索結果
   # @param [Array] user_search_feeds ユーザー検索結果
   #
-  def set_search
-    @key = Micropost.ransack(params[:q])
-    @search_count = @key.result(distinct: true)
-    @search_feeds = @key.result(distinct: true).page(params[:page])
-    @user_key = User.ransack(params[:q])
-    @user_search_feeds = @user_key.result(distinct: true).page(params[:page])
+  def set_search_valiables
+    @post_search_key = Micropost.ransack(params[:q])
+    @post_search_result_count = @post_search_key.result(distinct: true)
+    @post_search_result = @post_search_key.result(distinct: true).page(params[:page])
+    @user_search_key = User.ransack(params[:q])
+    @user_search_result = @user_search_key.result(distinct: true).page(params[:page])
   end
 
   protected

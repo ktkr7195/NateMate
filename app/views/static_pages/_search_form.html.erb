@@ -1,5 +1,5 @@
 <div class="text-center mt-2">
-    <%= search_form_for @key do |f| %>
+    <%= search_form_for @post_search_key do |f| %>
         <%= f.search_field :title_cont, placeholder: Settings.home_utils[:post_search_placeholder] %>
         <%= button_tag type: 'submit', class: 'btn btn-warning mb-1' do %>
             <i class="fas fa-search"></i>
