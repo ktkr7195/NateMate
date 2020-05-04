@@ -1,7 +1,7 @@
 <div class="mt-5">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <%= f.hidden_field :email, value: 'guest@guest.com' %>
-        <%= f.hidden_field :password, value: 'password' %>
-        <%= f.submit 'おためしログイン', { class:'btn btn-lg btn-warning' } %>
+        <%= f.hidden_field :email, value: Settings.session_utils[:guest_user_id] %>
+        <%= f.hidden_field :password, value: Settings.session_utils[:guest_user_password] %>
+        <%= f.submit Settings.session_utils[:guest_login], { class:'btn btn-lg btn-warning' } %>
     <% end %>
 </div>

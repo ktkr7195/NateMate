@@ -1,18 +1,18 @@
 <% provide(:title, Settings.titles[:search_post]) %>
-        <% if @search_feeds.any? %>
+        <% if @post_search_result.any? %>
           <div class="text-center">
             <%= render'/static_pages/search_form' %>
           </div>
           <div class="font-weight-bold text-muted">
-            <span><%= Settings.view_utils[:search_result] %></span><%= @search_count.count %><span class="font-weight-normal"><%= Settings.view_utils[:count] %></span>
+            <span><%= Settings.view_utils[:search_result] %></span><%= @post_search_result_count.count %><span class="font-weight-normal"><%= Settings.view_utils[:count] %></span>
           </div>
               <div class="conteiner">
                   <div class="card-group　mx-auto">
                       <div id="search_post_list" class="row">
-                        <%= render partial: '/microposts/postcards', collection: @search_feeds, as: "post" %>
+                        <%= render partial: '/microposts/postcards', collection: @post_search_result, as: "post" %>
                       </div>
                       <div class="text-center mt-2">
-                        <%= link_to_next_page @search_feeds, Settings.view_utils[:more_view], remote: true, id: 'view_more', class: 'btn btn-warning btn-lg' %>
+                        <%= link_to_next_page @post_search_result, Settings.view_utils[:more_view], remote: true, id: 'view_more', class: 'btn btn-warning btn-lg' %>
                       </div>
                   </div>
               </div>
