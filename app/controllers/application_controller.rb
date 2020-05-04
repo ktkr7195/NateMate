@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   # 記事検索、ユーザー検索の初期設定
   # @param [Array] post_search_result_count 記事検索結果件数を求める際に対象とする配列
   # @param [Array] post_search_result 記事検索結果
-  # @param [Array] user_search_feeds ユーザー検索結果
+  # @param [Array] user_search_result ユーザー検索結果
   #
   def set_search_valiables
     @post_search_key = Micropost.ransack(params[:q])
