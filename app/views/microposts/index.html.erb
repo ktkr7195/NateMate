@@ -9,7 +9,7 @@
               <div class="conteiner">
                   <div class="card-group　mx-auto">
                       <div id="search_post_list" class="row">
-                        <%= render partial: '/microposts/postcards', collection: @post_search_result, as: "post" %>
+                        <%= render partial: '/microposts/postcards', collection: @post_search_result, as: 'post' %>
                       </div>
                       <div class="text-center mt-2">
                         <%= link_to_next_page @post_search_result, Settings.view_utils[:more_view], remote: true, id: 'view_more', class: 'btn btn-warning btn-lg' %>
