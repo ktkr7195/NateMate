@@ -9,7 +9,7 @@
                 <%= render partial: 'users', collection: @user_search_result, as: "user" %>
             </div>
             <div class="text-center">
-                <%= link_to_next_page @user_search_result, Settings.view_utils[:more_view], remote: true, params: { type: :user_list },　id: 'view_more', class: 'btn btn-warning btn-lg' %>
+                <%= link_to_next_page @user_search_result, Settings.view_utils[:more_view], remote: true, params: { type: :user_list }, id: 'view_more', class: 'btn btn-warning btn-lg' %>
             </div>
         </div>
     </div>
