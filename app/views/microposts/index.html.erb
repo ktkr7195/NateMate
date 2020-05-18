@@ -1,27 +1,27 @@
 <% provide(:title, Settings.titles[:search_post]) %>
-        <% if @post_search_result.any? %>
-          <div class="text-center">
-            <%= render'/static_pages/search_form' %>
-          </div>
-          <div class="font-weight-bold text-muted">
-            <span><%= Settings.view_utils[:search_result] %></span><%= @post_search_result_count.count %><span class="font-weight-normal"><%= Settings.view_utils[:count] %></span>
-          </div>
-              <div class="conteiner">
-                  <div class="card-group　mx-auto">
-                      <div id="search_post_list" class="row">
-                        <%= render partial: '/microposts/postcards', collection: @post_search_result, as: 'post' %>
-                      </div>
-                      <div class="text-center mt-2">
-                        <%= link_to_next_page @post_search_result, Settings.view_utils[:more_view], remote: true, id: 'view_more', class: 'btn btn-warning btn-lg' %>
-                      </div>
-                  </div>
-              </div>
-        <% else %>
-              <div class="text-center">
-                <%= render'/static_pages/search_form' %>
-                <h1 class="font-weight-bold mt-3"><%= @q %><%= Settings.view_utils[:not_found] %></h1>
-                <p class="pt-2"><%= Settings.messages[:post_not_found] %></p>
-                <p><%= Settings.messages[:encourage_post] %></p>
-                <%= link_to Settings.post_utils[:submit_post], new_micropost_path, class:"btn btn-warning btn-lg mt-2" %>
-              </div>
-        <% end %>
+  <% if @post_search_result.any? %>
+    <div class="text-center">
+      <%= render'/static_pages/search_form' %>
+    </div>
+    <div class="font-weight-bold text-muted">
+      <span><%= Settings.view_utils[:search_result] %></span><%= @post_search_result_count.count %><span class="font-weight-normal"><%= Settings.view_utils[:count] %></span>
+    </div>
+        <div class="conteiner">
+            <div class="card-group　mx-auto">
+                <div id="search_post_list" class="row">
+                  <%= render partial: '/microposts/postcards', collection: @post_search_result, as: 'post' %>
+                </div>
+                <div class="text-center mt-2">
+                  <%= link_to_next_page @post_search_result, Settings.view_utils[:more_view], remote: true, id: 'view_more', class: 'btn btn-warning btn-lg' %>
+                </div>
+            </div>
+        </div>
+  <% else %>
+        <div class="text-center">
+          <%= render'/static_pages/search_form' %>
+          <h1 class="font-weight-bold mt-3"><%= @q %><%= Settings.view_utils[:not_found] %></h1>
+          <p class="pt-2"><%= Settings.messages[:post_not_found] %></p>
+          <p><%= Settings.messages[:encourage_post] %></p>
+          <%= link_to Settings.post_utils[:submit_post], new_micropost_path, class:"btn btn-warning btn-lg mt-2" %>
+        </div>
+  <% end %>

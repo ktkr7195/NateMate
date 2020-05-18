@@ -1,3 +1,4 @@
+<%# スライダー %>
 <div class="conteiner">
     <div class="row">
         <div class="col-12 d-none d-sm-block">
@@ -11,29 +12,30 @@
         </div>
     </div>
 </div>
+
 <div class="conteiner">
     <div class="row">
         <div class="top-copy col-12 text-center mt-5 mb-5">
-            <h1 class="font-weight-bold"><%= Settings.home_utils.introductions[:main] %></h1><br />
+            <h1 class="font-weight-bold mb-5"><%= Settings.home_utils.introductions[:main] %></h1>
             <p><%= Settings.home_utils.introductions[:sub1] %></p>
             <p><%= Settings.home_utils.introductions[:sub2] %></p>
             <%= link_to Settings.post_utils[:submit_post], new_user_registration_path, class:'btn btn-warning btn-lg home-btn' %>
         </div>
     </div>
 </div>
-
 <div class="border mb-5"></div>
 
+<%# 投稿一覧 %>
 <h2 class="text-center font-weight-bold mb-3"><%= Settings.home_utils[:post_list] %></h2>
-    <%= render 'search_form' %>
-        <div class="conteiner">
-            <div class="card-group　mx-auto">
-                <div id="lists" class="row">
-                    <%= render partial: '/microposts/postcards', collection: @feed, as: "post" %>
-                </div>
-                <div class="text-center mt-2">
-                    <%= link_to_next_page @feed, Settings.view_utils[:more_view2], remote: true, class: 'btn-warning btn btn-lg', id: 'view_more' %>
-                </div>
-            </div>
+<%= render 'search_form' %>
+<div class="conteiner">
+    <div class="card-group　mx-auto">
+        <div id="homePostLists" class="row">
+            <%= render partial: '/microposts/postcards', collection: @feed, as: "post" %>
         </div>
+        <div class="text-center mt-2">
+            <%= link_to_next_page @feed, Settings.view_utils[:more_view2], remote: true, class: 'btn-warning btn btn-lg', id: 'view_more' %>
+        </div>
+    </div>
+</div>
 
