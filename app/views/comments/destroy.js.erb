@@ -1,0 +1,2 @@
+$('#comment-count').html("<span>コメント&nbsp;<%= @micropost.comments.count %>件</span>");
+$('#comments-list').html("<%= j(render partial: '/microposts/comments_list', collection: @micropost.comments.order(created_at: :desc).page(params[:page]).per(10), as: "comment") %>");

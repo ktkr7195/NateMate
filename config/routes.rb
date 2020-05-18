@@ -13,7 +13,9 @@ Rails.application.routes.draw do
     get "sign_out",:to => 'users/sessions#destroy'
   end
   resources :users
-  resources :microposts,          only: [:new, :create, :destroy, :show, :index]
+  resources :microposts, only: [:new, :create, :destroy, :show, :index] do
+    resources :comments, only: [:create, :destroy]
+  end
   resources :relationships,       only: [:create, :destroy]
   resources :likes,               only: [:create, :destroy]
 end

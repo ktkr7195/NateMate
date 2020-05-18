@@ -1,0 +1,8 @@
+<% if user_signed_in? %>
+    <div class="text-center">
+        <%= form_with(model: [@micropost, @comment], url: micropost_comments_path(@micropost), remote: true ) do |f|%>
+            <%= f.text_field :content, :size => "50", id:"comment-text-field" %>
+            <%= f.submit "コメントする", class:"btn btn-success" %>
+        <% end %>
+    </div>
+<% end %>

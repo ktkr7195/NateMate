@@ -1,0 +1,2 @@
+$('#comments-list').append("<%= escape_javascript(render partial: '/microposts/comments_list', collection: @comments, as: 'comment') %>");
+$("#view_more").replaceWith("<%= escape_javascript(link_to_next_page(@comments, Settings.view_utils[:more_view], remote: true, class: 'btn-warning btn mt-2 ml-2', id: 'view_more')) %>");

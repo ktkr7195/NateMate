@@ -1,0 +1,13 @@
+<div>
+    <% if avatar_valid?(comment) %>
+        <%= link_to image_tag(comment.user.avatar.url, size:"40x40", class:"avatar-type-circle"), comment.user %>
+    <% else %>
+        <%= link_to image_tag(asset_path('default.jpg'), size:"40x40", class:"avatar-type-circle"), comment.user %>
+    <% end %>
+    <%= link_to comment.user.name, comment.user, class:"text-muted" %>&ensp;<%= comment.content %>
+    <% if comment.user == current_user %>
+        <%= link_to micropost_comment_path(comment.micropost_id, comment.id), method: :delete, remote: true do %>
+            <i class="fas fa-trash-alt text-muted"></i>
+        <% end %>
+    <% end %>
+</div>
