@@ -1,3 +1,2 @@
-$('#follower_list').append("<%= escape_javascript(render partial: 'users', collection: @followers, as: "user") %>");
-$("#view_more").replaceWith("<%= escape_javascript(
-link_to_next_page(@followers, Settings.view_utils[:more_view], remote: true, params: { type: :follower_list }, class: 'btn-warning btn btn-lg', id: 'view_more')) %>");
+$('#follower_list').append("<%= j(render partial: 'users', collection: @followers, as: "user") %>");
+$("#view_more").replaceWith("<%= j(link_to_next_page(@followers, Settings.view_utils[:more_view], remote: true, params: { type: :follower_list }, class: 'btn-warning btn btn-lg', id: 'view_more')) %>");
