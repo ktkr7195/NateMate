@@ -4,7 +4,6 @@
     <div class="form-group mt-5">
       <%= form_for(@micropost) do |f| %>
         <%= render "shared/error_messages", model: f.object %>
-
           <div class="postPicturePrev mt-5">
             <% if picture_valid?(@micropost) %>
               <%= image_tag @micropost.picture.url, id: :js_imgPrev, size:"600x450", class:"post-prev img-fluid" %>
@@ -14,8 +13,7 @@
           </div>
           <div class="field border-bottom picChooseBtn">
             <label for="js_presentImg" class="btn btn-warning"><span><%= Settings.post_utils[:select_image_file] %></span>
-              <%= f.file_field :picture, accept: 'image/jpeg,image/png', id: :js_presentImg, autofocus: true,
-                                         class:"form-control-file", style: "display:none;" %>
+              <%= f.file_field :picture, accept: 'image/jpeg,image/png', id: :js_presentImg, autofocus: true, class:"form-control-file", style: "display:none;" %>
             </label>
           </div>
 
@@ -35,8 +33,7 @@
           </div>
 
           <div class="field border-bottom">
-            <%= f.text_area :content, placeholder: Settings.post_utils[:content_placeholder],
-                                      class:"form-area border-0 mt-2", size: "58x8" %><br />
+            <%= f.text_area :content, placeholder: Settings.post_utils[:content_placeholder], class:"form-area border-0 mt-2", size: "58x8" %><br />
           </div>
           <%= f.submit Settings.post_utils[:submit_post], class:"btn btn-lg btn-warning mt-5" %>
         <% end %>

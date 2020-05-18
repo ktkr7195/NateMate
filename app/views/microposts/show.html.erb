@@ -9,8 +9,13 @@
             <%= image_tag(@micropost.picture.url, size:"700x700", class:"post-picture img-fluid") %>
         </div>
         <span class="post-likes-btn text-right" id="micropost-<%= @micropost.id %>" style='width: 80%;'>
-            <%= render partial: '/likes/likes_btn', locals: { post: @micropost } %></span>
-            <%= render 'post_tabs' %>
+            <%= render partial: '/likes/likes_btn', locals: { post: @micropost } %>
+        </span>
+
+        <%# 投稿情報タブ %>
+        <%= render 'post_tabs' %>
+
+        <%# コメント %>
         <div class="col-12 text-left mt-5">
             <div id="comment-count" class="font-weight-bold mb-2">
                 <span>コメント&nbsp;<%= @micropost.comments.count %>件</span>
@@ -26,6 +31,7 @@
             <%= render '/microposts/comment_form' %>
         </div>
 
+        <%# 投稿日時、投稿者情報 %>
         <div class="col-12 text-center mt-5">
             <span class="text-muted"><%= Settings.view_utils[:by] %>&nbsp;</span>
                 <% if avatar_valid?(@micropost) %>

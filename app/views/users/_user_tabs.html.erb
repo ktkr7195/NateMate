@@ -5,12 +5,12 @@
   </li>
   <li class="nav-item">
     <a href="#followingUser" class="nav-link border-top-0 text-muted" data-toggle="tab">
-             <%= Settings.view_utils[:following] %><span id="js-following">&nbsp;<%= @user.following.count %></span>
+      <%= Settings.view_utils[:following] %><span id="js-following">&nbsp;<%= @user.following.count %></span>
     </a>
   </li>
   <li class="nav-item">
     <a href="#follower" class="nav-link border-top-0 text-muted" data-toggle="tab">
-             <%= Settings.view_utils[:follower] %><span id="js-followers">&nbsp;<%= @user.followers.count %></span>
+      <%= Settings.view_utils[:follower] %><span id="js-followers">&nbsp;<%= @user.followers.count %></span>
     </a>
   </li>
   <li class="nav-item">
@@ -34,8 +34,7 @@
                       <%= render partial: '/microposts/postcards', collection: @feed, as: "post" %>
                     </div>
                     <div class="text-center mt-2">
-                        <%= link_to_next_page @feed, Settings.view_utils[:more_view], remote: true, params: { type: :post_list },
-                                              id: "view_more", class: "btn btn-warning btn-lg" %>
+                        <%= link_to_next_page @feed, Settings.view_utils[:more_view], remote: true, params: { type: :post_list }, id: "view_more", class: "btn btn-warning btn-lg" %>
                     </div>
                 </div>
             </div>
@@ -60,8 +59,7 @@
                     <%= render partial: 'users', collection: @following_users, as: "user" %>
                 </div>
                 <div class="text-center mt-2">
-                    <%= link_to_next_page @following_users, Settings.view_utils[:more_view], remote: true, params: { type: :following_list },
-                                          id: 'view_more', class: 'btn btn-warning btn-lg' %>
+                    <%= link_to_next_page @following_users, Settings.view_utils[:more_view], remote: true, params: { type: :following_list }, id: 'view_more', class: 'btn btn-warning btn-lg' %>
                 </div>
               </div>
           </div>
@@ -86,8 +84,7 @@
                       <%= render partial: 'users', collection: @followers, as: "user" %>
                     </div>
                     <div class="text-center mt-2">
-                      <%= link_to_next_page @followers, Settings.view_utils[:more_view], remote: true, params: { type: :follower_list },
-                                            id: 'view_more', class: 'btn btn-warning btn-lg' %>
+                      <%= link_to_next_page @followers, Settings.view_utils[:more_view], remote: true, params: { type: :follower_list }, id: 'view_more', class: 'btn btn-warning btn-lg' %>
                     </div>
                 </div>
             </div>
@@ -107,8 +104,7 @@
                 <%= render partial: '/microposts/postcards', collection: @liking_posts, as: "post" %>
               </div>
               <div class="text-center mt-2">
-                <%= link_to_next_page @liking_posts, Settings.view_utils[:more_view], remote: true, params: { type: :liking_list },
-                                      id: 'view_more', class: 'btn btn-warning btn-lg' %>
+                <%= link_to_next_page @liking_posts, Settings.view_utils[:more_view], remote: true, params: { type: :liking_list }, id: 'view_more', class: 'btn btn-warning btn-lg' %>
               </div>
           </div>
         </div>

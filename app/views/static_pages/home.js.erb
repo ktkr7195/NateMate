@@ -1,2 +1,2 @@
-$('#lists').append("<%= escape_javascript(render partial: '/microposts/postcards', collection: @feed, as: "post") %>");
-$("#view_more").replaceWith("<%= escape_javascript(link_to_next_page(@feed, Settings.view_utils[:more_view], remote: true, class: 'btn-warning btn btn-lg', id: 'view_more')) %>");
+$('#homePostLists').append("<%= j(render partial: '/microposts/postcards', collection: @feed, as: "post") %>");
+$("#view_more").replaceWith("<%= j(link_to_next_page(@feed, Settings.view_utils[:more_view], remote: true, class: 'btn-warning btn btn-lg', id: 'view_more')) %>");
