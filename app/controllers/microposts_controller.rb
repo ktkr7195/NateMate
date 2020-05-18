@@ -32,6 +32,8 @@ class MicropostsController < ApplicationController
   #
   def show
     @micropost = Micropost.find(params[:id])
+    @comments = @micropost.comments.order(created_at: :desc).page(params[:page]).per(10)
+    @comment = Comment.new
     @this_post_liking_users = @micropost.like_users.page(params[:page])
   end
 

@@ -11,6 +11,21 @@
         <span class="post-likes-btn text-right" id="micropost-<%= @micropost.id %>" style='width: 80%;'>
             <%= render partial: '/likes/likes_btn', locals: { post: @micropost } %></span>
             <%= render 'post_tabs' %>
+        <div class="col-12 text-left mt-5">
+            <div id="comment-count" class="font-weight-bold mb-2">
+                <span>コメント&nbsp;<%= @micropost.comments.count %>件</span>
+            </div>
+            <div id="comments-list">
+                <% if @comments.any? %>
+                    <%= render partial: '/microposts/comments_list', collection: @comments, as: 'comment' %>
+                <% else %>
+                    <span class="text-muted">コメントはまだありません</span>
+                <% end %>
+            </div>
+            <%= link_to_next_page @comments, Settings.view_utils[:more_view], remote: true, id: 'view_more', class: 'btn btn-warning mt-2' %>
+            <%= render '/microposts/comment_form' %>
+        </div>
+
         <div class="col-12 text-center mt-5">
             <span class="text-muted"><%= Settings.view_utils[:by] %>&nbsp;</span>
                 <% if avatar_valid?(@micropost) %>
@@ -24,7 +39,7 @@
                 <%= render "delete_icon" %>
             <% end %>
             <% if @micropost.user.admin? %>
-                <%= link_to @micropost, method: :delete, data:{confirm:"コレクションから「#{@micropost.title}」を削除します"} do %>
+                <%= link_to @micropost, method: :delete, data:{ confirm:"コレクションから「#{@micropost.title}」を削除します" } do %>
                     <i class="fas fa-trash-alt text-muted"></i>
                 <% end %>
             <% end %>
