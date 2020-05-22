@@ -10,7 +10,7 @@
 
 ## 使用技術
 - Ruby 2.5.1, Rails 6.0.1
-- webpacker: SASS,Bootstrap4,JQuery
+- webpacker: scss,Bootstrap4,jQuery
 - Docker,Docker-compose
 - nginx,puma
 - AWS (VPC,EC2,RDS for MySQL,S3,SES,Route53,ACM,ALB)
